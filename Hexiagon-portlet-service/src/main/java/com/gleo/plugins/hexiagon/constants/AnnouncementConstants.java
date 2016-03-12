@@ -12,7 +12,7 @@ public class AnnouncementConstants {
 	/**
 	 * Image limit for an announcement
 	 */
-	public static final int IMAGE_LIMIT = 6;
+	public static final int IMAGE_LIMIT = 3;
 	
 	/**
 	 * Max price for an announcement
@@ -53,5 +53,20 @@ public class AnnouncementConstants {
 	 * Default delta search
 	 */
 	public static int DELDA_SEARCH = 10;
+	
+	/**
+	 * AGREEMENT_FILE_ENTRYID_PREFERENCES
+	 */
+	public static final String AGREEMENT_FILE_ENTRYID_PREFERENCES = "agreementFileEntryId";
+	
+	/**
+	 * DEFAULT_CURRENCY_PREFERENCES
+	 */
+	public static final String DEFAULT_CURRENCY_PREFERENCES = "defaultCurrencyPreferences";
+	
+	/**
+	 * ACTIVATE_RELATED_ASSETS_PREFERENCES
+	 */
+	public static final String ACTIVATE_RELATED_ASSETS_PREFERENCES = "activateRelatedAssets";
 	
 }

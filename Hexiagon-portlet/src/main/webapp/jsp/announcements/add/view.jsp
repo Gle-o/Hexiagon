@@ -48,7 +48,7 @@
 					<aui:row fluid="true">
 						<aui:select name="currencyId" label="Currency" showEmptyOption="true" >
 							<c:forEach var="currency" items="${currencies}">
-								<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}" ></aui:option>
+								<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}" useModelValue="<%= false %>" selected="${announcement ne null ? announcement.getCurrencyId() == currency.getCurrencyId() : defaultCurrencyId == currency.getCurrencyId()}"></aui:option>
 				 			</c:forEach>
 						</aui:select>
 					</aui:row>
@@ -213,15 +213,16 @@
 		</aui:field-wrapper>
 	</c:if>
 	
-		
-	<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="artistAssetLinksPanel" persistState="<%= true %>" title="related-assets">
-		<aui:fieldset>
-			<liferay-ui:input-asset-links
-				className="<%= Announcement.class.getName() %>"
-				classPK="${announcement.announcementId}"
-			/>
-		</aui:fieldset>
-	</liferay-ui:panel>
+	<c:if test="${isRelatedAssetActivated}">
+		<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="artistAssetLinksPanel" persistState="<%= true %>" title="related-assets">
+			<aui:fieldset>
+				<liferay-ui:input-asset-links
+					className="<%= Announcement.class.getName() %>"
+					classPK="${announcement.announcementId}"
+				/>
+			</aui:fieldset>
+		</liferay-ui:panel>
+	</c:if>
 	
 	<aui:button-row>
 		<aui:button type="submit" cssClass="btn btn-primary" onClick="${renderResponse.getNamespace()}extractCodeFromEditor();" />

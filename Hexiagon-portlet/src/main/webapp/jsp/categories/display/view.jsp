@@ -90,7 +90,7 @@
 									{ 	
 										expanded: false,
 										cache: true,
-										label: Liferay.Util.escapeHTML("${category.getTitle(locale)}"),
+										label: Liferay.Util.escapeHTML("${htmlUtil.escapeJS(category.getTitle(locale))}"),
 										leaf: ${category.leftCategoryId+1 eq category.rightCategoryId},
 										type:'check',
 										id : '<portlet:namespace />${category.categoryId}',

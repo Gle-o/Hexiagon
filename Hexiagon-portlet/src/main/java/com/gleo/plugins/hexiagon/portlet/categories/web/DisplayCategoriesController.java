@@ -1,11 +1,13 @@
 package com.gleo.plugins.hexiagon.portlet.categories.web;
 
+import com.gleo.plugins.hexiagon.model.Announcement;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
@@ -19,7 +21,6 @@ import com.liferay.portlet.asset.model.AssetVocabulary;
 import com.liferay.portlet.asset.service.AssetCategoryServiceUtil;
 import com.liferay.portlet.asset.service.AssetVocabularyServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.gleo.plugins.hexiagon.model.Announcement;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import javax.portlet.RenderResponse;
  * Portlet implementation class DisplayCategoriesController
  */
 public class DisplayCategoriesController extends MVCPortlet {
- 
+	
 	/**
 	 * DisplayCategoriesController Logger.
 	 */
@@ -98,6 +99,7 @@ public class DisplayCategoriesController extends MVCPortlet {
 		
 		renderRequest.setAttribute("vocabulariesMap", vocabulariesMap);
 		renderRequest.setAttribute("categoryIds", StringUtil.merge(categoryIds));
+		renderRequest.setAttribute("htmlUtil", HtmlUtil.getHtml());
 
 		super.doView(renderRequest, renderResponse);
 	}
