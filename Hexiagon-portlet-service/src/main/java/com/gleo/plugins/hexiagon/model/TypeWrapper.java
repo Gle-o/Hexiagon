@@ -405,7 +405,7 @@ public class TypeWrapper implements Type, ModelWrapper<Type> {
     }
 
     @Override
-    public int compareTo(Type type) {
+    public int compareTo(com.gleo.plugins.hexiagon.model.Type type) {
         return _type.compareTo(type);
     }
 
@@ -415,17 +415,17 @@ public class TypeWrapper implements Type, ModelWrapper<Type> {
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<Type> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<com.gleo.plugins.hexiagon.model.Type> toCacheModel() {
         return _type.toCacheModel();
     }
 
     @Override
-    public Type toEscapedModel() {
+    public com.gleo.plugins.hexiagon.model.Type toEscapedModel() {
         return new TypeWrapper(_type.toEscapedModel());
     }
 
     @Override
-    public Type toUnescapedModel() {
+    public com.gleo.plugins.hexiagon.model.Type toUnescapedModel() {
         return new TypeWrapper(_type.toUnescapedModel());
     }
 

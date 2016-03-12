@@ -1120,7 +1120,8 @@ public class AnnouncementWrapper implements Announcement,
     }
 
     @Override
-    public int compareTo(Announcement announcement) {
+    public int compareTo(
+        com.gleo.plugins.hexiagon.model.Announcement announcement) {
         return _announcement.compareTo(announcement);
     }
 
@@ -1130,17 +1131,17 @@ public class AnnouncementWrapper implements Announcement,
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<Announcement> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<com.gleo.plugins.hexiagon.model.Announcement> toCacheModel() {
         return _announcement.toCacheModel();
     }
 
     @Override
-    public Announcement toEscapedModel() {
+    public com.gleo.plugins.hexiagon.model.Announcement toEscapedModel() {
         return new AnnouncementWrapper(_announcement.toEscapedModel());
     }
 
     @Override
-    public Announcement toUnescapedModel() {
+    public com.gleo.plugins.hexiagon.model.Announcement toUnescapedModel() {
         return new AnnouncementWrapper(_announcement.toUnescapedModel());
     }
 
