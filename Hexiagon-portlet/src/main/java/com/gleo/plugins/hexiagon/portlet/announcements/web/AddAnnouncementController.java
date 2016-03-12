@@ -77,8 +77,6 @@ public class AddAnnouncementController extends MVCPortlet {
 
 	protected static Log LOGGER = LogFactoryUtil.getLog(AddAnnouncementController.class);
 	
-	private static final String AGREEMENT_FILE_ENTRYID = "agreementFileEntryId";
-	
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 		throws IOException, PortletException {
@@ -102,6 +100,7 @@ public class AddAnnouncementController extends MVCPortlet {
 		
 		PortletPreferences preferences;
 		long agreementFileEntryId = 0;
+		long defaultCurrencyId = 0;
 		
 		try {
 			long plid = LayoutConstants.DEFAULT_PLID;
@@ -125,8 +124,11 @@ public class AddAnnouncementController extends MVCPortlet {
 			
 			preferences = PortletPreferencesLocalServiceUtil.getPreferences(themeDisplay.getCompanyId(), PortletKeys.PREFS_OWNER_ID_DEFAULT, PortletKeys.PREFS_OWNER_TYPE_LAYOUT, plid, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
 			
+			// Get default currency
+			defaultCurrencyId = GetterUtil.getLong(preferences.getValue(AnnouncementConstants.DEFAULT_CURRENCY_PREFERENCES, StringPool.BLANK));
+			
 			// preferences = renderRequest.getPreferences();
-			agreementFileEntryId = GetterUtil.getLong(preferences.getValue(AGREEMENT_FILE_ENTRYID, StringPool.BLANK));
+			agreementFileEntryId = GetterUtil.getLong(preferences.getValue(AnnouncementConstants.AGREEMENT_FILE_ENTRYID_PREFERENCES, StringPool.BLANK));
 			
 			Country country = CountryServiceUtil.getCountryByA3(themeDisplay.getLocale().getISO3Country());
 			
@@ -243,10 +245,12 @@ public class AddAnnouncementController extends MVCPortlet {
 			}
 			LOGGER.error("SystemException: unable to get types or currencies or vocabularies");
 		}
-
-		//preview
+		
+		// Preview
 		renderRequest.setAttribute("previewFileURL", AnnouncementImageUtil.getImageURL(themeDisplay, agreementFileEntryId));
 
+		// Default currencyId
+		renderRequest.setAttribute("defaultCurrencyId", defaultCurrencyId);
 		renderRequest.setAttribute("redirect", redirect);
 		renderRequest.setAttribute("title", title);
 		renderRequest.setAttribute("model", Announcement.class);
@@ -524,10 +528,13 @@ public class AddAnnouncementController extends MVCPortlet {
 		throws IOException, PortletException {
 
 		long fileEntryId = ParamUtil.getLong(actionRequest,"fileEntryId");
+		long currencyId = ParamUtil.getLong(actionRequest,"currencyId");
 		
 		PortletPreferences portletPreferences = actionRequest.getPreferences();
 		
-		portletPreferences.setValue(AGREEMENT_FILE_ENTRYID, String.valueOf(fileEntryId));
+		portletPreferences.setValue(AnnouncementConstants.AGREEMENT_FILE_ENTRYID_PREFERENCES, String.valueOf(fileEntryId));
+		portletPreferences.setValue(AnnouncementConstants.DEFAULT_CURRENCY_PREFERENCES, String.valueOf(currencyId));
+		
 		portletPreferences.store();
 	}
 
@@ -536,7 +543,10 @@ public class AddAnnouncementController extends MVCPortlet {
 		throws IOException, PortletException {
 
 		PortletPreferences portletPreferences = renderRequest.getPreferences();
-		long agreementFileEntryId = GetterUtil.getLong(portletPreferences.getValue(AGREEMENT_FILE_ENTRYID, StringPool.BLANK));
+		long agreementFileEntryId = GetterUtil.getLong(portletPreferences.getValue(AnnouncementConstants.AGREEMENT_FILE_ENTRYID_PREFERENCES, StringPool.BLANK));
+		long currencyId = GetterUtil.getLong(portletPreferences.getValue(AnnouncementConstants.DEFAULT_CURRENCY_PREFERENCES, StringPool.BLANK));
+		
+		List<Currency> currencies = null;
 		String title = StringPool.BLANK;
 		
 		// Get agreement title	
@@ -556,7 +566,18 @@ public class AddAnnouncementController extends MVCPortlet {
 			LOGGER.error(se);
 		}
 		
+		// Get all currency
+		
+		try {
+			currencies = CurrencyLocalServiceUtil.getCurrencies(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		} catch (SystemException se) {
+			LOGGER.error(se);
+		}
+		
+		renderRequest.setAttribute("currencies", currencies);
 		renderRequest.setAttribute("fileEntryId", agreementFileEntryId);
+		renderRequest.setAttribute("currencyId", currencyId);
+		
 		renderRequest.setAttribute("title", title);
 		
 		super.doEdit(renderRequest, renderResponse);

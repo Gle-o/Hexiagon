@@ -48,7 +48,7 @@
 					<aui:row fluid="true">
 						<aui:select name="currencyId" label="Currency" showEmptyOption="true" >
 							<c:forEach var="currency" items="${currencies}">
-								<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}" ></aui:option>
+								<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}" useModelValue="<%= false %>" selected="${announcement ne null ? announcement.getCurrencyId() == currency.getCurrencyId() : defaultCurrencyId == currency.getCurrencyId()}"></aui:option>
 				 			</c:forEach>
 						</aui:select>
 					</aui:row>

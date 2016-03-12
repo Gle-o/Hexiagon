@@ -17,7 +17,12 @@
 		<aui:input inlineField="true" label="Agreement" name="Title" readonly="readonly" type="text" value="${title}">
 				<aui:validator name="required" />
 		</aui:input>
-	
+
+		<aui:select name="currencyId" label="Currency" showEmptyOption="true" >
+			<c:forEach var="currency" items="${currencies}">
+				<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}"  selected="${currencyId == currency.getCurrencyId()}"/>
+ 			</c:forEach>
+		</aui:select>
 		<aui:button-row>
 			<aui:button id="fileEntryId" value="select" />
 	
