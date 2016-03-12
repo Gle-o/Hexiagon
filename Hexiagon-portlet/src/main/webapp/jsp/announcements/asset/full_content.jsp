@@ -1,3 +1,12 @@
+<%@page import="com.liferay.portal.NoSuchLayoutException"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.util.GetterUtil"%>
+<%@page import="com.liferay.portal.kernel.util.StringPool"%>
+<%@page import="com.liferay.portal.service.LayoutLocalServiceUtil"%>
+<%@page import="com.liferay.portal.model.Layout"%>
+<%@page import="com.liferay.portlet.PortletPreferencesFactoryUtil"%>
+<%@page import="javax.portlet.PortletPreferences"%>
 <%@page import="com.gleo.plugins.hexiagon.model.Announcement"%>
 <%@page import="javax.portlet.PortletMode"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
@@ -21,6 +30,22 @@
 	portletDirectoryURL.setPortletMode(PortletMode.VIEW);
 	portletDirectoryURL.setParameter("struts_action", "/directory/view_user");
 	portletDirectoryURL.setParameter("tabs1Names", "Info");
+	
+	boolean isAnnouncementDisplayRelatedAssets = true;
+	
+	// Sorry
+	try {
+		long announcementDisplayPlid = PortalUtil.getPlidFromPortletId(themeDisplay.getScopeGroupId(), PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
+		Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
+		PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
+		isAnnouncementDisplayRelatedAssets = GetterUtil.getBoolean(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));
+	} catch (NoSuchLayoutException nsle) {
+		LOG.info("NoSuchLayoutException : hexiagon.portlet.jsp.announcements.asset.full_content_jsp ligne 37 - 40");
+		LOG.info(nsle.getMessage());
+	} catch (Exception e) {
+		LOG.error("Exception : hexiagon.portlet.jsp.announcements.asset.full_content_jsp ligne 37 - 40");
+		LOG.error(e);
+	}
 %>
 
 <c:set var="portletNamespace">
@@ -174,10 +199,13 @@
 						reportedUserId="${user.userId}"
 					/>
 					<hr>
-					<liferay-ui:asset-links
+					
+					<c:if test="<%= isAnnouncementDisplayRelatedAssets %>">
+						<liferay-ui:asset-links
 						className="<%= Announcement.class.getName() %>"
 						classPK="${announcement.announcementId}"
-					/>
+						/>
+					</c:if>
 				</liferay-ui:panel>
 			</aui:row>
 		</aui:col>
@@ -287,3 +315,7 @@
 		});
 	});
 </aui:script>
+
+<%!
+	private static Log LOG = LogFactoryUtil.getLog("hexiagon.portlet.jsp.announcements.asset.full_content_jsp");
+%>

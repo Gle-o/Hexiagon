@@ -64,4 +64,9 @@ public class AnnouncementConstants {
 	 */
 	public static final String DEFAULT_CURRENCY_PREFERENCES = "defaultCurrencyPreferences";
 	
+	/**
+	 * ACTIVATE_RELATED_ASSETS_PREFERENCES
+	 */
+	public static final String ACTIVATE_RELATED_ASSETS_PREFERENCES = "activateRelatedAssets";
+	
 }

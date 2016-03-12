@@ -14,15 +14,10 @@
 
 	<liferay-ui:error key="fileEntryId-required" message="this-field-is-required" />
 	<aui:field-wrapper>
-		<aui:input inlineField="true" label="Agreement" name="Title" readonly="readonly" type="text" value="${title}">
+		<aui:input inlineField="true" label="annoucements.add.agreement.label" name="Title" readonly="readonly" type="text" value="${title}">
 				<aui:validator name="required" />
 		</aui:input>
-
-		<aui:select name="currencyId" label="Currency" showEmptyOption="true" >
-			<c:forEach var="currency" items="${currencies}">
-				<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}"  selected="${currencyId == currency.getCurrencyId()}"/>
- 			</c:forEach>
-		</aui:select>
+		
 		<aui:button-row>
 			<aui:button id="fileEntryId" value="select" />
 	
@@ -32,6 +27,14 @@
 		<aui:input name="fileEntryId" type="hidden" value="${fileEntryId}"/>
 	
 	</aui:field-wrapper>
+	
+	<aui:select name="currencyId" label="annoucements.add.currency.label" showEmptyOption="true" >
+			<c:forEach var="currency" items="${currencies}">
+				<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}"  selected="${currencyId == currency.getCurrencyId()}"/>
+ 			</c:forEach>
+		</aui:select>
+		
+		<aui:input label="annoucements.add.isRelatedAssetActivated.label" name="isRelatedAssetActivated" readonly="readonly" type="checkbox" value="${isRelatedAssetActivated}"/>
 
 	<aui:button-row>
 		<aui:button type="submit" />
