@@ -289,7 +289,7 @@ public class CurrencyWrapper implements Currency, ModelWrapper<Currency> {
     }
 
     @Override
-    public int compareTo(Currency currency) {
+    public int compareTo(com.gleo.plugins.hexiagon.model.Currency currency) {
         return _currency.compareTo(currency);
     }
 
@@ -299,17 +299,17 @@ public class CurrencyWrapper implements Currency, ModelWrapper<Currency> {
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<Currency> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<com.gleo.plugins.hexiagon.model.Currency> toCacheModel() {
         return _currency.toCacheModel();
     }
 
     @Override
-    public Currency toEscapedModel() {
+    public com.gleo.plugins.hexiagon.model.Currency toEscapedModel() {
         return new CurrencyWrapper(_currency.toEscapedModel());
     }
 
     @Override
-    public Currency toUnescapedModel() {
+    public com.gleo.plugins.hexiagon.model.Currency toUnescapedModel() {
         return new CurrencyWrapper(_currency.toUnescapedModel());
     }
 

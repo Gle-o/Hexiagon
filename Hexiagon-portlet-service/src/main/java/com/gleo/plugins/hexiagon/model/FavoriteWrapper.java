@@ -284,7 +284,7 @@ public class FavoriteWrapper implements Favorite, ModelWrapper<Favorite> {
     }
 
     @Override
-    public int compareTo(Favorite favorite) {
+    public int compareTo(com.gleo.plugins.hexiagon.model.Favorite favorite) {
         return _favorite.compareTo(favorite);
     }
 
@@ -294,17 +294,17 @@ public class FavoriteWrapper implements Favorite, ModelWrapper<Favorite> {
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<Favorite> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<com.gleo.plugins.hexiagon.model.Favorite> toCacheModel() {
         return _favorite.toCacheModel();
     }
 
     @Override
-    public Favorite toEscapedModel() {
+    public com.gleo.plugins.hexiagon.model.Favorite toEscapedModel() {
         return new FavoriteWrapper(_favorite.toEscapedModel());
     }
 
     @Override
-    public Favorite toUnescapedModel() {
+    public com.gleo.plugins.hexiagon.model.Favorite toUnescapedModel() {
         return new FavoriteWrapper(_favorite.toUnescapedModel());
     }
 

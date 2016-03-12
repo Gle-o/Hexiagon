@@ -511,7 +511,8 @@ public class AnnouncementImageWrapper implements AnnouncementImage,
     }
 
     @Override
-    public int compareTo(AnnouncementImage announcementImage) {
+    public int compareTo(
+        com.gleo.plugins.hexiagon.model.AnnouncementImage announcementImage) {
         return _announcementImage.compareTo(announcementImage);
     }
 
@@ -521,17 +522,17 @@ public class AnnouncementImageWrapper implements AnnouncementImage,
     }
 
     @Override
-    public com.liferay.portal.model.CacheModel<AnnouncementImage> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<com.gleo.plugins.hexiagon.model.AnnouncementImage> toCacheModel() {
         return _announcementImage.toCacheModel();
     }
 
     @Override
-    public AnnouncementImage toEscapedModel() {
+    public com.gleo.plugins.hexiagon.model.AnnouncementImage toEscapedModel() {
         return new AnnouncementImageWrapper(_announcementImage.toEscapedModel());
     }
 
     @Override
-    public AnnouncementImage toUnescapedModel() {
+    public com.gleo.plugins.hexiagon.model.AnnouncementImage toUnescapedModel() {
         return new AnnouncementImageWrapper(_announcementImage.toUnescapedModel());
     }
 
