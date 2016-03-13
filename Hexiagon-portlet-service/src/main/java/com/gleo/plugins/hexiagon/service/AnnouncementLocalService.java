@@ -395,6 +395,14 @@ public interface AnnouncementLocalService extends BaseLocalService,
             com.liferay.portal.kernel.exception.SystemException;
 
     /**
+    * Delete Announcements
+    *
+    * @param announcements
+    */
+    public void deleteAnnouncements(
+        java.util.List<com.gleo.plugins.hexiagon.model.Announcement> announcements);
+
+    /**
     * Get favorites
     *
     * @param groupId

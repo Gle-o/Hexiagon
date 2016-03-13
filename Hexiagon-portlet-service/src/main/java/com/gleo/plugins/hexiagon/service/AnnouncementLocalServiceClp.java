@@ -76,6 +76,8 @@ public class AnnouncementLocalServiceClp implements AnnouncementLocalService {
     private String[] _methodParameterTypes33;
     private String _methodName34;
     private String[] _methodParameterTypes34;
+    private String _methodName35;
+    private String[] _methodParameterTypes35;
 
     public AnnouncementLocalServiceClp(
         InvokableLocalService invokableLocalService) {
@@ -243,9 +245,13 @@ public class AnnouncementLocalServiceClp implements AnnouncementLocalService {
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName34 = "getFavoritesAnnouncementsByGroupIUserId";
+        _methodName34 = "deleteAnnouncements";
 
-        _methodParameterTypes34 = new String[] { "long", "long", "int", "int" };
+        _methodParameterTypes34 = new String[] { "java.util.List" };
+
+        _methodName35 = "getFavoritesAnnouncementsByGroupIUserId";
+
+        _methodParameterTypes35 = new String[] { "long", "long", "int", "int" };
     }
 
     @Override
@@ -1230,14 +1236,33 @@ public class AnnouncementLocalServiceClp implements AnnouncementLocalService {
     }
 
     @Override
+    public void deleteAnnouncements(
+        java.util.List<com.gleo.plugins.hexiagon.model.Announcement> announcements) {
+        try {
+            _invokableLocalService.invokeMethod(_methodName34,
+                _methodParameterTypes34,
+                new Object[] { ClpSerializer.translateInput(announcements) });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+    }
+
+    @Override
     public java.util.List<com.gleo.plugins.hexiagon.model.Announcement> getFavoritesAnnouncementsByGroupIUserId(
         long groupId, long userId, int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName34,
-                    _methodParameterTypes34,
+            returnObj = _invokableLocalService.invokeMethod(_methodName35,
+                    _methodParameterTypes35,
                     new Object[] { groupId, userId, start, end });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);

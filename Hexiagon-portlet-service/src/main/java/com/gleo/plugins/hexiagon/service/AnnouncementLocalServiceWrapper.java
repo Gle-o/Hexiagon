@@ -477,6 +477,17 @@ public class AnnouncementLocalServiceWrapper implements AnnouncementLocalService
     }
 
     /**
+    * Delete Announcements
+    *
+    * @param announcements
+    */
+    @Override
+    public void deleteAnnouncements(
+        java.util.List<com.gleo.plugins.hexiagon.model.Announcement> announcements) {
+        _announcementLocalService.deleteAnnouncements(announcements);
+    }
+
+    /**
     * Get favorites
     *
     * @param groupId

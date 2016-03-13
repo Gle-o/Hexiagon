@@ -68,5 +68,7 @@ public class AnnouncementConstants {
 	 * ACTIVATE_RELATED_ASSETS_PREFERENCES
 	 */
 	public static final String ACTIVATE_RELATED_ASSETS_PREFERENCES = "activateRelatedAssets";
+
+	public static final String DEFAULT_PERIOD_TO_DELETE_IN_DAYS = "defaultPeriodToDeleteInDays";
 	
 }

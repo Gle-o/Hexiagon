@@ -16,8 +16,8 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
+ * @author guillaumelenoir
  * Announcement workflow handler
- *
  */
 public class AnnouncementWorkflowHandler extends BaseWorkflowHandler {
 

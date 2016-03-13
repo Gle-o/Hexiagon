@@ -444,6 +444,16 @@ public class AnnouncementLocalServiceUtil {
     }
 
     /**
+    * Delete Announcements
+    *
+    * @param announcements
+    */
+    public static void deleteAnnouncements(
+        java.util.List<com.gleo.plugins.hexiagon.model.Announcement> announcements) {
+        getService().deleteAnnouncements(announcements);
+    }
+
+    /**
     * Get favorites
     *
     * @param groupId
