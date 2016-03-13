@@ -5,9 +5,9 @@
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="com.liferay.portal.util.PortalUtil"%>
 
-<liferay-ui:success key="announcement-added" message="announcement-added-successfully" />
-<liferay-ui:success key="announcement-updated" message="announcement-updated-successfully" />
-<liferay-ui:success key="announcement-deleted" message="announcement-deleted-successfully" />
+<liferay-ui:success key="announcement-added" message="annoucements.search.success.added" />
+<liferay-ui:success key="announcement-updated" message="annoucements.search.success.updated" />
+<liferay-ui:success key="announcement-deleted" message="annoucements.search.success.deleted" />
 
 <liferay-ui:error key="announcement-errors" message="announcement-errors" />
 
@@ -21,7 +21,7 @@
 				<portlet:param name="redirect" value="${redirectURLPortlet}"/>
 			</liferay-portlet:renderURL>
 
-			<aui:nav-item href="${addAnnouncementURL}" useDialog="true" iconCssClass="icon-plus" label="add-announcement" id="editAnnouncement" />
+			<aui:nav-item href="${addAnnouncementURL}" useDialog="true" iconCssClass="icon-plus" label="annoucements.search.add.button.announcement" id="editAnnouncement" />
 			
 		</aui:nav>
 	</aui:nav-bar>
@@ -65,17 +65,17 @@
 		/>
 		
 		<liferay-ui:search-container-column-text
-			name="Status"
+			name="status"
 			value="${announcement.getStatus(locale)}"
 		/>
 		
 		<liferay-ui:search-container-column-text
-			name="Country"
+			name="country"
 			value="${announcement.getCountry(locale)}"
 		/>
 
 		<liferay-ui:search-container-column-jsp
-			name="Actions"
+			name="actions"
 			path="/jsp/announcements/actions.jsp"
 		/>
 	</liferay-ui:search-container-row>

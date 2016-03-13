@@ -2,11 +2,11 @@
 <%@page import="com.liferay.portal.util.PortalUtil"%>
 <%@include file="/jsp/init.jsp" %>
 
-<liferay-ui:success key="type-added" message="type-added-successfully" />
-<liferay-ui:success key="type-updated" message="type-updated-successfully" />
-<liferay-ui:success key="type-deleted" message="type-deleted-successfully" />
+<liferay-ui:success key="type-added" message="annoucements.types.success.added" />
+<liferay-ui:success key="type-updated" message="annoucements.types.success.updated" />
+<liferay-ui:success key="type-deleted" message="annoucements.types.success.deleted" />
 
-<liferay-ui:error key="no-type-deleted" message="type-deleted-unsuccessfully" />
+<liferay-ui:error key="no-type-deleted" message="annoucements.types.errors.type.deleted.unsuccessfully" />
 
 <c:if test='<%= HexiagonPermission.contains(permissionChecker, themeDisplay.getScopeGroupId(), "ADD_TYPE") %>'>
 	<aui:nav-bar cssClass="label-info">
@@ -16,7 +16,7 @@
 				<portlet:param name="jspPage" value="/jsp/types/edit.jsp"/>
 		    </portlet:renderURL>
 		    
-			<aui:nav-item href="${addTypeURL}" iconCssClass="icon-plus" label="add-type" />
+			<aui:nav-item href="${addTypeURL}" iconCssClass="icon-plus" label="annoucements.types.add.type.label" />
 			
 		</aui:nav>
 	</aui:nav-bar>
@@ -51,7 +51,7 @@
 		
 		<liferay-ui:search-container-column-jsp
 			align="right"
-			name="Actions"
+			name="actions"
 			path="/jsp/types/actions.jsp"
 		/>
 	</liferay-ui:search-container-row>

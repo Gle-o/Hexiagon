@@ -50,19 +50,19 @@
 
 		<aui:input type="hidden" name="currencyId" />
 
-		<liferay-ui:error key="label-required" message="label-required" />
+		<liferay-ui:error key="label-required" message="annoucements.currencies.errors.label.required" />
 		<aui:select name="label" label="Label" showEmptyOption="true" >
 			<c:forEach var="currencyEntry" items="${currencyEntrySet}">
 				<aui:option label="currency.${currencyEntry.key}" value="${currencyEntry.value}"></aui:option>
 			</c:forEach>
 		</aui:select>
 		
-		<liferay-ui:error key="symbol-required" message="symbol-required" />
-		<aui:input name="symbol" label="Symbol">
+		<liferay-ui:error key="symbol-required" message="annoucements.currencies.errors.symbol.required" />
+		<aui:input name="symbol" label="annoucements.currencies.symbol.label">
 			<aui:validator name="required"/>
 		</aui:input>
 
-		<aui:input name="order" label="Order">
+		<aui:input name="order" label="annoucements.currencies.order.label">
 			<aui:validator name="digits"/>
 		</aui:input>
 

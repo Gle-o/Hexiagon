@@ -13,18 +13,20 @@
 	</c:if>
 	<aui:row>
 		<div class="span12 text-center">
-			<liferay-ui:message key="total"/> : ${total}
-			<liferay-ui:message key="page"/> : ${page+1}
+			<liferay-ui:message key="annoucements.search.total.label"/> : ${total}
+			<liferay-ui:message key="annoucements.search.page.label"/> : ${page+1}
 		</div>
 	</aui:row>
-	<aui:row>
+	<c:if test="${not empty parentCategoryList}">
+		<aui:row>
 		<div class="span12 text-center">
-			<liferay-ui:message key="categories"/> :
+			<liferay-ui:message key="annoucements.search.categories.label"/> :
 			<c:forEach items="${parentCategoryList}" var="parentCategory">
 				${parentCategory}
 			</c:forEach>
 		</div>
-	</aui:row>
+		</aui:row>
+	</c:if>
 <hr>
 
 <c:forEach items="${announcements}" var="announcement">
@@ -54,7 +56,7 @@
 				</div>
 				<div class="span3">
 					<aui:row cssClass="well">
-						<p><strong><liferay-ui:message key="Price"></liferay-ui:message> : ${announcement.price} ${announcement.getCurrencySymbol()}</strong></p>
+						<p><strong><liferay-ui:message key="annoucements.search.price.label"></liferay-ui:message> : ${announcement.price} ${announcement.getCurrencySymbol()}</strong></p>
 						<p><i class="icon-comment"></i> ${announcement.getMessagesCount()} |
 						<i class="icon-thumbs-up"></i> ${announcement.getRatingsCount()} </p>
 					</aui:row>

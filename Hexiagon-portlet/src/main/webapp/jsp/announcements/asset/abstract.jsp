@@ -12,7 +12,7 @@
 	<c:if test="${announcement.price > 0}">
 		<div class="offset1 span7 well">
 			<p>
-				<liferay-ui:message key="Price"></liferay-ui:message> : ${announcement.price} ${announcement.getCurrencySymbol()}</strong>
+				<liferay-ui:message key="annoucements.asset.abstract.price.label"/> : ${announcement.price} ${announcement.getCurrencySymbol()}</strong>
 			</p>
 		</div>
 	</c:if>

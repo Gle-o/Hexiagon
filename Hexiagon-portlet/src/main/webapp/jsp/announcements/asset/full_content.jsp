@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.model.LayoutConstants"%>
 <%@page import="com.liferay.portal.NoSuchLayoutException"%>
 <%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
@@ -31,14 +32,17 @@
 	portletDirectoryURL.setParameter("struts_action", "/directory/view_user");
 	portletDirectoryURL.setParameter("tabs1Names", "Info");
 	
-	boolean isAnnouncementDisplayRelatedAssets = true;
+	boolean isAnnouncementDisplaysRelatedAssets = true;
 	
-	// Sorry
+	// Sorry, do it in JSP
+	// is is Announcement Displays Related Assets ?
 	try {
 		long announcementDisplayPlid = PortalUtil.getPlidFromPortletId(themeDisplay.getScopeGroupId(), PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
-		Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
-		PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
-		isAnnouncementDisplayRelatedAssets = GetterUtil.getBoolean(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));
+		if (plid != LayoutConstants.DEFAULT_PLID) {
+			Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
+			PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
+			isAnnouncementDisplaysRelatedAssets = GetterUtil.getBoolean(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));	
+		}
 	} catch (NoSuchLayoutException nsle) {
 		LOG.info("NoSuchLayoutException : hexiagon.portlet.jsp.announcements.asset.full_content_jsp ligne 37 - 40");
 		LOG.info(nsle.getMessage());
@@ -100,7 +104,7 @@
 		</aui:col>
 		<aui:col width="40">
 			<aui:row fluid="true" cssClass="span12">
-				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory1" persistState="false" title="announcement-user">
+				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory1" persistState="false" title="annoucements.asset.full.content.panel.user.info.label">
 					<div class="span3">
 						<a class="${favorite}" href="" onclick="<portlet:namespace/>showUserInfo(${announcement.userId});return false;">
 							<img src="${user.getPortraitURL(themeDisplay)}>" alt="" class="img-rounded">
@@ -133,28 +137,28 @@
 					<div style="clear: both;"/>
 				</liferay-ui:panel>
 				<br>
-				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory2" persistState="false" title="announcement-info">
-					<p class="well"><strong><liferay-ui:message key="Price"></liferay-ui:message> : ${announcement.price} ${announcement.getCurrencySymbol()}</strong></p>
+				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory2" persistState="false" title="annoucements.asset.full.content.panel.announcement.info.label">
+					<p class="well"><strong><liferay-ui:message key="annoucements.asset.full.content.panel.announcement.price.label"/> : ${announcement.price} ${announcement.getCurrencySymbol()}</strong></p>
 					
 					<p><span class="icon-stack" style="color:#00a2fb">
 					<i class="icon-sign-blank icon-stack-base "></i>
 		 			<i class="icon-cloud icon-light" ></i>
-					</span> &nbsp;<liferay-ui:message key="Type"></liferay-ui:message>: ${announcement.getType().getName(locale)}</p>
+					</span> &nbsp;<liferay-ui:message key="annoucements.asset.full.content.panel.announcement.type.label"/> : ${announcement.getType().getName(locale)}</p>
 					
 					<p><span class="icon-stack" style="color:#00a2fb">
 					<i class="icon-sign-blank icon-stack-base "></i>
 		 			<i class="icon-money icon-light" ></i>
-					</span> &nbsp;<liferay-ui:message key="Price"></liferay-ui:message> : ${announcement.price} ${announcement.getCurrencySymbol()}</p>
+					</span> &nbsp;<liferay-ui:message key="annoucements.asset.full.content.panel.announcement.price.label"/> : ${announcement.price} ${announcement.getCurrencySymbol()}</p>
 					
 					<p><span class="icon-stack" style="color:#00a2fb">
 					<i class="icon-sign-blank icon-stack-base "></i>
 		 			<i class="icon-calendar-empty icon-light" ></i>
-					</span> &nbsp;<liferay-ui:message key="create-date"></liferay-ui:message>: <fmt:formatDate type="both" value="${announcement.createDate}" /></p>
+					</span> &nbsp;<liferay-ui:message key="annoucements.asset.full.content.panel.announcement.create.date.label"/> : <fmt:formatDate type="both" value="${announcement.createDate}" /></p>
 					
 					<p><span class="icon-stack" style="color:#00a2fb">
 					<i class="icon-sign-blank icon-stack-base "></i>
 		 			<i class="icon-calendar icon-light" ></i>
-					</span> &nbsp;<liferay-ui:message key="modified-date"></liferay-ui:message>: <fmt:formatDate type="both" value="${announcement.modifiedDate}" /></p>
+					</span> &nbsp;<liferay-ui:message key="annoucements.asset.full.content.panel.announcement.modified.date.label"/> : <fmt:formatDate type="both" value="${announcement.modifiedDate}" /></p>
 					
 					<p><span class="icon-stack" style="color:#00a2fb">
 					<i class="icon-sign-blank icon-stack-base "></i>
@@ -167,7 +171,7 @@
 	
 				</liferay-ui:panel>
 				<br>
-				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory3" persistState="false" title="announcement-meta">
+				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory3" persistState="false" title="annoucements.asset.full.content.panel.meta.title">
 					<c:if test="${themeDisplay.isSignedIn()}">
 						<c:set var="favorite" value="icon-star-empty icon-large" />
 					
@@ -176,7 +180,7 @@
 						</c:if>
 						
 						<p class="action">
-							<liferay-ui:message key="favorites"/> ?
+							<liferay-ui:message key="annoucements.asset.full.content.panel.meta.favorites"/>
 							<br>
 							<a href="" class="${favorite}" onclick="<portlet:namespace/>updateFavoriteUrl(this);return false;">
 							</a>
@@ -200,7 +204,7 @@
 					/>
 					<hr>
 					
-					<c:if test="<%= isAnnouncementDisplayRelatedAssets %>">
+					<c:if test="<%= isAnnouncementDisplaysRelatedAssets %>">
 						<liferay-ui:asset-links
 						className="<%= Announcement.class.getName() %>"
 						classPK="${announcement.announcementId}"

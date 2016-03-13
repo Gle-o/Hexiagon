@@ -14,9 +14,9 @@
 	<portlet:param name="redirect" value="${redirect}"/>
 </portlet:actionURL>
 
-<liferay-ui:success key="announcement-added" message="announcement-added"/>
-<liferay-ui:success key="announcement-updated" message="announcement-updated"/>
-<liferay-ui:success key="announcement-deleted" message="announcement-deleted"/>
+<liferay-ui:success key="announcement-added" message="annoucements.add.success.added"/>
+<liferay-ui:success key="announcement-updated" message="annoucements.add.success.updated"/>
+<liferay-ui:success key="announcement-deleted" message="annoucements.add.success.deleted"/>
 
 <liferay-ui:error key="announcement-errors" message="announcement-errors" />
 
@@ -25,28 +25,28 @@
 		<aui:input type="hidden" name="redirect" value='${redirect}' />
 		<aui:input type="hidden" name="announcementId"/>
 
-		<liferay-ui:error key="announcementtitle-required" message="announcementtitle-required" />
-		<aui:input name="title" />
+		<liferay-ui:error key="announcementtitle-required" message="annoucements.add.announcement.title.required" />
+		<aui:input name="title" label="annoucements.add.title.label"/>
 		<hr>
 		
-		<liferay-ui:error key="announcementtype-required" message="announcementtype-required" />
-		<aui:field-wrapper name="typeId" label="Type" inlineField="right">
+		<liferay-ui:error key="announcementtype-required" message="annoucements.add.errors.type.required" />
+		<aui:field-wrapper name="typeId" label="annoucements.add.type.label" inlineField="right">
 			<c:forEach var="type" items="${types}">
-				<aui:input inlineField="true" type="radio" label="${type.getName(locale)}" name="typeId" value="${type.getTypeId()}" checked="${announcement.typeId eq type.typeId}"/>
+				<aui:input inlineField="true" type="radio" label="${type.getName(locale)}" localized="false" name="typeId" value="${type.getTypeId()}" checked="${announcement.typeId eq type.typeId}"/>
 			</c:forEach>
 		</aui:field-wrapper>
 		<hr>
 		
-		<liferay-ui:panel iconCssClass="icon-info" defaultState="open" extended="true" id="announcementInfo" persistState="false" title="Informations">
+		<liferay-ui:panel iconCssClass="icon-info" defaultState="open" extended="true" id="announcementInfo" persistState="false" title="annoucements.add.panel.informations.title">
 			<aui:row>					 
 				<aui:col span="4" >
 					<aui:row fluid="true">
-						<liferay-ui:error key="announcementprice-required" message="announcementprice-required" />
-						<aui:input name="price"/>
+						<liferay-ui:error key="announcementprice-required" message="annoucements.add.panel.informations.errors.price.required" />
+						<aui:input name="price" label="annoucements.add.panel.informations.price.label"/>
 					</aui:row>
 					
 					<aui:row fluid="true">
-						<aui:select name="currencyId" label="Currency" showEmptyOption="true" >
+						<aui:select name="currencyId" label="annoucements.add.panel.informations.currency.label" showEmptyOption="true">
 							<c:forEach var="currency" items="${currencies}">
 								<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}" useModelValue="<%= false %>" selected="${announcement ne null ? announcement.getCurrencyId() == currency.getCurrencyId() : defaultCurrencyId == currency.getCurrencyId()}"></aui:option>
 				 			</c:forEach>
@@ -55,34 +55,34 @@
 				</aui:col>
 				
 				<aui:col span="4">
-					<liferay-ui:error key="announcementemail-required" message="announcementemail-required" />
-					<liferay-ui:error key="announcementemail-format-error"	message="announcementemail-format-error" />
+					<liferay-ui:error key="announcementemail-required" message="annoucements.add.panel.informations.errors.email.required" />
+					<liferay-ui:error key="announcementemail-format-error"	message="annoucements.add.panel.informations.email.format.error" />
 					
-					<aui:input name="emailAddress" />
+					<aui:input name="emailAddress" label="annoucements.add.panel.informations.emailAddress.label"/>
 			
-					<liferay-ui:error key="announcementphonenumber-required" message="announcementphonenumber-required" />
-					<liferay-ui:error key="announcementphonenumber-format-error" message="announcementphonenumber-format-error" />
+					<liferay-ui:error key="announcementphonenumber-required" message="annoucements.add.panel.informations.errors.phonenumber.required" />
+					<liferay-ui:error key="announcementphonenumber-format-error" message="annoucements.add.panel.informations.errors.phonenumber.format.error" />
 					
-					<aui:input name="phoneNumber" />
+					<aui:input name="phoneNumber" label="annoucements.add.panel.informations.phoneNumber.label" />
 				</aui:col>
 				
 				<aui:col span="4">
-					<aui:select label="country" name="countryId" showEmptyOption="true" />
+					<aui:select label="annoucements.add.panel.informations.country.label" name="countryId" showEmptyOption="true"/>
 		
-					<aui:select label="region" name="regionId" showEmptyOption="true" />
+					<aui:select label="annoucements.add.panel.informations.region.label" name="regionId" showEmptyOption="true" />
 				</aui:col>
 			</aui:row>
 		</liferay-ui:panel>
 		
-		<liferay-ui:panel iconCssClass="icon-sitemap" defaultState="open" extended="true" id="announcementCategorizationPanel" persistState="false" title="Categories">
+		<liferay-ui:panel iconCssClass="icon-sitemap" defaultState="open" extended="true" id="announcementCategorizationPanel" persistState="false" title="annoucements.add.panel.categories.title">
 			<aui:field-wrapper>
 					<liferay-ui:asset-categories-selector classPK="${announcement.announcementId}" className="${model.getName()}" ></liferay-ui:asset-categories-selector>
 			 </aui:field-wrapper>
 		</liferay-ui:panel>
 		
 		<br>
-		<liferay-ui:error key="announcementcontent-required" message="announcementcontent-required" />
-		<aui:field-wrapper label="content" name="editor">
+		<liferay-ui:error key="announcementcontent-required" message="annoucements.add.panel.categories.errors.content.required" />
+		<aui:field-wrapper label="annoucements.add.panel.categories.content.label" name="editor">
 			<liferay-ui:input-editor name="editor" resizable="true"></liferay-ui:input-editor>
 		</aui:field-wrapper>
 		
@@ -91,9 +91,10 @@
 			<div class="span4">
 			<c:set value="${announcementImages[index]}" var="announcementImage" />
 			
-			<liferay-ui:error key="image-size-error${index}" message="announcement-image-size-error" />
-			<liferay-ui:error key="image-extension-error${index}" message="announcement-image-extension-error" />
-	     	<liferay-ui:panel iconCssClass="icon-picture" defaultState="open" extended="true" id="announcementAbstractPanel${index}" persistState="false" title=" Image ${index}">
+			<liferay-ui:error key="image-size-error${index}" message="annoucements.add.images.errors.image.size.error" />
+			<liferay-ui:error key="image-extension-error${index}" message="annoucements.add.images.errors.image.extension.error" />
+			
+	     	<liferay-ui:panel iconCssClass="icon-picture" defaultState="open" extended="true" id="announcementAbstractPanel${index}" persistState="false" title="annoucements.add.images.Image.${index}">
 					<aui:input type="hidden" name="announcementImageId${index}" value='${announcementImage.announcementImageId}' />
 					<aui:input type="hidden" name="imageDisabled${index}" value="false"/>
 					<aui:input type="hidden" name="order" value="false"/>
@@ -152,7 +153,7 @@
 					</aui:script>
 	
 					<aui:fieldset>
-						<aui:input inlineField="true" name="image${index}" type="file" label="Image"/>
+						<aui:input inlineField="true" name="image${index}" type="file" label="annoucements.add.images.image.label"/>
 						<aui:script use="aui-base">
 							A.one('#<portlet:namespace/>image${index}').on('change',function(event){
 								var id = this.attr('id');
@@ -184,7 +185,7 @@
 						<c:if test="${bean eq null}">
 							<c:set value="${imageBean}" var="bean" />
 						</c:if>
-						<aui:input helpMessage="describe-your-announcement-for-visually-impaired" inlineField="true" label="Description" field="description" name="description${index}" id="description${index}" fieldParam="description${index}" model="${imageModel}" bean="${bean}" />
+						<aui:input helpMessage="describe-your-announcement-for-visually-impaired" inlineField="true" label="annoucements.add.images.description.label" field="description" name="description${index}" id="description${index}" fieldParam="description${index}" model="${imageModel}" bean="${bean}" />
 					</aui:fieldset>
 
 			</liferay-ui:panel>
@@ -196,17 +197,17 @@
 		<br>
 		<br>
 		
-		<liferay-ui:error key="announcementagreement-required" message="announcementagreement-required" />
-		<aui:field-wrapper name="agreement" label="Agreement" inlineField="right">
-			<aui:input name="agreement" type="checkbox" label="approve-agreement" checked="${announcement ne null}">
+		<liferay-ui:error key="announcementagreement-required" message="annoucements.add.agreement.required" />
+		<aui:field-wrapper name="agreement" label="annoucements.add.agreement.label" inlineField="right">
+			<aui:input name="agreement" type="checkbox" label="annoucements.add.agreement.approve" checked="${announcement ne null}">
 			</aui:input>
 			<br>
-			<aui:a href="${previewFileURL}" label="show-agreement" target="_blank" />
+			<aui:a href="${previewFileURL}" label="annoucements.add.agreement.show.label" target="_blank" />
 		</aui:field-wrapper>
 	</aui:fieldset>
 	
 	<c:if test="${announcement eq null}">
-		<aui:field-wrapper label="permissions">
+		<aui:field-wrapper label="annoucements.add.permissions.label">
 			<liferay-ui:input-permissions
 				modelName="${model.getName()}"
 				/>
@@ -214,7 +215,7 @@
 	</c:if>
 	
 	<c:if test="${isRelatedAssetActivated}">
-		<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="artistAssetLinksPanel" persistState="<%= true %>" title="related-assets">
+		<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="artistAssetLinksPanel" persistState="<%= true %>" title="annoucements.add.permissions.related.assets.title">
 			<aui:fieldset>
 				<liferay-ui:input-asset-links
 					className="<%= Announcement.class.getName() %>"

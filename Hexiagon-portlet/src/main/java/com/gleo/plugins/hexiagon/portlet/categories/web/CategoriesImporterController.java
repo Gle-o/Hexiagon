@@ -47,14 +47,6 @@ public class CategoriesImporterController extends MVCPortlet {
 	 */
 	protected static Log LOGGER = LogFactoryUtil.getLog(CategoriesImporterController.class);
 
-	@Override
-	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
-		throws IOException, PortletException {
-
-		LOGGER.info("do view  AssetCategoriesImporter");
-		super.doView(renderRequest, renderResponse);
-	}
-
 	public void loadCategoriesFromCsv(ActionRequest actionRequest, ActionResponse actionResponse)
 		throws IOException, PortletException, PortalException, SystemException {
 
