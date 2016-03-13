@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.model.LayoutConstants"%>
 <%@page import="com.liferay.portal.NoSuchLayoutException"%>
 <%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
@@ -31,14 +32,17 @@
 	portletDirectoryURL.setParameter("struts_action", "/directory/view_user");
 	portletDirectoryURL.setParameter("tabs1Names", "Info");
 	
-	boolean isAnnouncementDisplayRelatedAssets = true;
+	boolean isAnnouncementDisplaysRelatedAssets = true;
 	
-	// Sorry
+	// Sorry, do it in JSP
+	// is is Announcement Displays Related Assets ?
 	try {
 		long announcementDisplayPlid = PortalUtil.getPlidFromPortletId(themeDisplay.getScopeGroupId(), PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
-		Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
-		PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
-		isAnnouncementDisplayRelatedAssets = GetterUtil.getBoolean(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));
+		if (plid != LayoutConstants.DEFAULT_PLID) {
+			Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
+			PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
+			isAnnouncementDisplaysRelatedAssets = GetterUtil.getBoolean(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));	
+		}
 	} catch (NoSuchLayoutException nsle) {
 		LOG.info("NoSuchLayoutException : hexiagon.portlet.jsp.announcements.asset.full_content_jsp ligne 37 - 40");
 		LOG.info(nsle.getMessage());
@@ -200,7 +204,7 @@
 					/>
 					<hr>
 					
-					<c:if test="<%= isAnnouncementDisplayRelatedAssets %>">
+					<c:if test="<%= isAnnouncementDisplaysRelatedAssets %>">
 						<liferay-ui:asset-links
 						className="<%= Announcement.class.getName() %>"
 						classPK="${announcement.announcementId}"
