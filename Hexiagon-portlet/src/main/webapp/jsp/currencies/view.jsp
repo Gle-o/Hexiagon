@@ -2,12 +2,12 @@
 <%@page import="com.liferay.portal.util.PortalUtil"%>
 <%@include file="/jsp/init.jsp" %>
 
-<liferay-ui:success key="currency-added" message="currency-added-successfully" />
-<liferay-ui:success key="currency-updated" message="currency-updated-successfully" />
-<liferay-ui:success key="currency-deleted" message="currency-deleted-successfully" />
+<liferay-ui:success key="currency-added" message="annoucements.currencies.success.added" />
+<liferay-ui:success key="currency-updated" message="annoucements.currencies.success.updated" />
+<liferay-ui:success key="currency-deleted" message="annoucements.currencies.success.deleted" />
 
-<liferay-ui:error key="no-currency-deleted" message="currency-deleted-unsuccessfully" />
-<liferay-ui:error key="use-currency" message="some-announcements-use-this-currency" />
+<liferay-ui:error key="no-currency-deleted" message="annoucements.currencies.errors.deleted" />
+<liferay-ui:error key="use-currency" message="annoucements.currencies.errors.some.announcements.use.this.currency" />
 
 <c:if test='<%= HexiagonPermission.contains(permissionChecker, themeDisplay.getScopeGroupId(), "ADD_CURRENCY") %>'>
 	<aui:nav-bar cssClass="label-info">
@@ -17,7 +17,7 @@
 				<portlet:param name="jspPage" value="/jsp/currencies/edit.jsp"/>
 		    </portlet:renderURL>
 		    
-			<aui:nav-item href="${addTypeURL}" iconCssClass="icon-plus" label="add-currency" />
+			<aui:nav-item href="${addTypeURL}" iconCssClass="icon-plus" label="annoucements.currencies.add.label" />
 			
 		</aui:nav>
 	</aui:nav-bar>
@@ -48,7 +48,7 @@
 		/>
 		
 		<liferay-ui:search-container-column-text
-			name="symbol"
+			name="annoucements.currencies.symbol.label"
 			property="symbol"
 		/>
 		
@@ -59,7 +59,7 @@
 		
 		<liferay-ui:search-container-column-jsp
 			align="right" 
-			name="Actions" 
+			name="actions" 
 			path="/jsp/currencies/actions.jsp" 
 		/> 
 	</liferay-ui:search-container-row>

@@ -33,12 +33,12 @@
 
 		<aui:input type="hidden" name="typeId"/>
 
-		<liferay-ui:error key="typename-required" message="typename-required" />
+		<liferay-ui:error key="typename-required" message="annoucements.types.errors.name.required" />
 		<aui:input name="name" >
 			<aui:validator name="required"/>
 		</aui:input>
 
-		<aui:input name="order" label="Ordre">
+		<aui:input name="order" label="annoucements.types.order.label">
 			<aui:validator name="digits"/>
 		</aui:input>
 		

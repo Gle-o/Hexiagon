@@ -17,12 +17,13 @@
 	title='${announcement.getTitle(locale)}'
 />
 
-<liferay-ui:success key="announcement-added" message="announcement-added-successfully" />
-<liferay-ui:success key="announcement-updated" message="announcement-updated-successfully" />
+<liferay-ui:success key="announcement-added" message="annoucements.display.success.added"/>
+<liferay-ui:success key="announcement-updated" message="annoucements.display.success.updated"/>
+<liferay-ui:success key="announcement-deleted" message="annoucements.display.success.deleted"/>
 
-<liferay-ui:error key="announcement-errors" message="announcement-errors" />
+<liferay-ui:error key="announcement-errors" message="annoucements.display.errors" />
 
-<liferay-ui:error exception="<%= NoSuchAnnouncementException.class %>" message="no-announcement" />
+<liferay-ui:error exception="<%= NoSuchAnnouncementException.class %>" message="annoucements.display.errors.no.announcement" />
 <liferay-ui:error exception="<%= PrincipalException.class %>" message="you-do-not-have-the-required-permissions" />
 
 <c:if test="${announcement.userId > 0}">
@@ -31,7 +32,7 @@
 		<aui:nav-bar>
 			<c:if test="${hasEditRight}">
 				<aui:nav>
-					<aui:nav-item id="edit${announcement.announcementId}" iconCssClass="icon-edit" label="edit" />
+					<aui:nav-item id="edit${announcement.announcementId}" iconCssClass="icon-edit" label="annoucements.display.edit.label" />
 				</aui:nav>
 			</c:if>
 			
@@ -47,7 +48,7 @@
 						<portlet:param name="redirect" value='<%= ParamUtil.getString(renderRequest, "redirect")  %>'/>
 					</liferay-portlet:actionURL>
 				
-					<aui:nav-item href="${deleteURL}" iconCssClass="icon-remove" label="delete" id="deleteAnnouncement${announcement.announcementId}"/>
+					<aui:nav-item href="${deleteURL}" iconCssClass="icon-remove" label="annoucements.display.delete.label" id="deleteAnnouncement${announcement.announcementId}"/>
 				</aui:nav>
 			</c:if>
 			<c:if test="${hasPermissionRight}">
@@ -61,7 +62,7 @@
 					/>
 					
 				
-					<aui:nav-item href="${permissionsURL}" iconCssClass="icon-pencil" label="Permission" useDialog="true" title="permissions"/>
+					<aui:nav-item href="${permissionsURL}" iconCssClass="icon-pencil" label="annoucements.display.permission.label" useDialog="true" title="permissions"/>
 				</aui:nav>
 			</c:if>
 			

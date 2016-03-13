@@ -16,11 +16,11 @@
 	<aui:fieldset>
 		<aui:input type="hidden" name="redirect" value="<%=redirect %>" />
 
-		<aui:input name="delta" value="${delta}"></aui:input>
+		<aui:input name="delta" value="${delta}" label="annoucements.search.edit.delta.label"/>
 		
-		<aui:input type="checkbox" name="isUserAnnouncements" label="User's announcements" value="${isUserAnnouncements}" checked="${isUserAnnouncements eq true}"/>
+		<aui:input type="checkbox" name="isUserAnnouncements" label="annoucements.search.edit.is.user.announcements.label" value="${isUserAnnouncements}" checked="${isUserAnnouncements eq true}"/>
 
-		<aui:input type="checkbox" name="isFavoriteUserAnnouncements" label="User's favorite announcements" value="${isFavoriteUserAnnouncements}" checked="${isFavoriteUserAnnouncements eq true}"/>
+		<aui:input type="checkbox" name="isFavoriteUserAnnouncements" label="annoucements.search.edit.is.user.favorite.announcements.label" value="${isFavoriteUserAnnouncements}" checked="${isFavoriteUserAnnouncements eq true}"/>
 	</aui:fieldset>
 	
 	<aui:button-row>

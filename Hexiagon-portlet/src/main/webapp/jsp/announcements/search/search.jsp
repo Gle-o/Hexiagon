@@ -5,7 +5,7 @@
 	<aui:nav-bar>
 		<aui:nav-bar-search cssClass="span3">
 			<br>
-			<aui:select name="type" label="Type" id="type">
+			<aui:select name="type" label="annoucements.search.type.label" id="type">
 				<aui:option label="" value="" />
 				<c:forEach items='${types}' var="type">
 					<aui:option label="${type.name}" value="${type.typeId}" selected="${type.typeId == typeId}"/>
@@ -15,7 +15,7 @@
 
 		<aui:nav-bar-search cssClass="offset1 span3">
 			<br>
-			<aui:select name="currency" label="Currency" id="currency">
+			<aui:select name="currency" label="annoucements.search.currency.label" id="currency">
 				<aui:option label="" value="" />
 				<c:forEach items='${currencies}' var="currency">
 					<aui:option label="${currency.symbol}" value="${currency.currencyId}" selected="${currency.currencyId == currencyId}"/>
@@ -25,7 +25,7 @@
 
 		<aui:nav-bar-search cssClass="offset1 span3">
 			<br>
-			<aui:select name="filter" label="Filter" id="filter">
+			<aui:select name="filter" label="annoucements.search.filter.label" id="filter">
 				<aui:option label="" value="" />
 				<c:forEach items='${filterEnum}' var="filter">
 					<c:set var="filterLabel" >
@@ -39,7 +39,7 @@
 	</aui:nav-bar>
 	<aui:row>
 		<p>
-			<button class="btn btn-large btn-block btn-primary" type="button" onclick="<portlet:namespace />search();"><i class="icon-search"></i> <liferay-ui:message key="search"></liferay-ui:message></button>
+			<button class="btn btn-large btn-block btn-primary" type="button" onclick="<portlet:namespace />search();"><i class="icon-search"></i> <liferay-ui:message key="annoucements.search.button.search.label"/></button>
 		</p>
 	</aui:row>
 	

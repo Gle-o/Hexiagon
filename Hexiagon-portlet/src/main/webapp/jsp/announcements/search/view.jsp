@@ -19,9 +19,9 @@
 			<portlet:param name="redirect" value="<%= themeDisplay.getURLCurrent() %>"/>
 	</liferay-portlet:renderURL>
 	<aui:row>
-		<div class="offset10" >
+		<div class="offset9" >
 			<a class="btn btn-info btn-large" href="${addAnnouncementURL}">
-	  		<i class="icon-plus-sign icon-large"></i>  <liferay-ui:message key="Add"></liferay-ui:message></a>
+	  		<i class="icon-plus-sign icon-large"></i>  <liferay-ui:message key="annoucements.search.button.add.label"/></a>
 		</div>
 	</aui:row>
 </c:if>
