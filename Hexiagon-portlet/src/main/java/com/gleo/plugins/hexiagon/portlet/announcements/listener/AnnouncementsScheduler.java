@@ -34,16 +34,12 @@ import javax.portlet.PortletPreferences;
 
 import org.joda.time.DateTime;
 
-/**
- * @author guillaumelenoir
- *
- */
-public class DeleteAnnouncementsListener implements MessageListener {
-
+public class AnnouncementsScheduler implements MessageListener {
+	
 	/**
 	 * The logger.
 	 */
-	private static final Log LOGGER = LogFactoryUtil.getLog(DeleteAnnouncementsListener.class);
+	private static final Log LOGGER = LogFactoryUtil.getLog(AnnouncementsScheduler.class);
 	
 	/**
 	 * Default delta
@@ -64,14 +60,13 @@ public class DeleteAnnouncementsListener implements MessageListener {
 	 * @param message
 	 * @throws MessageListenerException
 	 */
-	@Override
 	public void receive(Message message) throws MessageListenerException {
 		LOGGER.info("BEGIN : delete all announcements by expiration date");
 		
 		try {
 			LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>(2);
-			params.put("site", StringPool.TRUE);
-			params.put("active", StringPool.TRUE);
+			params.put("site", true);
+			params.put("active", true);
 			
 			List<Company> companies = CompanyLocalServiceUtil.getCompanies();
 			
@@ -147,5 +142,4 @@ public class DeleteAnnouncementsListener implements MessageListener {
 			AnnouncementLocalServiceUtil.deleteAnnouncements(announcements);
 		}
 	}
-
-}
+ }  
