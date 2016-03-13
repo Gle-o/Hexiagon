@@ -12,7 +12,6 @@ import com.gleo.plugins.hexiagon.service.AnnouncementLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.CurrencyLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.FavoriteLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.TypeLocalServiceUtil;
-import com.gleo.plugins.hexiagon.service.TypeServiceUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
