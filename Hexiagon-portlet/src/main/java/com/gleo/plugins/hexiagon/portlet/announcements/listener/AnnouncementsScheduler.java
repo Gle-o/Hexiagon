@@ -46,10 +46,10 @@ public class AnnouncementsScheduler implements MessageListener {
 	 */
 	private static final Log LOGGER = LogFactoryUtil.getLog(AnnouncementsScheduler.class);
 	
-	/**
-	 * Default delta
-	 */
-	private static int DELTA = 1000;
+//	/**
+//	 * Default delta
+//	 */
+//	private static int DELTA = 1000;
 	
 	/**
 	 * Delete all announcements by expiration date
@@ -119,8 +119,8 @@ public class AnnouncementsScheduler implements MessageListener {
 				
 				LOGGER.info("Days = " + days);
 				
-				if(days > AnnouncementConstants.ANNONCEMENTS_DEFAULT_PERIOD_TO_DELETE_IN_DAYS) {
-					deleteAnnouncements(days);
+				if(days > AnnouncementConstants.ANNONCEMENTS_DEFAULT_PERIOD_TO_DELETE_IN_DAYS && group != null) {
+					deleteAnnouncements(days, group.getGroupId());
 				}
 			}
 		}
@@ -132,7 +132,7 @@ public class AnnouncementsScheduler implements MessageListener {
 	 * @param days
 	 * @throws SystemException
 	 */
-	private void deleteAnnouncements(int days) throws SystemException {
+	private void deleteAnnouncements(int days, long groupId) throws SystemException {
 		DateTime dateMinus = DateTime.now();
 		dateMinus.minusDays(days);
 
@@ -140,6 +140,7 @@ public class AnnouncementsScheduler implements MessageListener {
 		
 		dynamicQuery.add(PropertyFactoryUtil.forName(Field.STATUS).eq(WorkflowConstants.STATUS_ANY));
 		dynamicQuery.add(PropertyFactoryUtil.forName(Field.CREATE_DATE).lt(dateMinus.toDate()));
+		dynamicQuery.add(PropertyFactoryUtil.forName(Field.GROUP_ID).eq(groupId));
 		
 		long count = AnnouncementLocalServiceUtil.dynamicQueryCount(dynamicQuery);
 		
@@ -147,7 +148,15 @@ public class AnnouncementsScheduler implements MessageListener {
 		
 		if(count > 0) {
 			
-			int start = 0;
+			@SuppressWarnings("unchecked")
+			List<Announcement> announcements = (List<Announcement>) AnnouncementLocalServiceUtil.dynamicQuery(dynamicQuery, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+			
+			// Delete Announcement
+			AnnouncementLocalServiceUtil.deleteAnnouncements(announcements);
+			
+			// For perf ?
+			
+/*			int start = 0;
 			int end = 0;
 			int page = 1;
 			
@@ -169,6 +178,7 @@ public class AnnouncementsScheduler implements MessageListener {
 				// Delete Announcement
 				AnnouncementLocalServiceUtil.deleteAnnouncements(announcements);
 			}
+*/		
 		}
 	}
  }  
