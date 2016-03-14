@@ -16,7 +16,6 @@ public class AnnouncementConstants {
 	 */
 	public static final boolean ANNONCEMENTS_SCHEDULER_DELETE_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.ANNONCEMENTS_SCHEDULER_DELETE_ENABLED));
 	
-	
 	/**
 	 * Default period
 	 */
@@ -50,7 +49,7 @@ public class AnnouncementConstants {
 	/**
 	 * Extensions
 	 */
-	public static final String IMAGE_EXTENSIONS = PropsUtil.get(PropsKeys.ANNONCEMENTS_IMAGE_LIMIT);
+	public static final String IMAGE_EXTENSIONS = PropsUtil.get(PropsKeys.ANNONCEMENTS_IMAGE_EXTENSIONS);
 	
 	/**
 	 * Default delta search
