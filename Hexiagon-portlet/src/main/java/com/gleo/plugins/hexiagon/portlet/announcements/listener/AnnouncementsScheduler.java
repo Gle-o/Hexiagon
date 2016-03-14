@@ -7,6 +7,7 @@ import com.gleo.plugins.hexiagon.service.AnnouncementLocalServiceUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -47,11 +48,6 @@ public class AnnouncementsScheduler implements MessageListener {
 	private static int DELTA = 1000;
 	
 	/**
-	 * Default value
-	 */
-	private final static int DEFAULT_PERIOD_TO_DELETE_IN_DAYS = 60;
-	
-	/**
 	 * Delete all announcements by expiration date
 	 * Fire every day at midnight
 	 * 0 0 0 * * ?
@@ -63,38 +59,67 @@ public class AnnouncementsScheduler implements MessageListener {
 	public void receive(Message message) throws MessageListenerException {
 		LOGGER.info("BEGIN : delete all announcements by expiration date");
 		
-		try {
+		if (AnnouncementConstants.ANNONCEMENTS_SCHEDULER_DELETE_ENABLED) {
+			try {
+				
+				List<Company> companies = CompanyLocalServiceUtil.getCompanies();
+				
+				deleteAnnoucementsFromCompanies(companies);
+			} catch (Exception e) {
+				LOGGER.error(e);
+			}
+		}
+		
+		LOGGER.info("END : delete all announcements by expiration date");
+	}
+
+	/**
+	 * Delete Annoucements From Companies
+	 * 
+	 * @param companies
+	 * @throws SystemException
+	 * @throws PortalException
+	 */
+	private void deleteAnnoucementsFromCompanies(List<Company> companies)
+			throws SystemException, PortalException {
+		
+		for (Company company : companies) {
 			LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>(2);
 			params.put("site", true);
 			params.put("active", true);
 			
-			List<Company> companies = CompanyLocalServiceUtil.getCompanies();
+			List<Group> groups = GroupLocalServiceUtil.search(company.getCompanyId(), StringPool.BLANK, params, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 			
-			for (Company company : companies) {
-				List<Group> groups = GroupLocalServiceUtil.search(company.getCompanyId(), StringPool.BLANK, params, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+			deleteAnnouncementsFromGroups(groups);
+		}
+	}
+
+	/**
+	 * Delete Announcements From Groups
+	 * 
+	 * @param groups
+	 * @throws PortalException
+	 * @throws SystemException
+	 */
+	private void deleteAnnouncementsFromGroups(List<Group> groups)
+			throws PortalException, SystemException {
+		for (Group group : groups) {
+			long announcementDisplayPlid = PortalUtil.getPlidFromPortletId(group.getGroupId(), PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
+			
+			if (announcementDisplayPlid != LayoutConstants.DEFAULT_PLID) {
+				Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
+				PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
 				
-				for (Group group : groups) {
-					long announcementDisplayPlid = PortalUtil.getPlidFromPortletId(group.getGroupId(), PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
-					
-					if (announcementDisplayPlid != LayoutConstants.DEFAULT_PLID) {
-						Layout announcementDisplayLayout = LayoutLocalServiceUtil.getLayout(announcementDisplayPlid);
-						PortletPreferences announcementDisplayRelatedAssetsPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(announcementDisplayLayout, PortletKeys.ADD_ANNOUNCEMENT_PORTLETID);
-						int days = GetterUtil.getInteger(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.DEFAULT_PERIOD_TO_DELETE_IN_DAYS, String.valueOf(DEFAULT_PERIOD_TO_DELETE_IN_DAYS)));	
-						
-						LOGGER.info("Days = " + days);
-						
-						if(days > DEFAULT_PERIOD_TO_DELETE_IN_DAYS) {
-							deleteAnnouncementsJob(days);
-						}
-					}
+				// Time to live for an announcement
+				int days = GetterUtil.getInteger(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.DEFAULT_PERIOD_TO_DELETE_IN_DAYS, String.valueOf(AnnouncementConstants.ANNONCEMENTS_DEFAULT_PERIOD_TO_DELETE_IN_DAYS)));	
+				
+				LOGGER.info("Days = " + days);
+				
+				if(days > AnnouncementConstants.ANNONCEMENTS_DEFAULT_PERIOD_TO_DELETE_IN_DAYS) {
+					deleteAnnouncements(days);
 				}
 			}
-		} catch (Exception e) {
-			LOGGER.error(e);
 		}
-
-		
-		LOGGER.info("END : delete all announcements by expiration date");
 	}
 
 	/**
@@ -103,7 +128,7 @@ public class AnnouncementsScheduler implements MessageListener {
 	 * @param days
 	 * @throws SystemException
 	 */
-	private void deleteAnnouncementsJob(int days) throws SystemException {
+	private void deleteAnnouncements(int days) throws SystemException {
 		DateTime dateMinus = DateTime.now();
 		dateMinus.minusDays(days);
 
@@ -121,6 +146,7 @@ public class AnnouncementsScheduler implements MessageListener {
 			int start = 0;
 			int end = 0;
 			int page = 1;
+			
 			// Not the best way !
 			double limit = Math.floor(count / DELTA) + (count% DELTA ==0?0:1);
 			
@@ -133,13 +159,12 @@ public class AnnouncementsScheduler implements MessageListener {
 				}
 				page ++;
 				
+				@SuppressWarnings("unchecked")
+				List<Announcement> announcements = (List<Announcement>) AnnouncementLocalServiceUtil.dynamicQuery(dynamicQuery, start, end);
+				
+				// Delete Announcement
+				AnnouncementLocalServiceUtil.deleteAnnouncements(announcements);
 			}
-			
-			@SuppressWarnings("unchecked")
-			List<Announcement> announcements = (List<Announcement>) AnnouncementLocalServiceUtil.dynamicQuery(dynamicQuery, start, end);
-			
-			// Delete Announcement
-			AnnouncementLocalServiceUtil.deleteAnnouncements(announcements);
 		}
 	}
  }  
