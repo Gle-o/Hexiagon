@@ -58,6 +58,7 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class AnnoucementSearchController
  */
 public class AnnoucementSearchController extends MVCPortlet {

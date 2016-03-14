@@ -12,6 +12,10 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
+/**
+ * @author guillaumelenoir
+ *
+ */
 public class AnnouncementImageValidator {
 
 	/**

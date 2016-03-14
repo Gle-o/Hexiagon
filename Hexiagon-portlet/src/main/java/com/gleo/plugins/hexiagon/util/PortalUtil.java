@@ -10,6 +10,7 @@ import javax.portlet.ActionResponse;
 
 /**
  * @author guillaumelenoir
+ * @author guillaumelenoir
  * take a look at
  * https://github.com/liferay/liferay-plugins/blob/4aed13e3c39351b11390c0859a1670cf364cee9f/shared/portal-compat-shared/src/com/liferay/compat/portal/util/PortalUtil.java
  */

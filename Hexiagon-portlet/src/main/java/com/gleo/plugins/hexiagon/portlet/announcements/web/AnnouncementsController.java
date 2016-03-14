@@ -24,6 +24,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class AnnouncementsController
  */
 public class AnnouncementsController extends MVCPortlet {

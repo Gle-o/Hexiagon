@@ -35,6 +35,10 @@ import javax.portlet.PortletPreferences;
 
 import org.joda.time.DateTime;
 
+/**
+ * @author guillaumelenoir
+ *
+ */
 public class AnnouncementsScheduler implements MessageListener {
 	
 	/**

@@ -36,6 +36,7 @@ import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class CategoriesImporterController
  */
 public class CategoriesImporterController extends MVCPortlet {

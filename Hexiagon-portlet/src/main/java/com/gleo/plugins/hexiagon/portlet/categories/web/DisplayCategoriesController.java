@@ -33,6 +33,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class DisplayCategoriesController
  */
 public class DisplayCategoriesController extends MVCPortlet {
