@@ -117,10 +117,14 @@ public class AnnouncementsScheduler implements MessageListener {
 				// Time to live for an announcement
 				int days = GetterUtil.getInteger(announcementDisplayRelatedAssetsPreferences.getValue(AnnouncementConstants.DEFAULT_PERIOD_TO_DELETE_IN_DAYS, String.valueOf(AnnouncementConstants.ANNONCEMENTS_DEFAULT_PERIOD_TO_DELETE_IN_DAYS)));	
 				
-				LOGGER.info("Days = " + days);
-				
-				if(days > AnnouncementConstants.ANNONCEMENTS_DEFAULT_PERIOD_TO_DELETE_IN_DAYS && group != null) {
-					deleteAnnouncements(days, group.getGroupId());
+				if (group != null) {
+					
+					long groupId = group.getGroupId();
+					
+					LOGGER.info("Days = " + days);
+					LOGGER.info("GroupId = " + groupId);
+					
+					deleteAnnouncements(days, groupId);
 				}
 			}
 		}
@@ -134,7 +138,7 @@ public class AnnouncementsScheduler implements MessageListener {
 	 */
 	private void deleteAnnouncements(int days, long groupId) throws SystemException {
 		DateTime dateMinus = DateTime.now();
-		dateMinus.minusDays(days);
+		dateMinus = dateMinus.minusDays(days);
 
 		DynamicQuery dynamicQuery = AnnouncementLocalServiceUtil.dynamicQuery();
 		
@@ -144,7 +148,7 @@ public class AnnouncementsScheduler implements MessageListener {
 		
 		long count = AnnouncementLocalServiceUtil.dynamicQueryCount(dynamicQuery);
 		
-		LOGGER.info("Get" + count +" announcements to delete");
+		LOGGER.info("Get " + count +" announcements to delete");
 		
 		if(count > 0) {
 			

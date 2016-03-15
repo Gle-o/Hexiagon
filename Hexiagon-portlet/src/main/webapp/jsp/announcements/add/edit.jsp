@@ -29,12 +29,16 @@
 	</aui:field-wrapper>
 	
 	<aui:select name="currencyId" label="annoucements.add.currency.label" showEmptyOption="true" >
-			<c:forEach var="currency" items="${currencies}">
-				<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}"  selected="${currencyId == currency.getCurrencyId()}"/>
- 			</c:forEach>
-		</aui:select>
+		<c:forEach var="currency" items="${currencies}">
+			<aui:option label="${currency.getSymbol()}" value="${currency.getCurrencyId()}"  selected="${currencyId == currency.getCurrencyId()}"/>
+			</c:forEach>
+	</aui:select>
 		
-		<aui:input label="annoucements.add.isRelatedAssetActivated.label" name="isRelatedAssetActivated" readonly="readonly" type="checkbox" value="${isRelatedAssetActivated}"/>
+	<aui:input label="annoucements.add.isRelatedAssetActivated.label" name="isRelatedAssetActivated" type="checkbox" value="${isRelatedAssetActivated}"/>
+
+	<aui:input label="annoucements.add.default.period.to.delete.label" name="defaultPeriodToDeleteInDays" type="text" value="${defaultPeriodToDeleteInDays}">
+		<aui:validator name="number"/>
+	</aui:input>
 
 	<aui:button-row>
 		<aui:button type="submit" />
