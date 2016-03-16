@@ -36,6 +36,7 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class TypesController
  */
 public class TypesController extends MVCPortlet {

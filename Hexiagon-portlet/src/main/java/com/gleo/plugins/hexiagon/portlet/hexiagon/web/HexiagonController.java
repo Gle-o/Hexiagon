@@ -20,6 +20,10 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 
+/**
+ * @author guillaumelenoir
+ *
+ */
 public class HexiagonController extends MVCPortlet {
 	
 	/**

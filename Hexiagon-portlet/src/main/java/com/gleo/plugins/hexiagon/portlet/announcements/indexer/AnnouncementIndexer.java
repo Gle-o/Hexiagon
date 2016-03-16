@@ -37,7 +37,7 @@ import java.util.Locale;
 import javax.portlet.PortletURL;
 
 /**
- * Indexer
+ * @author guillaumelenoir
  *
  */
 public class AnnouncementIndexer extends BaseIndexer {

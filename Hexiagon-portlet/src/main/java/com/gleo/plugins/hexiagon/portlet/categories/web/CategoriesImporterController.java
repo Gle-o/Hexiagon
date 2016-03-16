@@ -34,10 +34,9 @@ import java.util.Map;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
-import javax.portlet.RenderRequest;
-import javax.portlet.RenderResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class CategoriesImporterController
  */
 public class CategoriesImporterController extends MVCPortlet {

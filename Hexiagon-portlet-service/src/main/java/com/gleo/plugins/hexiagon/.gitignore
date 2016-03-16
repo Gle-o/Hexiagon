@@ -1,0 +1,8 @@
+/service/
+/model/
+/ImageSizeException.java
+/NoSuchAnnouncementException.java
+/NoSuchAnnouncementImageException.java
+/NoSuchCurrencyException.java
+/NoSuchFavoriteException.java
+/NoSuchTypeException.java

@@ -81,6 +81,8 @@ public class AnnouncementLocalServiceClpInvoker {
     private String[] _methodParameterTypes102;
     private String _methodName103;
     private String[] _methodParameterTypes103;
+    private String _methodName104;
+    private String[] _methodParameterTypes104;
 
     public AnnouncementLocalServiceClpInvoker() {
         _methodName0 = "addAnnouncement";
@@ -255,9 +257,13 @@ public class AnnouncementLocalServiceClpInvoker {
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName103 = "getFavoritesAnnouncementsByGroupIUserId";
+        _methodName103 = "deleteAnnouncements";
 
-        _methodParameterTypes103 = new String[] { "long", "long", "int", "int" };
+        _methodParameterTypes103 = new String[] { "java.util.List" };
+
+        _methodName104 = "getFavoritesAnnouncementsByGroupIUserId";
+
+        _methodParameterTypes104 = new String[] { "long", "long", "int", "int" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -464,6 +470,13 @@ public class AnnouncementLocalServiceClpInvoker {
 
         if (_methodName103.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes103, parameterTypes)) {
+            AnnouncementLocalServiceUtil.deleteAnnouncements((java.util.List<com.gleo.plugins.hexiagon.model.Announcement>) arguments[0]);
+
+            return null;
+        }
+
+        if (_methodName104.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes104, parameterTypes)) {
             return AnnouncementLocalServiceUtil.getFavoritesAnnouncementsByGroupIUserId(((Long) arguments[0]).longValue(),
                 ((Long) arguments[1]).longValue(),
                 ((Integer) arguments[2]).intValue(),

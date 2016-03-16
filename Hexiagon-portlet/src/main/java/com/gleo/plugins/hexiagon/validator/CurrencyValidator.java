@@ -6,6 +6,10 @@ import com.gleo.plugins.hexiagon.model.Currency;
 
 import java.util.List;
 
+/**
+ * @author guillaumelenoir
+ *
+ */
 public class CurrencyValidator {
 
 	/**

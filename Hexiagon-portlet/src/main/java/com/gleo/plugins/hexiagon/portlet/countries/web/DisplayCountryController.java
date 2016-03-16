@@ -12,6 +12,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class DisplayCountryController
  */
 public class DisplayCountryController extends MVCPortlet {

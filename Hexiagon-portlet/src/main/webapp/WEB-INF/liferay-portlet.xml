@@ -28,6 +28,15 @@
 		<portlet-name>announcements-portlet</portlet-name>
 		<icon>/icon.png</icon>
 		<indexer-class>com.gleo.plugins.hexiagon.portlet.announcements.indexer.AnnouncementIndexer</indexer-class>
+		<scheduler-entry>
+			<scheduler-description>scheduler to delete announcements</scheduler-description> 
+		    <scheduler-event-listener-class>com.gleo.plugins.hexiagon.portlet.announcements.listener.AnnouncementsScheduler</scheduler-event-listener-class>  
+			<trigger>
+				<cron>
+					<cron-trigger-value>0 0 0 * * ?</cron-trigger-value>
+				</cron>
+			</trigger> 
+	   </scheduler-entry>
 		<control-panel-entry-category>site_administration.content</control-panel-entry-category>
 		<control-panel-entry-weight>1.6</control-panel-entry-weight>
 		<asset-renderer-factory>com.gleo.plugins.hexiagon.portlet.announcements.asset.AnnouncementAssetRendererFactory</asset-renderer-factory>

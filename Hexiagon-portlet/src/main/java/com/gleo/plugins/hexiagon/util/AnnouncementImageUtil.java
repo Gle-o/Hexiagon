@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * @author guillaumelenoir
  * Utility class
  * Resize images.
  *

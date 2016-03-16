@@ -39,3 +39,5 @@ classes/
 META-INF/
 sql/
 Hexiagon-portlet/.tern-project
+
+Hexiagon-portlet/src/main/resources/service.properties

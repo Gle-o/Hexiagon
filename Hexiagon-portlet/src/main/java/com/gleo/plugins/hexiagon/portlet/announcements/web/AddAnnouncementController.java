@@ -71,7 +71,9 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class AddAnnouncementController
+ * 
  */
 public class AddAnnouncementController extends MVCPortlet {
 
@@ -539,10 +541,12 @@ public class AddAnnouncementController extends MVCPortlet {
 		long fileEntryId = ParamUtil.getLong(actionRequest,"fileEntryId");
 		long currencyId = ParamUtil.getLong(actionRequest,"currencyId");
 		boolean isRelatedAssetActivated = ParamUtil.getBoolean(actionRequest, "isRelatedAssetActivated");
-				
+		long defaultPeriodToDeleteInDays = ParamUtil.getLong(actionRequest,"defaultPeriodToDeleteInDays");
+		
 		PortletPreferences portletPreferences = actionRequest.getPreferences();
 		
 		portletPreferences.setValue(AnnouncementConstants.AGREEMENT_FILE_ENTRYID_PREFERENCES, String.valueOf(fileEntryId));
+		portletPreferences.setValue(AnnouncementConstants.DEFAULT_PERIOD_TO_DELETE_IN_DAYS, String.valueOf(defaultPeriodToDeleteInDays));
 		portletPreferences.setValue(AnnouncementConstants.DEFAULT_CURRENCY_PREFERENCES, String.valueOf(currencyId));
 		portletPreferences.setValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, String.valueOf(isRelatedAssetActivated));
 		
@@ -557,6 +561,7 @@ public class AddAnnouncementController extends MVCPortlet {
 		long agreementFileEntryId = GetterUtil.getLong(portletPreferences.getValue(AnnouncementConstants.AGREEMENT_FILE_ENTRYID_PREFERENCES, StringPool.BLANK));
 		long currencyId = GetterUtil.getLong(portletPreferences.getValue(AnnouncementConstants.DEFAULT_CURRENCY_PREFERENCES, StringPool.BLANK));
 		boolean isRelatedAssetActivated =  GetterUtil.getBoolean(portletPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));
+		long defaultPeriodToDeleteInDays = GetterUtil.getLong(portletPreferences.getValue(AnnouncementConstants.DEFAULT_PERIOD_TO_DELETE_IN_DAYS, AnnouncementConstants.DEFAULT_PERIOD_TO_DELETE_IN_DAYS));
 		
 		List<Currency> currencies = null;
 		String title = StringPool.BLANK;
@@ -586,6 +591,7 @@ public class AddAnnouncementController extends MVCPortlet {
 			LOGGER.error(se);
 		}
 		
+		renderRequest.setAttribute("defaultPeriodToDeleteInDays", defaultPeriodToDeleteInDays);
 		renderRequest.setAttribute("currencies", currencies);
 		renderRequest.setAttribute("fileEntryId", agreementFileEntryId);
 		renderRequest.setAttribute("currencyId", currencyId);

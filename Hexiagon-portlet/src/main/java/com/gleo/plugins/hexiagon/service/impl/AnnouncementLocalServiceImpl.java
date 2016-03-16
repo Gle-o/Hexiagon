@@ -1,6 +1,13 @@
 
 package com.gleo.plugins.hexiagon.service.impl;
 
+import com.gleo.plugins.hexiagon.constants.AnnouncementConstants;
+import com.gleo.plugins.hexiagon.model.Announcement;
+import com.gleo.plugins.hexiagon.model.AnnouncementImage;
+import com.gleo.plugins.hexiagon.model.Favorite;
+import com.gleo.plugins.hexiagon.portlet.announcements.social.AnnouncementActivityKeys;
+import com.gleo.plugins.hexiagon.service.base.AnnouncementLocalServiceBaseImpl;
+import com.gleo.plugins.hexiagon.service.persistence.AnnouncementUtil;
 import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -25,17 +32,11 @@ import com.liferay.portal.service.ServiceContext;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetLinkConstants;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
-import com.gleo.plugins.hexiagon.constants.AnnouncementConstants;
-import com.gleo.plugins.hexiagon.model.Announcement;
-import com.gleo.plugins.hexiagon.model.AnnouncementImage;
-import com.gleo.plugins.hexiagon.model.Favorite;
-import com.gleo.plugins.hexiagon.portlet.announcements.social.AnnouncementActivityKeys;
-import com.gleo.plugins.hexiagon.service.base.AnnouncementLocalServiceBaseImpl;
-import com.gleo.plugins.hexiagon.service.persistence.AnnouncementUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.joda.time.DateTime;
@@ -386,6 +387,32 @@ public class AnnouncementLocalServiceImpl extends AnnouncementLocalServiceBaseIm
 		}
 
 		return announcement;
+	}
+	
+	/**
+	 * Delete Announcements
+	 * 
+	 * @param announcements
+	 */
+	public void deleteAnnouncements(List<Announcement> announcements) {
+		Iterator<Announcement> iterator = announcements.iterator();
+		
+		while (iterator.hasNext()) {
+			Announcement announcement = (Announcement) iterator.next();
+			if(announcement != null) {
+				try {
+					// Delete annoucement
+					LOGGER.info("Delete " + announcement);
+					
+					announcementLocalService.deleteAnnouncement(announcement.getAnnouncementId());
+					
+				} catch (Exception e) {
+					LOGGER.info("Unable to delete announcement Id "+ announcement.getAnnouncementId());
+					LOGGER.error(e);
+				}
+			}
+
+		}
 	}
 
 	/**

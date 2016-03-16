@@ -11,7 +11,7 @@ import com.gleo.plugins.hexiagon.permission.HexiagonPermission;
 import com.gleo.plugins.hexiagon.service.AnnouncementLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.CurrencyLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.FavoriteLocalServiceUtil;
-import com.gleo.plugins.hexiagon.service.TypeServiceUtil;
+import com.gleo.plugins.hexiagon.service.TypeLocalServiceUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -58,6 +58,7 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 /**
+ * @author guillaumelenoir
  * Portlet implementation class AnnoucementSearchController
  */
 public class AnnoucementSearchController extends MVCPortlet {
@@ -96,7 +97,7 @@ public class AnnoucementSearchController extends MVCPortlet {
 		}
 
 		try {
-			types = TypeServiceUtil.getTypesByGroupId(themeDisplay.getScopeGroupId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+			types = TypeLocalServiceUtil.getTypes(themeDisplay.getScopeGroupId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		}
 		catch (SystemException se) {
 			if (LOGGER.isDebugEnabled()) {

@@ -8,6 +8,10 @@ import com.gleo.plugins.hexiagon.model.AnnouncementImage;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * @author guillaumelenoir
+ *
+ */
 public class AnnouncementValidator {
 
 	/**
