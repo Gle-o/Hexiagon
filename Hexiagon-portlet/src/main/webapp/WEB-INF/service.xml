@@ -33,6 +33,11 @@
 		<column name="countryId" type="long" />
 		<column name="regionId" type="long" />
 
+		<!-- Custo -->
+		<column name="city" type="String" />
+		<column name="site" type="String" />
+		<column name="building" type="String" />
+		
 		<!-- Sort order -->
 		<order by="asc">
 			<order-column name="title" />
