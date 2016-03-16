@@ -44,10 +44,13 @@ public class AnnouncementCacheModel implements CacheModel<Announcement>,
     public long statusDate;
     public long countryId;
     public long regionId;
+    public String city;
+    public String site;
+    public String building;
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(45);
+        StringBundler sb = new StringBundler(51);
 
         sb.append("{uuid=");
         sb.append(uuid);
@@ -93,6 +96,12 @@ public class AnnouncementCacheModel implements CacheModel<Announcement>,
         sb.append(countryId);
         sb.append(", regionId=");
         sb.append(regionId);
+        sb.append(", city=");
+        sb.append(city);
+        sb.append(", site=");
+        sb.append(site);
+        sb.append(", building=");
+        sb.append(building);
         sb.append("}");
 
         return sb.toString();
@@ -179,6 +188,24 @@ public class AnnouncementCacheModel implements CacheModel<Announcement>,
         announcementImpl.setCountryId(countryId);
         announcementImpl.setRegionId(regionId);
 
+        if (city == null) {
+            announcementImpl.setCity(StringPool.BLANK);
+        } else {
+            announcementImpl.setCity(city);
+        }
+
+        if (site == null) {
+            announcementImpl.setSite(StringPool.BLANK);
+        } else {
+            announcementImpl.setSite(site);
+        }
+
+        if (building == null) {
+            announcementImpl.setBuilding(StringPool.BLANK);
+        } else {
+            announcementImpl.setBuilding(building);
+        }
+
         announcementImpl.resetOriginalValues();
 
         return announcementImpl;
@@ -208,6 +235,9 @@ public class AnnouncementCacheModel implements CacheModel<Announcement>,
         statusDate = objectInput.readLong();
         countryId = objectInput.readLong();
         regionId = objectInput.readLong();
+        city = objectInput.readUTF();
+        site = objectInput.readUTF();
+        building = objectInput.readUTF();
     }
 
     @Override
@@ -274,5 +304,23 @@ public class AnnouncementCacheModel implements CacheModel<Announcement>,
         objectOutput.writeLong(statusDate);
         objectOutput.writeLong(countryId);
         objectOutput.writeLong(regionId);
+
+        if (city == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(city);
+        }
+
+        if (site == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(site);
+        }
+
+        if (building == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(building);
+        }
     }
 }

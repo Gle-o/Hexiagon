@@ -82,9 +82,12 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
             { "statusByUserName", Types.VARCHAR },
             { "statusDate", Types.TIMESTAMP },
             { "countryId", Types.BIGINT },
-            { "regionId", Types.BIGINT }
+            { "regionId", Types.BIGINT },
+            { "city", Types.VARCHAR },
+            { "site", Types.VARCHAR },
+            { "building", Types.VARCHAR }
         };
-    public static final String TABLE_SQL_CREATE = "create table Hexiagon_Announcement (uuid_ VARCHAR(75) null,announcementId LONG not null primary key,companyId LONG,groupId LONG,userId LONG,typeId LONG,folderId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,currencyId LONG,title STRING null,emailAddress VARCHAR(75) null,phoneNumber VARCHAR(75) null,price LONG,content STRING null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,countryId LONG,regionId LONG)";
+    public static final String TABLE_SQL_CREATE = "create table Hexiagon_Announcement (uuid_ VARCHAR(75) null,announcementId LONG not null primary key,companyId LONG,groupId LONG,userId LONG,typeId LONG,folderId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,currencyId LONG,title STRING null,emailAddress VARCHAR(75) null,phoneNumber VARCHAR(75) null,price LONG,content STRING null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,countryId LONG,regionId LONG,city VARCHAR(75) null,site VARCHAR(75) null,building VARCHAR(75) null)";
     public static final String TABLE_SQL_DROP = "drop table Hexiagon_Announcement";
     public static final String ORDER_BY_JPQL = " ORDER BY announcement.title ASC";
     public static final String ORDER_BY_SQL = " ORDER BY Hexiagon_Announcement.title ASC";
@@ -150,6 +153,9 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
     private Date _statusDate;
     private long _countryId;
     private long _regionId;
+    private String _city;
+    private String _site;
+    private String _building;
     private long _columnBitmask;
     private Announcement _escapedModel;
 
@@ -191,6 +197,9 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
         model.setStatusDate(soapModel.getStatusDate());
         model.setCountryId(soapModel.getCountryId());
         model.setRegionId(soapModel.getRegionId());
+        model.setCity(soapModel.getCity());
+        model.setSite(soapModel.getSite());
+        model.setBuilding(soapModel.getBuilding());
 
         return model;
     }
@@ -271,6 +280,9 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
         attributes.put("statusDate", getStatusDate());
         attributes.put("countryId", getCountryId());
         attributes.put("regionId", getRegionId());
+        attributes.put("city", getCity());
+        attributes.put("site", getSite());
+        attributes.put("building", getBuilding());
 
         return attributes;
     }
@@ -407,6 +419,24 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
 
         if (regionId != null) {
             setRegionId(regionId);
+        }
+
+        String city = (String) attributes.get("city");
+
+        if (city != null) {
+            setCity(city);
+        }
+
+        String site = (String) attributes.get("site");
+
+        if (site != null) {
+            setSite(site);
+        }
+
+        String building = (String) attributes.get("building");
+
+        if (building != null) {
+            setBuilding(building);
         }
     }
 
@@ -936,6 +966,51 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
         _regionId = regionId;
     }
 
+    @JSON
+    @Override
+    public String getCity() {
+        if (_city == null) {
+            return StringPool.BLANK;
+        } else {
+            return _city;
+        }
+    }
+
+    @Override
+    public void setCity(String city) {
+        _city = city;
+    }
+
+    @JSON
+    @Override
+    public String getSite() {
+        if (_site == null) {
+            return StringPool.BLANK;
+        } else {
+            return _site;
+        }
+    }
+
+    @Override
+    public void setSite(String site) {
+        _site = site;
+    }
+
+    @JSON
+    @Override
+    public String getBuilding() {
+        if (_building == null) {
+            return StringPool.BLANK;
+        } else {
+            return _building;
+        }
+    }
+
+    @Override
+    public void setBuilding(String building) {
+        _building = building;
+    }
+
     @Override
     public StagedModelType getStagedModelType() {
         return new StagedModelType(PortalUtil.getClassNameId(
@@ -1145,6 +1220,9 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
         announcementImpl.setStatusDate(getStatusDate());
         announcementImpl.setCountryId(getCountryId());
         announcementImpl.setRegionId(getRegionId());
+        announcementImpl.setCity(getCity());
+        announcementImpl.setSite(getSite());
+        announcementImpl.setBuilding(getBuilding());
 
         announcementImpl.resetOriginalValues();
 
@@ -1327,12 +1405,36 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
 
         announcementCacheModel.regionId = getRegionId();
 
+        announcementCacheModel.city = getCity();
+
+        String city = announcementCacheModel.city;
+
+        if ((city != null) && (city.length() == 0)) {
+            announcementCacheModel.city = null;
+        }
+
+        announcementCacheModel.site = getSite();
+
+        String site = announcementCacheModel.site;
+
+        if ((site != null) && (site.length() == 0)) {
+            announcementCacheModel.site = null;
+        }
+
+        announcementCacheModel.building = getBuilding();
+
+        String building = announcementCacheModel.building;
+
+        if ((building != null) && (building.length() == 0)) {
+            announcementCacheModel.building = null;
+        }
+
         return announcementCacheModel;
     }
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(45);
+        StringBundler sb = new StringBundler(51);
 
         sb.append("{uuid=");
         sb.append(getUuid());
@@ -1378,6 +1480,12 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
         sb.append(getCountryId());
         sb.append(", regionId=");
         sb.append(getRegionId());
+        sb.append(", city=");
+        sb.append(getCity());
+        sb.append(", site=");
+        sb.append(getSite());
+        sb.append(", building=");
+        sb.append(getBuilding());
         sb.append("}");
 
         return sb.toString();
@@ -1385,7 +1493,7 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(70);
+        StringBundler sb = new StringBundler(79);
 
         sb.append("<model><model-name>");
         sb.append("com.gleo.plugins.hexiagon.model.Announcement");
@@ -1478,6 +1586,18 @@ public class AnnouncementModelImpl extends BaseModelImpl<Announcement>
         sb.append(
             "<column><column-name>regionId</column-name><column-value><![CDATA[");
         sb.append(getRegionId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>city</column-name><column-value><![CDATA[");
+        sb.append(getCity());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>site</column-name><column-value><![CDATA[");
+        sb.append(getSite());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>building</column-name><column-value><![CDATA[");
+        sb.append(getBuilding());
         sb.append("]]></column-value></column>");
 
         sb.append("</model>");

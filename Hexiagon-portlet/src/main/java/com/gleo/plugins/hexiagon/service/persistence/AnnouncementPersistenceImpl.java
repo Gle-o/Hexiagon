@@ -4470,6 +4470,9 @@ public class AnnouncementPersistenceImpl extends BasePersistenceImpl<Announcemen
         announcementImpl.setStatusDate(announcement.getStatusDate());
         announcementImpl.setCountryId(announcement.getCountryId());
         announcementImpl.setRegionId(announcement.getRegionId());
+        announcementImpl.setCity(announcement.getCity());
+        announcementImpl.setSite(announcement.getSite());
+        announcementImpl.setBuilding(announcement.getBuilding());
 
         return announcementImpl;
     }
