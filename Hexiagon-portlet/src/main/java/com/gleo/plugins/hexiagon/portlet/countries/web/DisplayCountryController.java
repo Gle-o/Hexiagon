@@ -10,7 +10,6 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Country;
 import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.liferay.portal.util.PortalUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.io.IOException;
