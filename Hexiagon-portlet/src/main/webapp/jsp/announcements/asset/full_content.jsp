@@ -160,15 +160,47 @@
 		 			<i class="icon-calendar icon-light" ></i>
 					</span> &nbsp;<liferay-ui:message key="annoucements.asset.full.content.panel.announcement.modified.date.label"/> : <fmt:formatDate type="both" value="${announcement.modifiedDate}" /></p>
 					
-					<p><span class="icon-stack" style="color:#00a2fb">
-					<i class="icon-sign-blank icon-stack-base "></i>
-		 			<i class="icon-tags icon-light" ></i>
-					</span>
-						<liferay-ui:asset-categories-summary
-						className="<%= Announcement.class.getName() %>"
-						classPK="${announcement.announcementId}"/>
-					</p>
-	
+					<c:if test="${announcement.hasCategories()}"> 
+						<p><span class="icon-stack" style="color:#00a2fb">
+						<i class="icon-sign-blank icon-stack-base "></i>
+			 			<i class="icon-tags icon-light" ></i>
+						</span>
+							<liferay-ui:asset-categories-summary
+							className="<%= Announcement.class.getName() %>"
+							classPK="${announcement.announcementId}"/>
+						</p>
+					</c:if>
+					
+					<c:if test="${not empty announcement.city}">
+						<p><span class="icon-stack" style="color:#00a2fb">
+						<i class="icon-sign-blank icon-stack-base "></i>
+			 			<i class="icon-tags icon-light" ></i>
+						</span>
+							<liferay-ui:message key="annoucements.add.panel.informations.city.label"/> :
+							${announcement.city}
+						</p>
+					</c:if>
+					
+					<c:if test="${not empty announcement.building}">
+						<p><span class="icon-stack" style="color:#00a2fb">
+						<i class="icon-sign-blank icon-stack-base "></i>
+			 			<i class="icon-tags icon-light" ></i>
+						</span>
+							<liferay-ui:message key="annoucements.add.panel.informations.building.label"/> :
+							${announcement.building}
+						</p>
+					</c:if>
+					
+					<c:if test="${not empty announcement.site}">
+						<p><span class="icon-stack" style="color:#00a2fb">
+						<i class="icon-sign-blank icon-stack-base "></i>
+			 			<i class="icon-tags icon-light" ></i>
+						</span>
+							<liferay-ui:message key="annoucements.add.panel.informations.site.label"/> :
+							${announcement.site}
+						</p>
+					</c:if>
+					
 				</liferay-ui:panel>
 				<br>
 				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory3" persistState="false" title="annoucements.asset.full.content.panel.meta.title">

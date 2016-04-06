@@ -21,6 +21,10 @@ import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletURLFactoryUtil;
+import com.liferay.portlet.asset.model.AssetCategory;
+import com.liferay.portlet.asset.model.AssetEntry;
+import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
+import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
 import com.liferay.portlet.ratings.model.RatingsStats;
 import com.liferay.portlet.ratings.service.RatingsStatsLocalServiceUtil;
@@ -378,5 +382,23 @@ public class AnnouncementImpl extends AnnouncementBaseImpl {
 		portletURL.setParameter("redirect", redirectUrl.toString());
 
 		return portletURL.toString();
+	}
+	
+	public boolean hasCategories() {
+		
+		boolean hasCategories = false;
+		
+		try {
+			AssetEntry assetEntry = AssetEntryLocalServiceUtil.getEntry(Announcement.class.getName(), this.getAnnouncementId());
+			hasCategories = AssetCategoryLocalServiceUtil.getAssetEntryAssetCategoriesCount(assetEntry.getEntryId()) >=1;
+		} catch (PortalException e) {
+			LOGGER.error(e);
+		} catch (SystemException e) {
+			LOGGER.error(e);
+		} catch (Exception e) {
+			LOGGER.error(e);
+		}
+		
+		return hasCategories;
 	}
 }
