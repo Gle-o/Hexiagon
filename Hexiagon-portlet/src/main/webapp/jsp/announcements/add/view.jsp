@@ -71,9 +71,11 @@
 				</aui:col>
 				
 				<aui:col span="4">
+					<liferay-ui:error key="announcementcountry-required" message="annoucements.add.errors.country.required" />
 					<aui:select label="annoucements.add.panel.informations.country.label" name="countryId" showEmptyOption="true"/>
 		
-					<aui:select label="annoucements.add.panel.informations.region.label" name="regionId" showEmptyOption="true" />
+					<liferay-ui:error key="announcementregion-required" message="annoucements.add.errors.region.required" />
+					<aui:select label="annoucements.add.panel.informations.region.label" name="regionId" showEmptyOption="true"/>
 					
 					<aui:input name="building" label="annoucements.add.panel.informations.building.label"/>
 				</aui:col>
@@ -240,80 +242,97 @@
 
 <aui:script use="aui-base,aui-form-validator,liferay-form,liferay-dynamic-select">
 
-	A.config.FormValidator.STRINGS.fileSizeRule ='Image should be < ${fileSizeRule}.';
-	
-	A.config.FormValidator.RULES.fileSizeRule = function(val, fieldNode, ruleValue) {
-	     	var name = fieldNode.attr('id');
-	     	var input = document.getElementById(name);
-	        var fileSize = input.files[0].size;
-	         
-	return ((fileSize < ${fileSizeRule}) || fieldNode.get('disabled'));
-	 };
-	 
-	var rules = {
-		<portlet:namespace/>title: {
-		 	required: true
-		},
-		<portlet:namespace/>typeId: {
-		 	required: true
-		},
-		<portlet:namespace/>agreementCheckbox: {
-		 	required: true
-		},
-		<portlet:namespace/>editor: {
-		 	required: true
-		},
-		<portlet:namespace/>emailAddress: {
-		 	email: true
-		},
-		<portlet:namespace/>phoneNumber: {
-			digits: true,
-			minLength: 8,
-			maxLength: 10
-		},
-		<portlet:namespace/>price: {
-		 	required: true,
-		 	number: true,
-		 	range:  [0,${maxPrice}]
-		},
-		<c:forEach var="vocabularyId" items="${vocabularyIds}">
-			<portlet:namespace/>assetCategoryIds_${vocabularyId}: {
-				 	required: true
-			},
-		</c:forEach>
-		<c:forEach begin="1" end="${imageLimit}" var="index">
-			<portlet:namespace/>image${index}: {
-			 	acceptFiles: '${acceptFiles}',
-			 	fileSizeRule: true
-			},
-		</c:forEach>		
-	};
-	
-	var validator = new A.FormValidator({
-		boundingBox: document.<portlet:namespace />fm,
-		rules: rules,
-		validateOnBlur: true
-	});
-	
 	new Liferay.DynamicSelect(
-		[
-			{
-				select: '<portlet:namespace />countryId',
-				selectData: Liferay.Address.getCountries,
-				selectDesc: 'nameCurrentValue',
-				selectSort: '<%= true %>',
-				selectId: 'countryId',
-				selectVal: '${countryId}'
+			[
+				{
+					select: '<portlet:namespace />countryId',
+					selectData: Liferay.Address.getCountries,
+					selectDesc: 'nameCurrentValue',
+					selectSort: '<%= true %>',
+					selectId: 'countryId',
+					selectVal: '${countryId}'
+				},
+				{
+					select: '<portlet:namespace />regionId',
+					selectData: Liferay.Address.getRegions,
+					selectDesc: 'name',
+					selectId: 'regionId',
+					selectVal: '${regionId}'
+				}
+			]
+		);
+	
+	A.on('domready', function(event){
+		A.config.FormValidator.STRINGS.fileSizeRule ='Image should be < ${fileSizeRule}.';
+		
+		A.config.FormValidator.RULES.fileSizeRule = function(val, fieldNode, ruleValue) {
+		     	var name = fieldNode.attr('id');
+		     	var input = document.getElementById(name);
+		        var fileSize = input.files[0].size;
+		         
+		return ((fileSize < ${fileSizeRule}) || fieldNode.get('disabled'));
+		 };
+		 
+		var rules = {
+			<portlet:namespace/>title: {
+			 	required: true
 			},
-			{
-				select: '<portlet:namespace />regionId',
-				selectData: Liferay.Address.getRegions,
-				selectDesc: 'name',
-				selectId: 'regionId',
-				selectVal: '${regionId}'
+			<portlet:namespace/>typeId: {
+			 	required: true
+			},
+			<portlet:namespace/>agreementCheckbox: {
+			 	required: true
+			},
+			<portlet:namespace/>editor: {
+			 	required: true
+			},
+			<portlet:namespace/>emailAddress: {
+			 	email: true
+			},
+			<portlet:namespace/>phoneNumber: {
+				digits: true,
+				minLength: 8,
+				maxLength: 10
+			},
+			<portlet:namespace/>countryId: {
+				min: 1
+			},
+			<portlet:namespace/>regionId: {
+				min: 1
+			},
+			<portlet:namespace/>price: {
+			 	required: true,
+			 	number: true,
+			 	range:  [0,${maxPrice}]
+			},
+			<c:forEach var="vocabularyId" items="${vocabularyIds}">
+				<portlet:namespace/>assetCategoryIds_${vocabularyId}: {
+					 	required: true
+				},
+			</c:forEach>
+			<c:forEach begin="1" end="${imageLimit}" var="index">
+				<portlet:namespace/>image${index}: {
+				 	acceptFiles: '${acceptFiles}',
+				 	fileSizeRule: true
+				},
+			</c:forEach>		
+		};
+		
+		var fieldStrings = {
+			<portlet:namespace/>countryId: {
+				min: '<liferay-ui:message key="this-field-is-required" />'
+			},
+			<portlet:namespace/>regionId: {
+				min: '<liferay-ui:message key="this-field-is-required" />'
 			}
-		]
-	);
+		};
+		var validator = new A.FormValidator({
+			boundingBox: document.<portlet:namespace />fm,
+			rules: rules,
+			fieldStrings: fieldStrings,
+			validateOnBlur: true
+		});
+	});
 </aui:script>
 
 <aui:script>

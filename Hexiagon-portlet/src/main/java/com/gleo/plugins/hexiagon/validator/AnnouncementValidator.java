@@ -8,6 +8,8 @@ import com.gleo.plugins.hexiagon.model.AnnouncementImage;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * @author guillaumelenoir
  *
@@ -39,7 +41,7 @@ public class AnnouncementValidator {
 			}
 		}
 
-		if (Validator.isNull(announcement.getTitle(locale))) {
+		if (StringUtils.isEmpty(announcement.getTitle(locale))) {
 			errors.add("announcementtitle-required");
 			valid = false;
 		}
@@ -49,7 +51,7 @@ public class AnnouncementValidator {
 			valid = false;
 		}
 
-		if (Validator.isNull(announcement.getContent(locale))) {
+		if (StringUtils.isEmpty(announcement.getContent(locale))) {
 			errors.add("announcementcontent-required");
 			valid = false;
 		}
@@ -71,6 +73,16 @@ public class AnnouncementValidator {
 		
 		if (!announcement.isValidAgreement()) {
 			errors.add("announcementagreement-required");
+			valid = false;
+		}
+		
+		if (announcement.getCountryId() <= 0) {
+			errors.add("announcementcountry-required");
+			valid = false;
+		}
+		
+		if (announcement.getRegionId() <= 0) {
+			errors.add("announcementregion-required");
 			valid = false;
 		}
 
