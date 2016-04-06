@@ -51,7 +51,8 @@
 					<aui:nav-item href="${deleteURL}" iconCssClass="icon-remove" label="annoucements.display.delete.label" id="deleteAnnouncement${announcement.announcementId}"/>
 				</aui:nav>
 			</c:if>
-			<c:if test="${hasPermissionRight}">
+			
+			<c:if test="<%= PortalUtil.isOmniadmin(themeDisplay.getUserId()) %>">
 				<aui:nav>
 					<liferay-security:permissionsURL
 					modelResource="<%= Announcement.class.getName() %>"
@@ -65,6 +66,7 @@
 					<aui:nav-item href="${permissionsURL}" iconCssClass="icon-pencil" label="annoucements.display.permission.label" useDialog="true" title="permissions"/>
 				</aui:nav>
 			</c:if>
+			
 			
 		</aui:nav-bar>
 	</c:if>

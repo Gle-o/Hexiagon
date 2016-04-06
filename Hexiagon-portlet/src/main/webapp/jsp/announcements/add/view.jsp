@@ -214,13 +214,15 @@
 		</aui:field-wrapper>
 	</aui:fieldset>
 	
-	<c:if test="${announcement eq null}">
-		<aui:field-wrapper label="annoucements.add.permissions.label">
-			<liferay-ui:input-permissions
-				modelName="${model.getName()}"
-				/>
-		</aui:field-wrapper>
-	</c:if>
+	<%--
+		<c:if test="${announcement eq null}">
+			<aui:field-wrapper label="annoucements.add.permissions.label">
+				<liferay-ui:input-permissions
+					modelName="${model.getName()}"
+					/>
+			</aui:field-wrapper>
+		</c:if>
+	--%>
 	
 	<c:if test="${isRelatedAssetActivated}">
 		<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="artistAssetLinksPanel" persistState="<%= true %>" title="annoucements.add.permissions.related.assets.title">
@@ -287,12 +289,14 @@
 			 	required: true
 			},
 			<portlet:namespace/>emailAddress: {
-			 	email: true
+			 	email: true,
+			 	required: true
 			},
 			<portlet:namespace/>phoneNumber: {
 				digits: true,
 				minLength: 8,
-				maxLength: 10
+				maxLength: 10,
+				required: true
 			},
 			<portlet:namespace/>countryId: {
 				min: 1

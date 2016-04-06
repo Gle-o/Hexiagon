@@ -118,14 +118,9 @@ public class AnnouncementLocalServiceImpl extends AnnouncementLocalServiceBaseIm
 		announcementPersistence.update(announcement);
 
 		// Resources
-		if (serviceContext.isAddGroupPermissions() || serviceContext.isAddGuestPermissions()) {
 
-			resourceLocalService.addResources(
-				companyId, groupId, userId, Announcement.class.getName(), announcementId, false, serviceContext.isAddGroupPermissions(), serviceContext.isAddGuestPermissions());
-		}
-		else {
-			resourceLocalService.addModelResources(companyId, groupId, userId, Announcement.class.getName(), announcementId, serviceContext.getGroupPermissions(), serviceContext.getGuestPermissions());
-		}
+		resourceLocalService.addModelResources(companyId, groupId, userId, Announcement.class.getName(), announcementId, serviceContext.getGroupPermissions(), serviceContext.getGuestPermissions());
+		
 
 		// Asset
 
