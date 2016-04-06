@@ -52,6 +52,8 @@
 				 			</c:forEach>
 						</aui:select>
 					</aui:row>
+					
+					<aui:input name="city" label="annoucements.add.panel.informations.city.label"/>
 				</aui:col>
 				
 				<aui:col span="4">
@@ -64,12 +66,16 @@
 					<liferay-ui:error key="announcementphonenumber-format-error" message="annoucements.add.panel.informations.errors.phonenumber.format.error" />
 					
 					<aui:input name="phoneNumber" label="annoucements.add.panel.informations.phoneNumber.label" />
+					
+					<aui:input name="site" label="annoucements.add.panel.informations.site.label"/>
 				</aui:col>
 				
 				<aui:col span="4">
 					<aui:select label="annoucements.add.panel.informations.country.label" name="countryId" showEmptyOption="true"/>
 		
 					<aui:select label="annoucements.add.panel.informations.region.label" name="regionId" showEmptyOption="true" />
+					
+					<aui:input name="building" label="annoucements.add.panel.informations.building.label"/>
 				</aui:col>
 			</aui:row>
 		</liferay-ui:panel>

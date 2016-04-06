@@ -417,6 +417,10 @@ public class AddAnnouncementController extends MVCPortlet {
 		long countryId = ParamUtil.getLong(uploadPortletRequest, "countryId");
 		long regionId = ParamUtil.getLong(uploadPortletRequest, "regionId");
 
+		String city = ParamUtil.getString(uploadPortletRequest, "city");
+		String building = ParamUtil.getString(uploadPortletRequest, "building");
+		String site = ParamUtil.getString(uploadPortletRequest, "site");
+		
 		if (Validator.isNotNull(announcementId)) {
 			announcement = AnnouncementLocalServiceUtil.getAnnouncement(announcementId);
 		}
@@ -480,6 +484,10 @@ public class AddAnnouncementController extends MVCPortlet {
 		announcement.setUserId(userId);
 		announcement.setRegionId(regionId);
 		announcement.setCountryId(countryId);
+		
+		announcement.setCity(city);
+		announcement.setBuilding(building);
+		announcement.setSite(site);
 
 		return announcement;
 	}
