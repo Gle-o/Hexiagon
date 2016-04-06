@@ -137,7 +137,7 @@ public class AddAnnouncementController extends MVCPortlet {
 			// Get isRelatedAssetActivated from preferences
 			isRelatedAssetActivated = GetterUtil.getBoolean(portletPreferences.getValue(AnnouncementConstants.ACTIVATE_RELATED_ASSETS_PREFERENCES, StringPool.TRUE));
 			
-			Country country = CountryServiceUtil.getCountryByA3(themeDisplay.getLocale().getISO3Country());
+			Country country = CountryServiceUtil.getCountryByA2(themeDisplay.getLocale().getCountry());
 			
 			if (Validator.isNotNull(country)) {
 				countryId = country.getCountryId();
