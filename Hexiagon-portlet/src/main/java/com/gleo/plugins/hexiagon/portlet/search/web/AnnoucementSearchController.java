@@ -28,13 +28,16 @@ import com.liferay.portal.kernel.search.SearchResult;
 import com.liferay.portal.kernel.search.SearchResultUtil;
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.servlet.SessionMessages;
+import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.Country;
 import com.liferay.portal.model.LayoutConstants;
+import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletURLFactoryUtil;
@@ -167,6 +170,20 @@ public class AnnoucementSearchController extends MVCPortlet {
 		long regionId = ParamUtil.getLong(portletRequest, "regionId");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) portletRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		
+		// Set Country
+		if (countryId <= 0) {
+			try {
+				Country country = CountryServiceUtil.getCountryByA2(themeDisplay.getLocale().getCountry());
+				if (Validator.isNotNull(country)) {
+					countryId = country.getCountryId();
+				}
+			} catch (PortalException e) {
+				LOGGER.error(e);
+			} catch (SystemException e) {
+				LOGGER.error(e);
+			}
+		}
 
 		int filter = ParamUtil.getInteger(portletRequest, "filterId");
 		Indexer indexer = IndexerRegistryUtil.getIndexer(Announcement.class);
@@ -276,6 +293,9 @@ public class AnnoucementSearchController extends MVCPortlet {
 					for (SearchResult searchResult : searchResultsList) {
 						Announcement announcement = null;
 						try {
+							if(LOGGER.isDebugEnabled()) {
+								LOGGER.debug("Get announcementId = " +searchResult.getClassPK());
+							}
 							announcement = AnnouncementLocalServiceUtil.getAnnouncement(searchResult.getClassPK());
 							announcements.add(announcement);
 						}
@@ -341,6 +361,21 @@ public class AnnoucementSearchController extends MVCPortlet {
 		portletRequest.setAttribute("typeId", typeId);
 		portletRequest.setAttribute("countryId", countryId);
 		portletRequest.setAttribute("regionId", regionId);
+		
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("parentCategoryList = " + categoryList);
+			LOGGER.debug("categoryIds = " + StringUtil.merge(categoryIds));
+			LOGGER.debug("typeId = " + typeId);
+			LOGGER.debug("currencyId = " + currencyId);
+			LOGGER.debug("end = " + end);
+			LOGGER.debug("total = " + total);
+			LOGGER.debug("page = " + page);
+			LOGGER.debug("delda = " + delta);
+			LOGGER.debug("filterId = " + filter);
+			LOGGER.debug("typeId = " + typeId);
+			LOGGER.debug("countryId = " + countryId);
+			LOGGER.debug("regionId = " + regionId);
+		}
 	}
 
 	/**
