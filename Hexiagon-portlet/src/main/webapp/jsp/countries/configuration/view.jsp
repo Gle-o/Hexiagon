@@ -13,12 +13,22 @@
 			<portlet:param name="redirect" value="<%= PortalUtil.getCurrentURL(renderRequest) %>" />
 			<portlet:param name="jspPage" value="/jsp/countries/configuration/edit.jsp"/>
 	    </portlet:renderURL>
-	    
 		<aui:nav-item href="${addCountryURL}" iconCssClass="icon-plus" label="annoucements.countries.add.label" />
-		
+	</aui:nav>
+	
+	<aui:nav >
+		<portlet:actionURL var="desactivateAllCountryURL" name="desactivateAllCountry">
+			<portlet:param name="redirect" value="<%= PortalUtil.getCurrentURL(renderRequest) %>" />
+	    </portlet:actionURL>
+		<aui:nav-item href="${desactivateAllCountryURL}" iconCssClass="icon-minus" label="annoucements.countries.desactivate.all.label" />
+	</aui:nav>
+	<aui:nav >
+		<portlet:actionURL var="activateAllCountryURL" name="activateAllCountry">
+			<portlet:param name="redirect" value="<%= PortalUtil.getCurrentURL(renderRequest) %>" />
+	    </portlet:actionURL>
+		<aui:nav-item href="${activateAllCountryURL}" iconCssClass="icon-plus" label="annoucements.countries.activate.all.label" />
 	</aui:nav>
 </aui:nav-bar>
-
 
 <liferay-ui:search-container  searchContainer="${searchCountryContainer}" id="countries">
 	<liferay-ui:search-container-results

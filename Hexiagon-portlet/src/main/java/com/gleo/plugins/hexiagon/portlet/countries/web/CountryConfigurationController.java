@@ -10,6 +10,7 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.model.Country;
 import com.liferay.portal.security.auth.PrincipalException;
+import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.io.IOException;
@@ -142,4 +143,44 @@ public class CountryConfigurationController extends MVCPortlet {
 		}
 	}
 	
+	/**
+	 * Desactivate All Country
+	 * 
+	 * @param actionRequest
+	 * @param actionResponse
+	 * @throws IOException
+	 * @throws PortletException
+	 */
+	public void desactivateAllCountry(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortletException {
+		
+		try {
+			List<Country> countries = CountryServiceUtil.getCountries();
+			for (Country country : countries) {
+				ExtCountryServiceUtil.setActive(country.getCountryId(), false);
+			}
+		} catch (Exception e) {
+			LOGGER.error(e);
+		}
+	}
+	
+	/**
+	 * Activate All Country
+	 * 
+	 * @param actionRequest
+	 * @param actionResponse
+	 * @throws IOException
+	 * @throws PortletException
+	 */
+	public void activateAllCountry(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortletException {
+		
+		try {
+			List<Country> countries = CountryServiceUtil.getCountries();
+			for (Country country : countries) {
+				ExtCountryServiceUtil.setActive(country.getCountryId(), true);
+			}
+		} catch (Exception e) {
+			LOGGER.error(e);
+		}
+	}
+
 }
