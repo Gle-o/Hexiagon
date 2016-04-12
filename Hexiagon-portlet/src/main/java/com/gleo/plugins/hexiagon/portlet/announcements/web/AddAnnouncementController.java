@@ -326,33 +326,25 @@ public class AddAnnouncementController extends MVCPortlet {
 			}
 		}
 		catch (IOException e) {
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug(e);
-			}
+			LOGGER.error(e);
 			LOGGER.error("IOException: unable to get announcement from request");
 			SessionErrors.add(actionRequest, IOException.class);
 			PortalUtil.copyRequestParameters(uploadPortletRequest, actionResponse);
 		}
 		catch (AssetCategoryException ace) {
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug(ace);
-			}
+			LOGGER.error(ace);
 			LOGGER.error("AssetCategoryException: impossible to validate categories from request");
 			SessionErrors.add(actionRequest, AssetCategoryException.class);
 			PortalUtil.copyRequestParameters(uploadPortletRequest, actionResponse);
 		}
 		catch (PortalException e) {
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug(e);
-			}
+			LOGGER.error(e);
 			LOGGER.error("PortalException: unable to get add announcement from request");
 			SessionErrors.add(actionRequest, PortalException.class);
 			PortalUtil.copyRequestParameters(uploadPortletRequest, actionResponse);
 		}
 		catch (SystemException e) {
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug(e);
-			}
+			LOGGER.error(e);
 			LOGGER.error("SystemException: unable to get add announcement from request");
 			SessionErrors.add(actionRequest, SystemException.class);
 			PortalUtil.copyRequestParameters(uploadPortletRequest, actionResponse);

@@ -18,7 +18,9 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Country;
 import com.liferay.portal.model.LayoutConstants;
+import com.liferay.portal.model.User;
 import com.liferay.portal.service.CountryServiceUtil;
+import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletURLFactoryUtil;
 import com.liferay.portlet.asset.model.AssetCategory;
@@ -278,6 +280,20 @@ public class AnnouncementImpl extends AnnouncementBaseImpl {
 	public String getStatus(Locale locale) {
 
 		return LanguageUtil.get(locale, WorkflowConstants.getStatusLabel(getStatus()));
+	}
+	
+	public User getUser() {
+		User user = null;
+		
+		try {
+			user = UserLocalServiceUtil.getUser(getUserId());
+		} catch (PortalException e) {
+			LOGGER.error(e);
+		} catch (SystemException e) {
+			LOGGER.error(e);
+		}
+
+		return user;
 	}
 
 	/**

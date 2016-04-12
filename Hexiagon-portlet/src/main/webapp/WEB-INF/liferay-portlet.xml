@@ -69,6 +69,7 @@
 		<portlet-name>add-announcement-portlet</portlet-name>
 		<icon>/icon.png</icon>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
 		<action-url-redirect>true</action-url-redirect>
 		<ajaxable>true</ajaxable>
 		<header-portlet-css>/css/add-announcement.css</header-portlet-css>
@@ -81,6 +82,7 @@
 	<portlet>
 		<portlet-name>display-categories</portlet-name>
 		<icon>/icon.png</icon>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
 		<header-portlet-css>/css/display-categories.css</header-portlet-css>
 		<footer-portlet-javascript>
 			/js/main.js
@@ -88,10 +90,12 @@
 		<css-class-wrapper>
 			display-categories-portlet-wrapper
 		</css-class-wrapper>
+		<add-default-resource>true</add-default-resource>
 	</portlet>
 	<portlet>
 		<portlet-name>annoucement-search</portlet-name>
 		<icon>/icon.png</icon>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
 		<header-portlet-css>/css/search.css</header-portlet-css>
 		<footer-portlet-javascript>
 			/js/main.js
@@ -103,6 +107,7 @@
 	<portlet>
 		<portlet-name>display-country-portlet</portlet-name>
 		<icon>/icon.png</icon>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
 		<header-portlet-css>/css/display-country.css</header-portlet-css>
 		<footer-portlet-javascript>
 			/js/main.js
@@ -114,6 +119,7 @@
 	<portlet>
 		<portlet-name>announcement-display-portlet</portlet-name>
 		<icon>/icon.png</icon>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
 		<ajaxable>true</ajaxable>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>
@@ -134,6 +140,7 @@
 	<portlet>
 		<portlet-name>categories-importer</portlet-name>
 		<icon>/icon.png</icon>
+		<show-portlet-access-denied>false</show-portlet-access-denied>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
 		<css-class-wrapper>categories-importer-portlet</css-class-wrapper>

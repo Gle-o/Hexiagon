@@ -1,6 +1,71 @@
 <?xml version="1.0"?>
 <!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 6.1.0//EN" "http://www.liferay.org/dtd/liferay-resource-action-mapping_6_1_0.dtd">
 <resource-action-mapping>
+
+	<portlet-resource>
+		<portlet-name>display-categories</portlet-name>
+		<permissions>
+			<supports>
+				<action-key>CONFIGURATION</action-key>
+				<action-key>VIEW</action-key>
+			</supports>
+			<site-member-defaults>
+				<action-key>VIEW</action-key>
+			</site-member-defaults>
+			<guest-defaults />
+			<guest-unsupported>
+				<action-key>VIEW</action-key>
+			</guest-unsupported>
+		</permissions>
+	</portlet-resource>
+	<portlet-resource>
+		<portlet-name>add-announcement-portlet</portlet-name>
+		<permissions>
+			<supports>
+				<action-key>CONFIGURATION</action-key>
+				<action-key>VIEW</action-key>
+			</supports>
+			<site-member-defaults>
+				<action-key>VIEW</action-key>
+			</site-member-defaults>
+			<guest-defaults />
+			<guest-unsupported>
+				<action-key>VIEW</action-key>
+			</guest-unsupported>
+		</permissions>
+	</portlet-resource>
+	<portlet-resource>
+		<portlet-name>display-country-portlet</portlet-name>
+		<permissions>
+			<supports>
+				<action-key>CONFIGURATION</action-key>
+				<action-key>VIEW</action-key>
+			</supports>
+			<site-member-defaults>
+				<action-key>VIEW</action-key>
+			</site-member-defaults>
+			<guest-defaults />
+			<guest-unsupported>
+				<action-key>VIEW</action-key>
+			</guest-unsupported>
+		</permissions>
+	</portlet-resource>
+	<portlet-resource>
+		<portlet-name>annoucement-search</portlet-name>
+		<permissions>
+			<supports>
+				<action-key>CONFIGURATION</action-key>
+				<action-key>VIEW</action-key>
+			</supports>
+			<site-member-defaults>
+				<action-key>VIEW</action-key>
+			</site-member-defaults>
+			<guest-defaults />
+			<guest-unsupported>
+				<action-key>VIEW</action-key>
+			</guest-unsupported>
+		</permissions>
+	</portlet-resource>
 	<portlet-resource>
 		<portlet-name>types-portlet</portlet-name>
 		<permissions>
@@ -63,9 +128,10 @@
 				<action-key>VIEW</action-key>
 			</site-member-defaults>
 			<guest-defaults>
-				<action-key>VIEW</action-key>
 			</guest-defaults>
-			<guest-unsupported />
+			<guest-unsupported>
+				<action-key>VIEW</action-key>
+			</guest-unsupported>
 		</permissions>
 	</portlet-resource>
 	
@@ -99,8 +165,11 @@
 				<action-key>ADD_CURRENCY</action-key>
 				<action-key>UPDATE_ORDER</action-key>
 			</supports>
-			<site-member-defaults />
-			<guest-defaults />
+			
+			<site-member-defaults>
+				<action-key>ADD_ANNOUNCEMENT</action-key>
+			</site-member-defaults>
+			<guest-defaults/>
 			<guest-unsupported>
 				<action-key>ADD_CURRENCY</action-key>
 				<action-key>ADD_ANNOUNCEMENT</action-key>
@@ -108,6 +177,7 @@
 				<action-key>ADD_TYPE</action-key>
 				<action-key>UPDATE_ORDER</action-key>
 			</guest-unsupported>
+			
 		</permissions>
 	</model-resource>
 	
@@ -128,6 +198,7 @@
 			</supports>
 			<site-member-defaults>
 				<action-key>VIEW</action-key>
+				<action-key>ADD_DISCUSSION</action-key>
 			</site-member-defaults>
 			<guest-defaults>
 				<action-key>VIEW</action-key>

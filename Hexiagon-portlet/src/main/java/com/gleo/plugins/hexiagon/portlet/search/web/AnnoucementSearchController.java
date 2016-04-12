@@ -12,6 +12,7 @@ import com.gleo.plugins.hexiagon.service.AnnouncementLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.CurrencyLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.FavoriteLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.TypeLocalServiceUtil;
+import com.gleo.plugins.hexiagon.util.CountryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -34,9 +35,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
-import com.liferay.portal.model.Country;
 import com.liferay.portal.model.LayoutConstants;
-import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletURLFactoryUtil;
@@ -171,18 +170,7 @@ public class AnnoucementSearchController extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay) portletRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		
 		// Set Country
-		if (countryId <= 0) {
-			try {
-				Country country = CountryServiceUtil.getCountryByA2(themeDisplay.getLocale().getCountry());
-				if (Validator.isNotNull(country)) {
-					countryId = country.getCountryId();
-				}
-			} catch (PortalException e) {
-				LOGGER.error(e);
-			} catch (SystemException e) {
-				LOGGER.error(e);
-			}
-		}
+		countryId = CountryUtil.getCountryIdByLocal(countryId, themeDisplay);
 
 		int filter = ParamUtil.getInteger(portletRequest, "filterId");
 		Indexer indexer = IndexerRegistryUtil.getIndexer(Announcement.class);

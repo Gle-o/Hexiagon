@@ -94,25 +94,27 @@
 		</aui:row>
 	</aui:container>
 	
-	<aui:script use="aui-base">
-		A.one('#<portlet:namespace/>deleteAnnouncement${announcement.announcementId}').on('click', function (event) {
-       		return confirm('<liferay-ui:message key="are-you-sure-you-want-to-delete-this-entry"/>') ? true : event.preventDefault();
-    	});
-    	
-    	A.one('#<portlet:namespace/>edit${announcement.announcementId}').on('click', function (event) {
-			Liferay.Util.openWindow(
-				{
-					id: '${renderResponse.getNamespace()}editAnnouncement',
-					title: '${titlePopUp}',
-					uri:'${uriPopUp}',
-					dialog:{
-							destroyOnHide: true,
-							width: '60%',
-							height: '100%'
+	<c:if test="${hasEditRight}">
+		<aui:script use="aui-base">
+			A.one('#<portlet:namespace/>deleteAnnouncement${announcement.announcementId}').on('click', function (event) {
+	       		return confirm('<liferay-ui:message key="are-you-sure-you-want-to-delete-this-entry"/>') ? true : event.preventDefault();
+	    	});
+	    	
+	    	A.one('#<portlet:namespace/>edit${announcement.announcementId}').on('click', function (event) {
+				Liferay.Util.openWindow(
+					{
+						id: '${renderResponse.getNamespace()}editAnnouncement',
+						title: '${titlePopUp}',
+						uri:'${uriPopUp}',
+						dialog:{
+								destroyOnHide: true,
+								width: '60%',
+								height: '100%'
+						}
 					}
-				}
-			);
-		});
-	</aui:script>
+				);
+			});
+		</aui:script>
+	</c:if>
 	
 </c:if>

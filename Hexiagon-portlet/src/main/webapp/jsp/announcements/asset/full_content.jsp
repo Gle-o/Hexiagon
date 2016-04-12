@@ -56,6 +56,8 @@
 	<portlet:namespace/>
 </c:set>
 
+<c:set var="announcementUser" value="${announcement.user}"/>
+
 <style>
 
 	#${portletNamespace}announcement-display .thumbnails .carousel-menu-index {height: auto;margin: auto;width: auto;}
@@ -107,13 +109,13 @@
 				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory1" persistState="false" title="annoucements.asset.full.content.panel.user.info.label">
 					<div class="span3">
 						<a class="${favorite}" href="" onclick="<portlet:namespace/>showUserInfo(${announcement.userId});return false;">
-							<img src="${user.getPortraitURL(themeDisplay)}>" alt="" class="img-rounded">
+							<img src="${announcementUser.getPortraitURL(themeDisplay)}>" alt="" class="img-rounded">
 						</a>
 					</div>
 					<div class="span8 offset1">
 						<blockquote>
-							<p>${user.getFullName()}</p>
-							<c:forEach var="address" items="${user.getAddresses()}">xz
+							<p>${announcementUser.getFullName()}</p>
+							<c:forEach var="address" items="${announcementUser.getAddresses()}">xz
 								<small>
 									<cite title="Source Title">${address.getStreet1()} ${address.getCity()} ${address.getRegion().getName()} ${address.getCountry().getName(locale)} <i class="icon-map-marker"></i>
 									</cite>
