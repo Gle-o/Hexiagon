@@ -6,6 +6,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.permission.StagingPermissionUtil;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.PermissionChecker;
+import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.gleo.plugins.hexiagon.constants.PortletKeys;
 import com.gleo.plugins.hexiagon.model.Announcement;
 import com.gleo.plugins.hexiagon.service.AnnouncementLocalServiceUtil;
@@ -42,6 +43,13 @@ public class AnnouncementPermission {
 			return hasPermission.booleanValue();
 		}
 
+		if (permissionChecker.hasOwnerPermission(
+				announcement.getCompanyId(), Announcement.class.getName(),
+				announcement.getAnnouncementId(), announcement.getUserId(), actionId)) {
+
+			return true;
+		}
+		
 		return permissionChecker.hasPermission(announcement.getGroupId(), Announcement.class.getName(), announcement.getAnnouncementId(), actionId);
 	}
 
