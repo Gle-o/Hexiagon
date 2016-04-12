@@ -39,7 +39,7 @@ public class CountryConfigurationController extends MVCPortlet {
 		
 		PortletURL iteratorURL = renderResponse.createRenderURL();
 		
-		int delta = ParamUtil.getInteger(renderRequest, SearchContainer.DEFAULT_DELTA_PARAM, SearchContainer.DEFAULT_DELTA);
+		int delta = ParamUtil.getInteger(renderRequest, SearchContainer.DEFAULT_DELTA_PARAM, 100);
 		int cur = ParamUtil.getInteger(renderRequest, "curCountry", SearchContainer.DEFAULT_CUR);
 
 		// create search container
