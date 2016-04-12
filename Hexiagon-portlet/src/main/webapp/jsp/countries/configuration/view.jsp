@@ -47,14 +47,35 @@
 		/>
 		
 		<liferay-ui:search-container-column-text
-			name="active"
-			value="${country.active}"
+			name="a2"
+			value="${country.a2}"
 		/>
 		
 		<liferay-ui:search-container-column-text
-			name="code"
-			value="${country.a2}"
+			name="a3"
+			value="${country.a3}"
 		/>
+		
+		<liferay-ui:search-container-column-text
+			name="number"
+			value="${country.number}"
+		/>
+		
+		<liferay-ui:search-container-column-text
+			name="idd"
+			value="${country.idd}"
+		/>
+		
+		<liferay-ui:search-container-column-text
+			name="zipRequired"
+			value="${country.zipRequired}"
+		/>
+		
+		<liferay-ui:search-container-column-text
+			name="active"
+			value="${country.active}"
+		/>
+
 		<liferay-ui:search-container-column-jsp
 				align="right"
  				name="actions"
