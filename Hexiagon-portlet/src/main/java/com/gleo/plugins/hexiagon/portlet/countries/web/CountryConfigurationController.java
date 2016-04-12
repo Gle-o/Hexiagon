@@ -1,7 +1,6 @@
 package com.gleo.plugins.hexiagon.portlet.countries.web;
 
 import com.gleo.plugins.hexiagon.service.ExtCountryServiceUtil;
-import com.liferay.portal.NoSuchCountryException;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -11,7 +10,6 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.model.Country;
 import com.liferay.portal.security.auth.PrincipalException;
-import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.io.IOException;
@@ -82,12 +80,9 @@ public class CountryConfigurationController extends MVCPortlet {
 			Country country = ExtCountryServiceUtil.setActive(countryId, !isActive);
 			SessionMessages.add(actionRequest, "country-updated-active");
 			LOGGER.debug(country);
-		} catch (NoSuchCountryException e) {
+		} catch (Exception e) {
 			LOGGER.error(e);
-		} catch (PrincipalException e) {
-			LOGGER.error(e);
-		} catch (SystemException e) {
-			LOGGER.error(e);
+			SessionErrors.add(actionRequest,"country-error");
 		}
 	}
 	
