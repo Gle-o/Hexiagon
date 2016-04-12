@@ -263,7 +263,7 @@
 
 <hr>
 
-<liferay-portlet:resourceURL id="updateFavoriteAnnouncement" var="updateFavoriteAnnouncementURL" portletName="<%= PortletKeys.ANNOUNCEMENT_DISPLAY_PORTLETID %>" plid="<%= PortalUtil.getControlPanelPlid(themeDisplay.getCompanyId()) %>" >
+<liferay-portlet:resourceURL id="updateFavoriteAnnouncement" var="updateFavoriteAnnouncementURL" portletName="<%= PortletKeys.ANNOUNCEMENT_DISPLAY_PORTLETID %>" plid="<%= themeDisplay.getPlid() %>" >
 
 </liferay-portlet:resourceURL>
 
