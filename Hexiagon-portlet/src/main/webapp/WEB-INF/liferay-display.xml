@@ -13,8 +13,9 @@
 		<portlet id="categories-importer"></portlet>
 	</category>
 	<category name="category.hidden">
-		<portlet id="types-portlet"/>
-		<portlet id="announcements-portlet"/>
-		<portlet id="currencies-portlet"/>
+		<portlet id="types-portlet" />
+		<portlet id="announcements-portlet" />
+		<portlet id="currencies-portlet" />
+		<portlet id="country-configuration"></portlet>
 	</category>
 </display>

@@ -4,6 +4,10 @@
 	<author>guillaumelenoir</author>
 	<namespace>Hexiagon</namespace>
 	
+	<entity name="ExtCountry" local-service="false" remote-service="true" json-enabled="false">
+		<reference package-path="com.liferay.portal" entity="Country"/>
+	</entity>
+	
 	<entity name="Announcement" local-service="true" remote-service="true" uuid="true">
 
 		<!-- PK fields -->

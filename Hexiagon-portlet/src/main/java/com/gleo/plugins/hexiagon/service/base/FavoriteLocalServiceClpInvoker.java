@@ -41,18 +41,18 @@ public class FavoriteLocalServiceClpInvoker {
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
-    private String _methodName60;
-    private String[] _methodParameterTypes60;
-    private String _methodName61;
-    private String[] _methodParameterTypes61;
-    private String _methodName66;
-    private String[] _methodParameterTypes66;
-    private String _methodName67;
-    private String[] _methodParameterTypes67;
+    private String _methodName62;
+    private String[] _methodParameterTypes62;
+    private String _methodName63;
+    private String[] _methodParameterTypes63;
     private String _methodName68;
     private String[] _methodParameterTypes68;
     private String _methodName69;
     private String[] _methodParameterTypes69;
+    private String _methodName70;
+    private String[] _methodParameterTypes70;
+    private String _methodName71;
+    private String[] _methodParameterTypes71;
 
     public FavoriteLocalServiceClpInvoker() {
         _methodName0 = "addFavorite";
@@ -137,33 +137,33 @@ public class FavoriteLocalServiceClpInvoker {
                 "com.gleo.plugins.hexiagon.model.Favorite"
             };
 
-        _methodName60 = "getBeanIdentifier";
+        _methodName62 = "getBeanIdentifier";
 
-        _methodParameterTypes60 = new String[] {  };
+        _methodParameterTypes62 = new String[] {  };
 
-        _methodName61 = "setBeanIdentifier";
+        _methodName63 = "setBeanIdentifier";
 
-        _methodParameterTypes61 = new String[] { "java.lang.String" };
+        _methodParameterTypes63 = new String[] { "java.lang.String" };
 
-        _methodName66 = "addUserFavoriteAnnouncement";
+        _methodName68 = "addUserFavoriteAnnouncement";
 
-        _methodParameterTypes66 = new String[] {
+        _methodParameterTypes68 = new String[] {
                 "long", "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName67 = "removeUserFavoriteAnnouncement";
+        _methodName69 = "removeUserFavoriteAnnouncement";
 
-        _methodParameterTypes67 = new String[] {
+        _methodParameterTypes69 = new String[] {
                 "long", "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName68 = "isUserFavoriteAnnouncement";
+        _methodName70 = "isUserFavoriteAnnouncement";
 
-        _methodParameterTypes68 = new String[] { "long", "long", "long" };
+        _methodParameterTypes70 = new String[] { "long", "long", "long" };
 
-        _methodName69 = "countUserFavoriteAnnouncement";
+        _methodName71 = "countUserFavoriteAnnouncement";
 
-        _methodParameterTypes69 = new String[] { "long", "long" };
+        _methodParameterTypes71 = new String[] { "long", "long" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -255,41 +255,41 @@ public class FavoriteLocalServiceClpInvoker {
             return FavoriteLocalServiceUtil.updateFavorite((com.gleo.plugins.hexiagon.model.Favorite) arguments[0]);
         }
 
-        if (_methodName60.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes60, parameterTypes)) {
+        if (_methodName62.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
             return FavoriteLocalServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName61.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes61, parameterTypes)) {
+        if (_methodName63.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
             FavoriteLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
-
-            return null;
-        }
-
-        if (_methodName66.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes66, parameterTypes)) {
-            return FavoriteLocalServiceUtil.addUserFavoriteAnnouncement(((Long) arguments[0]).longValue(),
-                (com.liferay.portal.service.ServiceContext) arguments[1]);
-        }
-
-        if (_methodName67.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes67, parameterTypes)) {
-            FavoriteLocalServiceUtil.removeUserFavoriteAnnouncement(((Long) arguments[0]).longValue(),
-                (com.liferay.portal.service.ServiceContext) arguments[1]);
 
             return null;
         }
 
         if (_methodName68.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes68, parameterTypes)) {
+            return FavoriteLocalServiceUtil.addUserFavoriteAnnouncement(((Long) arguments[0]).longValue(),
+                (com.liferay.portal.service.ServiceContext) arguments[1]);
+        }
+
+        if (_methodName69.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes69, parameterTypes)) {
+            FavoriteLocalServiceUtil.removeUserFavoriteAnnouncement(((Long) arguments[0]).longValue(),
+                (com.liferay.portal.service.ServiceContext) arguments[1]);
+
+            return null;
+        }
+
+        if (_methodName70.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             return FavoriteLocalServiceUtil.isUserFavoriteAnnouncement(((Long) arguments[0]).longValue(),
                 ((Long) arguments[1]).longValue(),
                 ((Long) arguments[2]).longValue());
         }
 
-        if (_methodName69.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes69, parameterTypes)) {
+        if (_methodName71.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes71, parameterTypes)) {
             return FavoriteLocalServiceUtil.countUserFavoriteAnnouncement(((Long) arguments[0]).longValue(),
                 ((Long) arguments[1]).longValue());
         }

@@ -61,6 +61,8 @@ public abstract class CurrencyLocalServiceBaseImpl extends BaseLocalServiceImpl
     protected com.gleo.plugins.hexiagon.service.CurrencyService currencyService;
     @BeanReference(type = CurrencyPersistence.class)
     protected CurrencyPersistence currencyPersistence;
+    @BeanReference(type = com.gleo.plugins.hexiagon.service.ExtCountryService.class)
+    protected com.gleo.plugins.hexiagon.service.ExtCountryService extCountryService;
     @BeanReference(type = com.gleo.plugins.hexiagon.service.FavoriteLocalService.class)
     protected com.gleo.plugins.hexiagon.service.FavoriteLocalService favoriteLocalService;
     @BeanReference(type = FavoritePersistence.class)
@@ -453,6 +455,25 @@ public abstract class CurrencyLocalServiceBaseImpl extends BaseLocalServiceImpl
      */
     public void setCurrencyPersistence(CurrencyPersistence currencyPersistence) {
         this.currencyPersistence = currencyPersistence;
+    }
+
+    /**
+     * Returns the ext country remote service.
+     *
+     * @return the ext country remote service
+     */
+    public com.gleo.plugins.hexiagon.service.ExtCountryService getExtCountryService() {
+        return extCountryService;
+    }
+
+    /**
+     * Sets the ext country remote service.
+     *
+     * @param extCountryService the ext country remote service
+     */
+    public void setExtCountryService(
+        com.gleo.plugins.hexiagon.service.ExtCountryService extCountryService) {
+        this.extCountryService = extCountryService;
     }
 
     /**

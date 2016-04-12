@@ -9,73 +9,73 @@ import java.util.Arrays;
  * @generated
  */
 public class CurrencyServiceClpInvoker {
-    private String _methodName38;
-    private String[] _methodParameterTypes38;
-    private String _methodName39;
-    private String[] _methodParameterTypes39;
-    private String _methodName44;
-    private String[] _methodParameterTypes44;
-    private String _methodName45;
-    private String[] _methodParameterTypes45;
+    private String _methodName40;
+    private String[] _methodParameterTypes40;
+    private String _methodName41;
+    private String[] _methodParameterTypes41;
     private String _methodName46;
     private String[] _methodParameterTypes46;
+    private String _methodName47;
+    private String[] _methodParameterTypes47;
+    private String _methodName48;
+    private String[] _methodParameterTypes48;
 
     public CurrencyServiceClpInvoker() {
-        _methodName38 = "getBeanIdentifier";
+        _methodName40 = "getBeanIdentifier";
 
-        _methodParameterTypes38 = new String[] {  };
+        _methodParameterTypes40 = new String[] {  };
 
-        _methodName39 = "setBeanIdentifier";
+        _methodName41 = "setBeanIdentifier";
 
-        _methodParameterTypes39 = new String[] { "java.lang.String" };
+        _methodParameterTypes41 = new String[] { "java.lang.String" };
 
-        _methodName44 = "addCurrency";
+        _methodName46 = "addCurrency";
 
-        _methodParameterTypes44 = new String[] {
+        _methodParameterTypes46 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Currency",
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName45 = "updateCurrency";
+        _methodName47 = "updateCurrency";
 
-        _methodParameterTypes45 = new String[] {
+        _methodParameterTypes47 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Currency"
             };
 
-        _methodName46 = "deleteCurrency";
+        _methodName48 = "deleteCurrency";
 
-        _methodParameterTypes46 = new String[] {
+        _methodParameterTypes48 = new String[] {
                 "long", "com.liferay.portal.service.ServiceContext"
             };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
         Object[] arguments) throws Throwable {
-        if (_methodName38.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes38, parameterTypes)) {
+        if (_methodName40.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
             return CurrencyServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName39.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes39, parameterTypes)) {
+        if (_methodName41.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
             CurrencyServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
         }
 
-        if (_methodName44.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes44, parameterTypes)) {
+        if (_methodName46.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
             return CurrencyServiceUtil.addCurrency((com.gleo.plugins.hexiagon.model.Currency) arguments[0],
                 (com.liferay.portal.service.ServiceContext) arguments[1]);
         }
 
-        if (_methodName45.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes45, parameterTypes)) {
+        if (_methodName47.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
             return CurrencyServiceUtil.updateCurrency((com.gleo.plugins.hexiagon.model.Currency) arguments[0]);
         }
 
-        if (_methodName46.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
+        if (_methodName48.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
             return CurrencyServiceUtil.deleteCurrency(((Long) arguments[0]).longValue(),
                 (com.liferay.portal.service.ServiceContext) arguments[1]);
         }
