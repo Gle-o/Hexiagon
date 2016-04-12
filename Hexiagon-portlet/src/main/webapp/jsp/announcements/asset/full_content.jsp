@@ -20,18 +20,7 @@
 <%@page import="com.liferay.portal.model.User"%>
 <%@include file="/jsp/init.jsp" %>
 
-<%
-	PortletURL portletDirectoryURL = null;
-	
-	// create portletUrl
-	portletDirectoryURL = PortletURLFactoryUtil.create(
-	renderRequest, PortletKeys.DIRECTORY, PortalUtil.getControlPanelPlid(renderRequest),
-	PortletRequest.RENDER_PHASE);
-	portletDirectoryURL.setWindowState(LiferayWindowState.POP_UP);
-	portletDirectoryURL.setPortletMode(PortletMode.VIEW);
-	portletDirectoryURL.setParameter("struts_action", "/directory/view_user");
-	portletDirectoryURL.setParameter("tabs1Names", "Info");
-	
+<%	
 	boolean isAnnouncementDisplaysRelatedAssets = true;
 	
 	// Sorry, do it in JSP
@@ -108,7 +97,7 @@
 			<aui:row fluid="true" cssClass="span12">
 				<liferay-ui:panel iconCssClass="icon-circle-blank" defaultState="open" extended="true" id="${portletNamespace}announcementCategory1" persistState="false" title="annoucements.asset.full.content.panel.user.info.label">
 					<div class="span3">
-						<a class="${favorite}" href="" onclick="<portlet:namespace/>showUserInfo(${announcement.userId});return false;">
+						<a class="${favorite}" href="#" onclick="return false;">
 							<img src="${announcementUser.getPortraitURL(themeDisplay)}>" alt="" class="img-rounded">
 						</a>
 					</div>
@@ -269,26 +258,6 @@
 
 <aui:script use="liferay-portlet-url">
 	
-	Liferay.provide(window,'<portlet:namespace/>showUserInfo',function(userId) {
-	
-		if (userId) {
-			var portletURL = '<%= portletDirectoryURL.toString() %>';
-			var namespace = Liferay.Util.getPortletNamespace('<%= PortletKeys.DIRECTORY %>');
-			portletURL = portletURL + '&' + namespace + 'p_u_i_d' + '=' + userId;
-			Liferay.Util.openWindow (
-				{
-					dialog: {
-						destroyOnHide: true,
-						width: '50%',
-						height: 450
-					},
-					title: Liferay.Language.get("User"),
-					id: '<portlet:namespace/>window-directory-user',
-					uri: portletURL
-				}
-			);
-		}
-	});
 	<c:if test="${not empty announcementImages}">
 		YUI().use(
 		  'aui-carousel',
