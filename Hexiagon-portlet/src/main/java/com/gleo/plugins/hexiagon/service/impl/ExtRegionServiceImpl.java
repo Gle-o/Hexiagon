@@ -1,7 +1,6 @@
 package com.gleo.plugins.hexiagon.service.impl;
 
 import com.gleo.plugins.hexiagon.service.base.ExtRegionServiceBaseImpl;
-import com.liferay.portal.CountryNameException;
 import com.liferay.portal.NoSuchRegionException;
 import com.liferay.portal.RegionCodeException;
 import com.liferay.portal.RegionNameException;
