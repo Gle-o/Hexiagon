@@ -1,6 +1,6 @@
 <%@include file="/jsp/init.jsp" %>
 
-<liferay-ui:panel iconCssClass="icon-map-marker" defaultState="open" extended="true" id="localization" persistState="false" title="Localization">
+<liferay-ui:panel iconCssClass="icon-map-marker" defaultState="open" extended="true" id="localization" persistState="false" title="announcement.countries.panel.localization">
 
 <aui:select label="country" name="countryId" showEmptyOption="true" />
 		
