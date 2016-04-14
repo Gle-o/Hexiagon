@@ -41,20 +41,20 @@ public class TypeLocalServiceClpInvoker {
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
-    private String _methodName56;
-    private String[] _methodParameterTypes56;
-    private String _methodName57;
-    private String[] _methodParameterTypes57;
-    private String _methodName62;
-    private String[] _methodParameterTypes62;
-    private String _methodName63;
-    private String[] _methodParameterTypes63;
+    private String _methodName58;
+    private String[] _methodParameterTypes58;
+    private String _methodName59;
+    private String[] _methodParameterTypes59;
     private String _methodName64;
     private String[] _methodParameterTypes64;
     private String _methodName65;
     private String[] _methodParameterTypes65;
     private String _methodName66;
     private String[] _methodParameterTypes66;
+    private String _methodName67;
+    private String[] _methodParameterTypes67;
+    private String _methodName68;
+    private String[] _methodParameterTypes68;
 
     public TypeLocalServiceClpInvoker() {
         _methodName0 = "addType";
@@ -139,38 +139,38 @@ public class TypeLocalServiceClpInvoker {
                 "com.gleo.plugins.hexiagon.model.Type"
             };
 
-        _methodName56 = "getBeanIdentifier";
+        _methodName58 = "getBeanIdentifier";
 
-        _methodParameterTypes56 = new String[] {  };
+        _methodParameterTypes58 = new String[] {  };
 
-        _methodName57 = "setBeanIdentifier";
+        _methodName59 = "setBeanIdentifier";
 
-        _methodParameterTypes57 = new String[] { "java.lang.String" };
+        _methodParameterTypes59 = new String[] { "java.lang.String" };
 
-        _methodName62 = "addType";
+        _methodName64 = "addType";
 
-        _methodParameterTypes62 = new String[] {
+        _methodParameterTypes64 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Type",
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName63 = "deleteType";
+        _methodName65 = "deleteType";
 
-        _methodParameterTypes63 = new String[] { "long" };
+        _methodParameterTypes65 = new String[] { "long" };
 
-        _methodName64 = "updateType";
+        _methodName66 = "updateType";
 
-        _methodParameterTypes64 = new String[] {
+        _methodParameterTypes66 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Type"
             };
 
-        _methodName65 = "getTypes";
+        _methodName67 = "getTypes";
 
-        _methodParameterTypes65 = new String[] { "long", "int", "int" };
+        _methodParameterTypes67 = new String[] { "long", "int", "int" };
 
-        _methodName66 = "getTypesCount";
+        _methodName68 = "getTypesCount";
 
-        _methodParameterTypes66 = new String[] { "long" };
+        _methodParameterTypes68 = new String[] { "long" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -262,43 +262,43 @@ public class TypeLocalServiceClpInvoker {
             return TypeLocalServiceUtil.updateType((com.gleo.plugins.hexiagon.model.Type) arguments[0]);
         }
 
-        if (_methodName56.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes56, parameterTypes)) {
+        if (_methodName58.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes58, parameterTypes)) {
             return TypeLocalServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName57.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes57, parameterTypes)) {
+        if (_methodName59.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes59, parameterTypes)) {
             TypeLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
         }
 
-        if (_methodName62.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
+        if (_methodName64.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
             return TypeLocalServiceUtil.addType((com.gleo.plugins.hexiagon.model.Type) arguments[0],
                 (com.liferay.portal.service.ServiceContext) arguments[1]);
         }
 
-        if (_methodName63.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
+        if (_methodName65.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes65, parameterTypes)) {
             return TypeLocalServiceUtil.deleteType(((Long) arguments[0]).longValue());
         }
 
-        if (_methodName64.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
+        if (_methodName66.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes66, parameterTypes)) {
             return TypeLocalServiceUtil.updateType((com.gleo.plugins.hexiagon.model.Type) arguments[0]);
         }
 
-        if (_methodName65.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes65, parameterTypes)) {
+        if (_methodName67.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes67, parameterTypes)) {
             return TypeLocalServiceUtil.getTypes(((Long) arguments[0]).longValue(),
                 ((Integer) arguments[1]).intValue(),
                 ((Integer) arguments[2]).intValue());
         }
 
-        if (_methodName66.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes66, parameterTypes)) {
+        if (_methodName68.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes68, parameterTypes)) {
             return TypeLocalServiceUtil.getTypesCount(((Long) arguments[0]).longValue());
         }
 

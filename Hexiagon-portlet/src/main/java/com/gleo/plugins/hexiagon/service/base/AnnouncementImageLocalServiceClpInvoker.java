@@ -41,20 +41,20 @@ public class AnnouncementImageLocalServiceClpInvoker {
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
-    private String _methodName62;
-    private String[] _methodParameterTypes62;
-    private String _methodName63;
-    private String[] _methodParameterTypes63;
-    private String _methodName68;
-    private String[] _methodParameterTypes68;
-    private String _methodName69;
-    private String[] _methodParameterTypes69;
+    private String _methodName64;
+    private String[] _methodParameterTypes64;
+    private String _methodName65;
+    private String[] _methodParameterTypes65;
     private String _methodName70;
     private String[] _methodParameterTypes70;
     private String _methodName71;
     private String[] _methodParameterTypes71;
     private String _methodName72;
     private String[] _methodParameterTypes72;
+    private String _methodName73;
+    private String[] _methodParameterTypes73;
+    private String _methodName74;
+    private String[] _methodParameterTypes74;
 
     public AnnouncementImageLocalServiceClpInvoker() {
         _methodName0 = "addAnnouncementImage";
@@ -139,38 +139,38 @@ public class AnnouncementImageLocalServiceClpInvoker {
                 "com.gleo.plugins.hexiagon.model.AnnouncementImage"
             };
 
-        _methodName62 = "getBeanIdentifier";
+        _methodName64 = "getBeanIdentifier";
 
-        _methodParameterTypes62 = new String[] {  };
+        _methodParameterTypes64 = new String[] {  };
 
-        _methodName63 = "setBeanIdentifier";
+        _methodName65 = "setBeanIdentifier";
 
-        _methodParameterTypes63 = new String[] { "java.lang.String" };
+        _methodParameterTypes65 = new String[] { "java.lang.String" };
 
-        _methodName68 = "addAnnouncementImage";
+        _methodName70 = "addAnnouncementImage";
 
-        _methodParameterTypes68 = new String[] {
+        _methodParameterTypes70 = new String[] {
                 "com.gleo.plugins.hexiagon.model.AnnouncementImage", "long",
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName69 = "getAnnouncementImageByAnnouncementId";
+        _methodName71 = "getAnnouncementImageByAnnouncementId";
 
-        _methodParameterTypes69 = new String[] { "long" };
+        _methodParameterTypes71 = new String[] { "long" };
 
-        _methodName70 = "getAnnouncementImageByAnnouncementIdOrder";
+        _methodName72 = "getAnnouncementImageByAnnouncementIdOrder";
 
-        _methodParameterTypes70 = new String[] { "long", "int" };
+        _methodParameterTypes72 = new String[] { "long", "int" };
 
-        _methodName71 = "deleteAnnouncementImage";
+        _methodName73 = "deleteAnnouncementImage";
 
-        _methodParameterTypes71 = new String[] {
+        _methodParameterTypes73 = new String[] {
                 "com.gleo.plugins.hexiagon.model.AnnouncementImage"
             };
 
-        _methodName72 = "updateAnnouncementImage";
+        _methodName74 = "updateAnnouncementImage";
 
-        _methodParameterTypes72 = new String[] {
+        _methodParameterTypes74 = new String[] {
                 "com.gleo.plugins.hexiagon.model.AnnouncementImage", "long",
                 "com.liferay.portal.service.ServiceContext"
             };
@@ -265,43 +265,43 @@ public class AnnouncementImageLocalServiceClpInvoker {
             return AnnouncementImageLocalServiceUtil.updateAnnouncementImage((com.gleo.plugins.hexiagon.model.AnnouncementImage) arguments[0]);
         }
 
-        if (_methodName62.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
+        if (_methodName64.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
             return AnnouncementImageLocalServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName63.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
+        if (_methodName65.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes65, parameterTypes)) {
             AnnouncementImageLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
         }
 
-        if (_methodName68.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes68, parameterTypes)) {
+        if (_methodName70.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             return AnnouncementImageLocalServiceUtil.addAnnouncementImage((com.gleo.plugins.hexiagon.model.AnnouncementImage) arguments[0],
                 ((Long) arguments[1]).longValue(),
                 (com.liferay.portal.service.ServiceContext) arguments[2]);
         }
 
-        if (_methodName69.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes69, parameterTypes)) {
-            return AnnouncementImageLocalServiceUtil.getAnnouncementImageByAnnouncementId(((Long) arguments[0]).longValue());
-        }
-
-        if (_methodName70.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
-            return AnnouncementImageLocalServiceUtil.getAnnouncementImageByAnnouncementIdOrder(((Long) arguments[0]).longValue(),
-                ((Integer) arguments[1]).intValue());
-        }
-
         if (_methodName71.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes71, parameterTypes)) {
-            return AnnouncementImageLocalServiceUtil.deleteAnnouncementImage((com.gleo.plugins.hexiagon.model.AnnouncementImage) arguments[0]);
+            return AnnouncementImageLocalServiceUtil.getAnnouncementImageByAnnouncementId(((Long) arguments[0]).longValue());
         }
 
         if (_methodName72.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes72, parameterTypes)) {
+            return AnnouncementImageLocalServiceUtil.getAnnouncementImageByAnnouncementIdOrder(((Long) arguments[0]).longValue(),
+                ((Integer) arguments[1]).intValue());
+        }
+
+        if (_methodName73.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes73, parameterTypes)) {
+            return AnnouncementImageLocalServiceUtil.deleteAnnouncementImage((com.gleo.plugins.hexiagon.model.AnnouncementImage) arguments[0]);
+        }
+
+        if (_methodName74.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes74, parameterTypes)) {
             return AnnouncementImageLocalServiceUtil.updateAnnouncementImage((com.gleo.plugins.hexiagon.model.AnnouncementImage) arguments[0],
                 ((Long) arguments[1]).longValue(),
                 (com.liferay.portal.service.ServiceContext) arguments[2]);

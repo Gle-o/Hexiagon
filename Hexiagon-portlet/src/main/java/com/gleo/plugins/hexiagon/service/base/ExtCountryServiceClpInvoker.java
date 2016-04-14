@@ -9,14 +9,10 @@ import java.util.Arrays;
  * @generated
  */
 public class ExtCountryServiceClpInvoker {
-    private String _methodName44;
-    private String[] _methodParameterTypes44;
-    private String _methodName45;
-    private String[] _methodParameterTypes45;
-    private String _methodName48;
-    private String[] _methodParameterTypes48;
-    private String _methodName49;
-    private String[] _methodParameterTypes49;
+    private String _methodName46;
+    private String[] _methodParameterTypes46;
+    private String _methodName47;
+    private String[] _methodParameterTypes47;
     private String _methodName50;
     private String[] _methodParameterTypes50;
     private String _methodName51;
@@ -25,72 +21,76 @@ public class ExtCountryServiceClpInvoker {
     private String[] _methodParameterTypes52;
     private String _methodName53;
     private String[] _methodParameterTypes53;
+    private String _methodName54;
+    private String[] _methodParameterTypes54;
+    private String _methodName55;
+    private String[] _methodParameterTypes55;
 
     public ExtCountryServiceClpInvoker() {
-        _methodName44 = "getBeanIdentifier";
+        _methodName46 = "getBeanIdentifier";
 
-        _methodParameterTypes44 = new String[] {  };
+        _methodParameterTypes46 = new String[] {  };
 
-        _methodName45 = "setBeanIdentifier";
+        _methodName47 = "setBeanIdentifier";
 
-        _methodParameterTypes45 = new String[] { "java.lang.String" };
+        _methodParameterTypes47 = new String[] { "java.lang.String" };
 
-        _methodName48 = "setActive";
+        _methodName50 = "setActive";
 
-        _methodParameterTypes48 = new String[] { "long", "boolean" };
+        _methodParameterTypes50 = new String[] { "long", "boolean" };
 
-        _methodName49 = "addCountry";
+        _methodName51 = "addCountry";
 
-        _methodParameterTypes49 = new String[] {
+        _methodParameterTypes51 = new String[] {
                 "boolean", "boolean", "java.lang.String", "java.lang.String",
                 "java.lang.String", "java.lang.String", "java.lang.String"
             };
 
-        _methodName50 = "updateCountry";
+        _methodName52 = "updateCountry";
 
-        _methodParameterTypes50 = new String[] {
+        _methodParameterTypes52 = new String[] {
                 "long", "boolean", "boolean", "java.lang.String",
                 "java.lang.String", "java.lang.String", "java.lang.String",
                 "java.lang.String"
             };
 
-        _methodName51 = "getCountriesCount";
+        _methodName53 = "getCountriesCount";
 
-        _methodParameterTypes51 = new String[] {  };
+        _methodParameterTypes53 = new String[] {  };
 
-        _methodName52 = "getCountries";
+        _methodName54 = "getCountries";
 
-        _methodParameterTypes52 = new String[] { "int", "int" };
+        _methodParameterTypes54 = new String[] { "int", "int" };
 
-        _methodName53 = "getCountries";
+        _methodName55 = "getCountries";
 
-        _methodParameterTypes53 = new String[] {
+        _methodParameterTypes55 = new String[] {
                 "int", "int", "com.liferay.portal.kernel.util.OrderByComparator"
             };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
         Object[] arguments) throws Throwable {
-        if (_methodName44.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes44, parameterTypes)) {
+        if (_methodName46.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
             return ExtCountryServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName45.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes45, parameterTypes)) {
+        if (_methodName47.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
             ExtCountryServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
         }
 
-        if (_methodName48.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
+        if (_methodName50.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
             return ExtCountryServiceUtil.setActive(((Long) arguments[0]).longValue(),
                 ((Boolean) arguments[1]).booleanValue());
         }
 
-        if (_methodName49.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes49, parameterTypes)) {
+        if (_methodName51.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
             return ExtCountryServiceUtil.addCountry(((Boolean) arguments[0]).booleanValue(),
                 ((Boolean) arguments[1]).booleanValue(),
                 (java.lang.String) arguments[2],
@@ -99,8 +99,8 @@ public class ExtCountryServiceClpInvoker {
                 (java.lang.String) arguments[5], (java.lang.String) arguments[6]);
         }
 
-        if (_methodName50.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
+        if (_methodName52.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
             return ExtCountryServiceUtil.updateCountry(((Long) arguments[0]).longValue(),
                 ((Boolean) arguments[1]).booleanValue(),
                 ((Boolean) arguments[2]).booleanValue(),
@@ -110,19 +110,19 @@ public class ExtCountryServiceClpInvoker {
                 (java.lang.String) arguments[6], (java.lang.String) arguments[7]);
         }
 
-        if (_methodName51.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
+        if (_methodName53.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes53, parameterTypes)) {
             return ExtCountryServiceUtil.getCountriesCount();
         }
 
-        if (_methodName52.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
+        if (_methodName54.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes54, parameterTypes)) {
             return ExtCountryServiceUtil.getCountries(((Integer) arguments[0]).intValue(),
                 ((Integer) arguments[1]).intValue());
         }
 
-        if (_methodName53.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes53, parameterTypes)) {
+        if (_methodName55.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes55, parameterTypes)) {
             return ExtCountryServiceUtil.getCountries(((Integer) arguments[0]).intValue(),
                 ((Integer) arguments[1]).intValue(),
                 (com.liferay.portal.kernel.util.OrderByComparator) arguments[2]);

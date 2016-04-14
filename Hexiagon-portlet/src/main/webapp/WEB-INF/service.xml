@@ -8,6 +8,11 @@
 		<reference package-path="com.liferay.portal" entity="Country"/>
 	</entity>
 	
+	<entity name="ExtRegion" local-service="false" remote-service="true" json-enabled="false">
+		<reference package-path="com.liferay.portal" entity="Region"/>
+		<reference package-path="com.liferay.portal" entity="Country"/>
+	</entity>
+	
 	<entity name="Announcement" local-service="true" remote-service="true" uuid="true">
 
 		<!-- PK fields -->

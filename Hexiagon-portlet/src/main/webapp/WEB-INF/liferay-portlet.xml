@@ -157,6 +157,15 @@
 		</css-class-wrapper>
 		<add-default-resource>true</add-default-resource>
 	</portlet>
+	<portlet>
+		<portlet-name>regions-configuration</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css></header-portlet-css>
+		<footer-portlet-javascript></footer-portlet-javascript>
+		<css-class-wrapper>
+			regions-configuration-portlet
+		</css-class-wrapper>
+	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>
 		<role-link>Administrator</role-link>

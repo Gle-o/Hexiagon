@@ -17,5 +17,6 @@
 		<portlet id="announcements-portlet" />
 		<portlet id="currencies-portlet" />
 		<portlet id="country-configuration"></portlet>
+		<portlet id="regions-configuration"></portlet>
 	</category>
 </display>

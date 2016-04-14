@@ -411,6 +411,39 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	<portlet>
+		<portlet-name>regions-configuration</portlet-name>
+		<display-name>Regions Configuration</display-name>
+		<portlet-class>
+			com.gleo.plugins.hexiagon.portlet.regions.web.RegionsConfigurationController
+		</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/jsp/regions/configuration/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Regions Configuration</title>
+			<short-title>Regions Configuration</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
 	<public-render-parameter>
 		<identifier>categoryIds</identifier>
 		<qname xmlns:x="http://www.liferay.com/public-render-parameters">x:categoryIds</qname>
@@ -435,6 +468,7 @@
 		<identifier>countryId</identifier>
 		<qname xmlns:x="http://www.liferay.com/public-render-parameters">x:countryId</qname>
 	</public-render-parameter>
+
 
 
 

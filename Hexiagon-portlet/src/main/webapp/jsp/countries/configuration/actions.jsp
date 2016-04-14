@@ -1,4 +1,5 @@
 
+<%@page import="javax.portlet.WindowState"%>
 <%@page import="com.liferay.portal.kernel.util.GetterUtil"%>
 <%@page import="com.liferay.portal.model.Country"%>
 <%@page import="com.liferay.portal.util.PortalUtil"%>
@@ -27,9 +28,14 @@
 		</portlet:renderURL>
 		
 		<liferay-ui:icon image="edit" url="<%= editURL.toString() %>" />
-	</c:if>
-
-	<c:if test="${themeDisplay.getPermissionChecker().isOmniadmin()}">
+		
+		<liferay-portlet:renderURL var="regionEditURL" plid="<%= themeDisplay.getPlid() %>" portletName="regionsconfiguration_WAR_Hexiagonportlet" windowState="<%=  WindowState.NORMAL.toString() %>">
+			<portlet:param name="countryId" value="<%= String.valueOf(country.getCountryId()) %>"/>
+			<portlet:param name="redirect" value="<%= redirect %>"/>
+		</liferay-portlet:renderURL>
+		
+		<liferay-ui:icon image="edit" message="edit regions" url="<%= regionEditURL.toString() %>" />
+		
 		<portlet:actionURL var="activateURL" name="activateCountry">
 			<portlet:param name="countryId" value="<%= String.valueOf(country.getCountryId()) %>"/>
 			<portlet:param name="isActive" value="<%= String.valueOf(isActive) %>" />
@@ -37,6 +43,7 @@
 		</portlet:actionURL>
 		
 		<liferay-ui:icon image='<%= isActive?"delete":"check" %>' message='<%= isActive?"desactivate":"activate" %>' label='true' url="<%= activateURL.toString() %>" />
+		
 	</c:if>
 	
 </liferay-ui:icon-menu>
