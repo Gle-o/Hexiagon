@@ -159,12 +159,16 @@
 		<column name="symbol" type="String" />
 		<column name="order" type="int"/>
 		
+		<column name="countryId" type="long" />
+		
 		<!-- Todo -->
 		<column name="rate" type="long"/>
 
         <order by="desc">
         	<order-column name="order"/>
         </order>
+        
+        <reference package-path="com.liferay.portal" entity="Country"/>
 	</entity>
 	
 	<entity name="Type" uuid="false" local-service="true" remote-service="true">
@@ -185,7 +189,6 @@
 			<finder-column name="groupId" />
 		</finder>
 	</entity>
-
 	
 	<exceptions>
 		<exception>ImageSize</exception>

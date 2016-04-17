@@ -54,9 +54,10 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
             { "label", Types.VARCHAR },
             { "symbol", Types.VARCHAR },
             { "order_", Types.INTEGER },
+            { "countryId", Types.BIGINT },
             { "rate", Types.BIGINT }
         };
-    public static final String TABLE_SQL_CREATE = "create table Hexiagon_Currency (currencyId LONG not null primary key,companyId LONG,label VARCHAR(75) null,symbol VARCHAR(75) null,order_ INTEGER,rate LONG)";
+    public static final String TABLE_SQL_CREATE = "create table Hexiagon_Currency (currencyId LONG not null primary key,companyId LONG,label VARCHAR(75) null,symbol VARCHAR(75) null,order_ INTEGER,countryId LONG,rate LONG)";
     public static final String TABLE_SQL_DROP = "drop table Hexiagon_Currency";
     public static final String ORDER_BY_JPQL = " ORDER BY currency.order DESC";
     public static final String ORDER_BY_SQL = " ORDER BY Hexiagon_Currency.order_ DESC";
@@ -81,6 +82,7 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
     private String _label;
     private String _symbol;
     private int _order;
+    private long _countryId;
     private long _rate;
     private Currency _escapedModel;
 
@@ -105,6 +107,7 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
         model.setLabel(soapModel.getLabel());
         model.setSymbol(soapModel.getSymbol());
         model.setOrder(soapModel.getOrder());
+        model.setCountryId(soapModel.getCountryId());
         model.setRate(soapModel.getRate());
 
         return model;
@@ -169,6 +172,7 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
         attributes.put("label", getLabel());
         attributes.put("symbol", getSymbol());
         attributes.put("order", getOrder());
+        attributes.put("countryId", getCountryId());
         attributes.put("rate", getRate());
 
         return attributes;
@@ -204,6 +208,12 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
         if (order != null) {
             setOrder(order);
+        }
+
+        Long countryId = (Long) attributes.get("countryId");
+
+        if (countryId != null) {
+            setCountryId(countryId);
         }
 
         Long rate = (Long) attributes.get("rate");
@@ -278,6 +288,17 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
     @JSON
     @Override
+    public long getCountryId() {
+        return _countryId;
+    }
+
+    @Override
+    public void setCountryId(long countryId) {
+        _countryId = countryId;
+    }
+
+    @JSON
+    @Override
     public long getRate() {
         return _rate;
     }
@@ -319,6 +340,7 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
         currencyImpl.setLabel(getLabel());
         currencyImpl.setSymbol(getSymbol());
         currencyImpl.setOrder(getOrder());
+        currencyImpl.setCountryId(getCountryId());
         currencyImpl.setRate(getRate());
 
         currencyImpl.resetOriginalValues();
@@ -403,6 +425,8 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
         currencyCacheModel.order = getOrder();
 
+        currencyCacheModel.countryId = getCountryId();
+
         currencyCacheModel.rate = getRate();
 
         return currencyCacheModel;
@@ -410,7 +434,7 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(15);
 
         sb.append("{currencyId=");
         sb.append(getCurrencyId());
@@ -422,6 +446,8 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
         sb.append(getSymbol());
         sb.append(", order=");
         sb.append(getOrder());
+        sb.append(", countryId=");
+        sb.append(getCountryId());
         sb.append(", rate=");
         sb.append(getRate());
         sb.append("}");
@@ -431,7 +457,7 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(22);
+        StringBundler sb = new StringBundler(25);
 
         sb.append("<model><model-name>");
         sb.append("com.gleo.plugins.hexiagon.model.Currency");
@@ -456,6 +482,10 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
         sb.append(
             "<column><column-name>order</column-name><column-value><![CDATA[");
         sb.append(getOrder());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>countryId</column-name><column-value><![CDATA[");
+        sb.append(getCountryId());
         sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>rate</column-name><column-value><![CDATA[");

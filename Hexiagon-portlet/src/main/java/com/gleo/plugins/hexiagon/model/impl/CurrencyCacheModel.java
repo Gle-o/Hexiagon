@@ -24,11 +24,12 @@ public class CurrencyCacheModel implements CacheModel<Currency>, Externalizable 
     public String label;
     public String symbol;
     public int order;
+    public long countryId;
     public long rate;
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(15);
 
         sb.append("{currencyId=");
         sb.append(currencyId);
@@ -40,6 +41,8 @@ public class CurrencyCacheModel implements CacheModel<Currency>, Externalizable 
         sb.append(symbol);
         sb.append(", order=");
         sb.append(order);
+        sb.append(", countryId=");
+        sb.append(countryId);
         sb.append(", rate=");
         sb.append(rate);
         sb.append("}");
@@ -67,6 +70,7 @@ public class CurrencyCacheModel implements CacheModel<Currency>, Externalizable 
         }
 
         currencyImpl.setOrder(order);
+        currencyImpl.setCountryId(countryId);
         currencyImpl.setRate(rate);
 
         currencyImpl.resetOriginalValues();
@@ -81,6 +85,7 @@ public class CurrencyCacheModel implements CacheModel<Currency>, Externalizable 
         label = objectInput.readUTF();
         symbol = objectInput.readUTF();
         order = objectInput.readInt();
+        countryId = objectInput.readLong();
         rate = objectInput.readLong();
     }
 
@@ -103,6 +108,7 @@ public class CurrencyCacheModel implements CacheModel<Currency>, Externalizable 
         }
 
         objectOutput.writeInt(order);
+        objectOutput.writeLong(countryId);
         objectOutput.writeLong(rate);
     }
 }

@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.model.PersistedModel;
 import com.liferay.portal.service.BaseLocalServiceImpl;
 import com.liferay.portal.service.PersistedModelLocalServiceRegistryUtil;
+import com.liferay.portal.service.persistence.CountryPersistence;
 import com.liferay.portal.service.persistence.UserPersistence;
 
 import java.io.Serializable;
@@ -77,6 +78,10 @@ public abstract class CurrencyLocalServiceBaseImpl extends BaseLocalServiceImpl
     protected TypePersistence typePersistence;
     @BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
     protected com.liferay.counter.service.CounterLocalService counterLocalService;
+    @BeanReference(type = com.liferay.portal.service.CountryService.class)
+    protected com.liferay.portal.service.CountryService countryService;
+    @BeanReference(type = CountryPersistence.class)
+    protected CountryPersistence countryPersistence;
     @BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
     protected com.liferay.portal.service.ResourceLocalService resourceLocalService;
     @BeanReference(type = com.liferay.portal.service.UserLocalService.class)
@@ -607,6 +612,43 @@ public abstract class CurrencyLocalServiceBaseImpl extends BaseLocalServiceImpl
     public void setCounterLocalService(
         com.liferay.counter.service.CounterLocalService counterLocalService) {
         this.counterLocalService = counterLocalService;
+    }
+
+    /**
+     * Returns the country remote service.
+     *
+     * @return the country remote service
+     */
+    public com.liferay.portal.service.CountryService getCountryService() {
+        return countryService;
+    }
+
+    /**
+     * Sets the country remote service.
+     *
+     * @param countryService the country remote service
+     */
+    public void setCountryService(
+        com.liferay.portal.service.CountryService countryService) {
+        this.countryService = countryService;
+    }
+
+    /**
+     * Returns the country persistence.
+     *
+     * @return the country persistence
+     */
+    public CountryPersistence getCountryPersistence() {
+        return countryPersistence;
+    }
+
+    /**
+     * Sets the country persistence.
+     *
+     * @param countryPersistence the country persistence
+     */
+    public void setCountryPersistence(CountryPersistence countryPersistence) {
+        this.countryPersistence = countryPersistence;
     }
 
     /**

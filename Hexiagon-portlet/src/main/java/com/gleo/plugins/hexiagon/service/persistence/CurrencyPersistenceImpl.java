@@ -331,6 +331,7 @@ public class CurrencyPersistenceImpl extends BasePersistenceImpl<Currency>
         currencyImpl.setLabel(currency.getLabel());
         currencyImpl.setSymbol(currency.getSymbol());
         currencyImpl.setOrder(currency.getOrder());
+        currencyImpl.setCountryId(currency.getCountryId());
         currencyImpl.setRate(currency.getRate());
 
         return currencyImpl;

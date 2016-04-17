@@ -41,16 +41,16 @@ public class CurrencyLocalServiceClpInvoker {
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
-    private String _methodName58;
-    private String[] _methodParameterTypes58;
-    private String _methodName59;
-    private String[] _methodParameterTypes59;
-    private String _methodName64;
-    private String[] _methodParameterTypes64;
-    private String _methodName65;
-    private String[] _methodParameterTypes65;
-    private String _methodName66;
-    private String[] _methodParameterTypes66;
+    private String _methodName62;
+    private String[] _methodParameterTypes62;
+    private String _methodName63;
+    private String[] _methodParameterTypes63;
+    private String _methodName68;
+    private String[] _methodParameterTypes68;
+    private String _methodName69;
+    private String[] _methodParameterTypes69;
+    private String _methodName70;
+    private String[] _methodParameterTypes70;
 
     public CurrencyLocalServiceClpInvoker() {
         _methodName0 = "addCurrency";
@@ -135,28 +135,28 @@ public class CurrencyLocalServiceClpInvoker {
                 "com.gleo.plugins.hexiagon.model.Currency"
             };
 
-        _methodName58 = "getBeanIdentifier";
+        _methodName62 = "getBeanIdentifier";
 
-        _methodParameterTypes58 = new String[] {  };
+        _methodParameterTypes62 = new String[] {  };
 
-        _methodName59 = "setBeanIdentifier";
+        _methodName63 = "setBeanIdentifier";
 
-        _methodParameterTypes59 = new String[] { "java.lang.String" };
+        _methodParameterTypes63 = new String[] { "java.lang.String" };
 
-        _methodName64 = "addCurrency";
+        _methodName68 = "addCurrency";
 
-        _methodParameterTypes64 = new String[] {
+        _methodParameterTypes68 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Currency",
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName65 = "deleteCurrency";
+        _methodName69 = "deleteCurrency";
 
-        _methodParameterTypes65 = new String[] { "long" };
+        _methodParameterTypes69 = new String[] { "long" };
 
-        _methodName66 = "updateCurrency";
+        _methodName70 = "updateCurrency";
 
-        _methodParameterTypes66 = new String[] {
+        _methodParameterTypes70 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Currency"
             };
     }
@@ -250,31 +250,31 @@ public class CurrencyLocalServiceClpInvoker {
             return CurrencyLocalServiceUtil.updateCurrency((com.gleo.plugins.hexiagon.model.Currency) arguments[0]);
         }
 
-        if (_methodName58.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes58, parameterTypes)) {
+        if (_methodName62.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
             return CurrencyLocalServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName59.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes59, parameterTypes)) {
+        if (_methodName63.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
             CurrencyLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;
         }
 
-        if (_methodName64.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
+        if (_methodName68.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes68, parameterTypes)) {
             return CurrencyLocalServiceUtil.addCurrency((com.gleo.plugins.hexiagon.model.Currency) arguments[0],
                 (com.liferay.portal.service.ServiceContext) arguments[1]);
         }
 
-        if (_methodName65.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes65, parameterTypes)) {
+        if (_methodName69.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes69, parameterTypes)) {
             return CurrencyLocalServiceUtil.deleteCurrency(((Long) arguments[0]).longValue());
         }
 
-        if (_methodName66.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes66, parameterTypes)) {
+        if (_methodName70.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             return CurrencyLocalServiceUtil.updateCurrency((com.gleo.plugins.hexiagon.model.Currency) arguments[0]);
         }
 
