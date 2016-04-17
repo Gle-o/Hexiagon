@@ -51,6 +51,8 @@ public class CurrencyLocalServiceClpInvoker {
     private String[] _methodParameterTypes69;
     private String _methodName70;
     private String[] _methodParameterTypes70;
+    private String _methodName71;
+    private String[] _methodParameterTypes71;
 
     public CurrencyLocalServiceClpInvoker() {
         _methodName0 = "addCurrency";
@@ -159,6 +161,10 @@ public class CurrencyLocalServiceClpInvoker {
         _methodParameterTypes70 = new String[] {
                 "com.gleo.plugins.hexiagon.model.Currency"
             };
+
+        _methodName71 = "getCurrencyByCountryId";
+
+        _methodParameterTypes71 = new String[] { "long" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -276,6 +282,11 @@ public class CurrencyLocalServiceClpInvoker {
         if (_methodName70.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             return CurrencyLocalServiceUtil.updateCurrency((com.gleo.plugins.hexiagon.model.Currency) arguments[0]);
+        }
+
+        if (_methodName71.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes71, parameterTypes)) {
+            return CurrencyLocalServiceUtil.getCurrencyByCountryId(((Long) arguments[0]).longValue());
         }
 
         throw new UnsupportedOperationException();

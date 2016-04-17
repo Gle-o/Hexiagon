@@ -227,14 +227,14 @@ public class CategoriesImporterController extends MVCPortlet {
 					LOGGER.info("Import : vocabulary already exist :" + vocab.getTitle() + " : category_id : " + createdVocabulary.getVocabularyId());
 				}
 				catch (PortalException e1) {
-					LOGGER.error("Error wihle get vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
+					LOGGER.error("Error while get vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
 				}
 				catch (SystemException e1) {
-					LOGGER.error("Error wihle get vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
+					LOGGER.error("Error while get vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
 				}
 			}
 			catch (SystemException e) {
-				LOGGER.error("Error wihle create vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
+				LOGGER.error("Error while create vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
 			}
 			List<Category> categories = vocab.getCategory();
 			if (categories != null && !categories.isEmpty()) {
@@ -280,11 +280,11 @@ public class CategoriesImporterController extends MVCPortlet {
 				}
 			}
 			catch (SystemException e1) {
-				LOGGER.error("Error wihle search category vocabulary with name : " + cat.getTitle() + "  :: " + e1.getMessage(), e1);
+				LOGGER.error("Error while search category vocabulary with name : " + cat.getTitle() + "  :: " + e1.getMessage(), e1);
 			}
 		}
 		catch (SystemException e) {
-			LOGGER.error("Error wihle create category with name : " + cat.getTitle() + "  :: " + e.getMessage(), e);
+			LOGGER.error("Error while create category with name : " + cat.getTitle() + "  :: " + e.getMessage(), e);
 		}
 		if (cat.getCategory() != null && !cat.getCategory().isEmpty()) {
 			for (Category childCat : cat.getCategory()) {
@@ -309,7 +309,7 @@ public class CategoriesImporterController extends MVCPortlet {
 			}
 		}
 		catch (JAXBException e) {
-			LOGGER.error("Error wihle unmarshal for file : " + e.getMessage(), e);
+			LOGGER.error("Error while unmarshal for file : " + e.getMessage(), e);
 		}
 		return asset;
 	}

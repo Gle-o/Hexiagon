@@ -113,5 +113,14 @@ public class CurrencyLocalServiceImpl extends CurrencyLocalServiceBaseImpl {
 		currencyPersistence.clearCache(currency);
 		return super.updateCurrency(currency);
 	}
+	
+	public Currency getCurrencyByCountryId(long countryId) throws SystemException, PortalException {
+		int count = currencyPersistence.countByCountryId(countryId);
+		Currency currency = null;
+		if(count >= 1) {
+			currency = currencyPersistence.findByCountryId(countryId);
+		}
+		return currency;
+	}
 
 }

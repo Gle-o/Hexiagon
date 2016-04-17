@@ -70,7 +70,11 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
     public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
                 "value.object.finder.cache.enabled.com.gleo.plugins.hexiagon.model.Currency"),
             true);
-    public static final boolean COLUMN_BITMASK_ENABLED = false;
+    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+                "value.object.column.bitmask.enabled.com.gleo.plugins.hexiagon.model.Currency"),
+            true);
+    public static long COUNTRYID_COLUMN_BITMASK = 1L;
+    public static long ORDER_COLUMN_BITMASK = 2L;
     public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
                 "lock.expiration.time.com.gleo.plugins.hexiagon.model.Currency"));
     private static ClassLoader _classLoader = Currency.class.getClassLoader();
@@ -83,7 +87,10 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
     private String _symbol;
     private int _order;
     private long _countryId;
+    private long _originalCountryId;
+    private boolean _setOriginalCountryId;
     private long _rate;
+    private long _columnBitmask;
     private Currency _escapedModel;
 
     public CurrencyModelImpl() {
@@ -283,6 +290,8 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
     @Override
     public void setOrder(int order) {
+        _columnBitmask = -1L;
+
         _order = order;
     }
 
@@ -294,7 +303,19 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
     @Override
     public void setCountryId(long countryId) {
+        _columnBitmask |= COUNTRYID_COLUMN_BITMASK;
+
+        if (!_setOriginalCountryId) {
+            _setOriginalCountryId = true;
+
+            _originalCountryId = _countryId;
+        }
+
         _countryId = countryId;
+    }
+
+    public long getOriginalCountryId() {
+        return _originalCountryId;
     }
 
     @JSON
@@ -306,6 +327,10 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
     @Override
     public void setRate(long rate) {
         _rate = rate;
+    }
+
+    public long getColumnBitmask() {
+        return _columnBitmask;
     }
 
     @Override
@@ -397,6 +422,13 @@ public class CurrencyModelImpl extends BaseModelImpl<Currency>
 
     @Override
     public void resetOriginalValues() {
+        CurrencyModelImpl currencyModelImpl = this;
+
+        currencyModelImpl._originalCountryId = currencyModelImpl._countryId;
+
+        currencyModelImpl._setOriginalCountryId = false;
+
+        currencyModelImpl._columnBitmask = 0;
     }
 
     @Override

@@ -190,6 +190,21 @@ public class AddAnnouncementController extends MVCPortlet {
 			}
 
 		}
+		else if (themeDisplay.isSignedIn() && defaultCurrencyId == 0 && countryId != 0) {
+			try {
+				Currency defaultCurrency = CurrencyLocalServiceUtil.getCurrencyByCountryId(countryId);
+
+				if (defaultCurrency != null && defaultCurrency.getCurrencyId() != 0) {
+					defaultCurrencyId = defaultCurrency.getCurrencyId();
+				}
+			}
+			catch (PortalException e) {
+				LOGGER.error(e.getMessage());
+			}
+			catch (SystemException e) {
+				LOGGER.error(e.getMessage());
+			}
+		}
 
 		// get types and currencies
 		try {
