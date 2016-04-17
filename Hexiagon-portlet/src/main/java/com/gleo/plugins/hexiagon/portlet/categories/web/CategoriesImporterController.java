@@ -186,10 +186,9 @@ public class CategoriesImporterController extends MVCPortlet {
 
 		UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(actionRequest);
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
-		File file = uploadPortletRequest.getFile("file");
-		Locale siteDefaultLocale;
+		File file = uploadPortletRequest.getFile("fileCategory");
 		try {
-			siteDefaultLocale = PortalUtil.getSiteDefaultLocale(themeDisplay.getScopeGroupId());
+			Locale siteDefaultLocale = PortalUtil.getSiteDefaultLocale(themeDisplay.getScopeGroupId());
 			readXML(themeDisplay, file, siteDefaultLocale);
 		}
 		catch (PortalException e) {
