@@ -33,7 +33,6 @@
 
 		<aui:input type="hidden" name="countryId"/>
 
-		<liferay-ui:error key="typename-required" message="annoucements.iesountry.errors.name.required" />
 		<aui:input name="name" >
 			<aui:validator name="required"/>
 		</aui:input>

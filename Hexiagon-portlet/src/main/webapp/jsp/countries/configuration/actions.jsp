@@ -34,7 +34,7 @@
 			<portlet:param name="redirect" value="<%= redirect %>"/>
 		</liferay-portlet:renderURL>
 		
-		<liferay-ui:icon image="edit" message="edit regions" url="<%= regionEditURL.toString() %>" />
+		<liferay-ui:icon image="edit" message="edit-regions" url="<%= regionEditURL.toString() %>" />
 		
 		<portlet:actionURL var="activateURL" name="activateCountry">
 			<portlet:param name="countryId" value="<%= String.valueOf(country.getCountryId()) %>"/>

@@ -1,11 +1,11 @@
 <%@page import="com.liferay.portal.util.PortalUtil"%>
 <%@include file="/jsp/init.jsp" %>
 
-<liferay-ui:success key="country-added" message="annoucements.country.success.added" />
-<liferay-ui:success key="country-updated" message="annoucements.country.success.updated" />
-<liferay-ui:success key="country-updated-active" message="annoucements.country.success.update.active" />
+<liferay-ui:success key="country-added" message="annoucements.countries.success.added" />
+<liferay-ui:success key="country-updated" message="annoucements.countries.success.updated" />
+<liferay-ui:success key="country-updated-active" message="annoucements.countries.success.update.active" />
 
-<liferay-ui:error key="country-error" message="annoucements.country.errors" />
+<liferay-ui:error key="country-error" message="annoucements.countries.errors" />
 
 <aui:nav-bar cssClass="label-info">
 	<aui:nav >

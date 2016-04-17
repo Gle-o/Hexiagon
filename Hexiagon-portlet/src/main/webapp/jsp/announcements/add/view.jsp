@@ -102,7 +102,7 @@
 			<liferay-ui:error key="image-size-error${index}" message="annoucements.add.images.errors.image.size.error" />
 			<liferay-ui:error key="image-extension-error${index}" message="annoucements.add.images.errors.image.extension.error" />
 			
-	     	<liferay-ui:panel iconCssClass="icon-picture" defaultState="open" extended="true" id="announcementAbstractPanel${index}" persistState="false" title="annoucements.add.images.Image.${index}">
+	     	<liferay-ui:panel iconCssClass="icon-picture" defaultState="open" extended="true" id="announcementAbstractPanel${index}" persistState="false" title="annoucements.add.images.image.${index}">
 					<aui:input type="hidden" name="announcementImageId${index}" value='${announcementImage.announcementImageId}' />
 					<aui:input type="hidden" name="imageDisabled${index}" value="false"/>
 					<aui:input type="hidden" name="order" value="false"/>
