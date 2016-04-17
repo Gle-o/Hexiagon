@@ -1,164 +1,317 @@
+
 package com.gleo.plugins.hexiagon.portlet.categories.web;
 
+import com.gleo.plugins.hexiagon.dto.Asset;
+import com.gleo.plugins.hexiagon.dto.Category;
+import com.gleo.plugins.hexiagon.dto.Vocabulary;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.upload.FileItem;
+import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.service.ServiceContextFactory;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
-import com.liferay.portlet.asset.DuplicateVocabularyException;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetVocabulary;
 import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
-import com.liferay.portlet.asset.service.AssetCategoryPropertyLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
-import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
+import javax.portlet.ProcessAction;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+
+import org.joda.time.DateTime;
 
 /**
- * @author guillaumelenoir
- * Portlet implementation class CategoriesImporterController
+ * Portlet implementation class CategoryImportExportController
  */
 public class CategoriesImporterController extends MVCPortlet {
 
+	private static final Log LOGGER = LogFactoryUtil.getLog(CategoriesImporterController.class);
+
 	/**
-	 * AssetCategoriesImporter Logger.
+	 * @param resourceRequest
+	 * @return
+	 * @throws PortletException
+	 * @throws IOException
 	 */
-	protected static Log LOGGER = LogFactoryUtil.getLog(CategoriesImporterController.class);
+	public Asset generateXML(ResourceRequest resourceRequest)
+		throws PortletException, IOException {
 
-	public void loadCategoriesFromCsv(ActionRequest actionRequest, ActionResponse actionResponse)
-		throws IOException, PortletException, PortalException, SystemException {
-
-		LOGGER.info("Begin  AssetCategoriesImporter");
-		UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(actionRequest);
-		ThemeDisplay themeDisplay = (ThemeDisplay) uploadPortletRequest.getAttribute(WebKeys.THEME_DISPLAY);
-		Map<String, FileItem[]> multipartParameterMap = uploadPortletRequest.getMultipartParameterMap();
-
-		
-		File file = null;
-		BufferedReader bufferedReader = null;
-		AssetVocabulary assetVocabulary = null;
-		long userId = themeDisplay.getUserId();
+		Asset asset = new Asset();
+		ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		long groupId = themeDisplay.getScopeGroupId();
 
-		ServiceContext serviceContext = ServiceContextFactory.getInstance(AssetCategory.class.getName(), uploadPortletRequest);
-		
-		// create vocabulary
 		try {
-			
-			assetVocabulary = AssetVocabularyLocalServiceUtil.addVocabulary(userId, "Announcements", ServiceContextFactory.getInstance(AssetVocabulary.class.getName(), uploadPortletRequest));
+			Locale siteDefaultLocale = PortalUtil.getSiteDefaultLocale(groupId);
+			// get all the vocabulary for group
+			List<AssetVocabulary> assetVocabularyList = AssetVocabularyLocalServiceUtil.getGroupVocabularies(themeDisplay.getScopeGroupId());
+			ArrayList<Vocabulary> vocabularyList = new ArrayList<Vocabulary>();
+
+			for (AssetVocabulary assetVocabulary : assetVocabularyList) {
+				Vocabulary vocabulary = new Vocabulary();
+
+				// get child(first level) category for vocabulary
+				List<AssetCategory> vocabularyCategories = AssetCategoryLocalServiceUtil.getVocabularyRootCategories(assetVocabulary.getVocabularyId(), -1, -1, null);
+
+				List<Category> categoryList = new ArrayList<Category>();
+
+				for (AssetCategory assetCategory : vocabularyCategories) {
+					Category category = new Category();
+
+					category.setTitle(assetCategory.getTitle(siteDefaultLocale));
+					category.setDescription(assetCategory.getDescription(siteDefaultLocale));
+					// get child categories
+					int childCount = AssetCategoryLocalServiceUtil.getChildCategoriesCount(assetCategory.getCategoryId());
+					category.setChildCategoryCount(childCount);
+					if (childCount > 0) {
+						category.setCategory(getChildCategory(assetCategory.getCategoryId(), siteDefaultLocale));
+					}
+
+					categoryList.add(category);
+				}
+				vocabulary.setTotalChildCount(AssetCategoryLocalServiceUtil.getVocabularyCategoriesCount(assetVocabulary.getVocabularyId()));
+				vocabulary.setTitle(assetVocabulary.getTitle(siteDefaultLocale));
+				vocabulary.setDescription(assetVocabulary.getDescription(siteDefaultLocale));
+				vocabulary.setCategory(categoryList);
+				vocabularyList.add(vocabulary);
+			}
+			asset.setCompanyName(themeDisplay.getCompany().getName());
+			asset.setVocabularyList(vocabularyList);
+
 		}
-		catch (DuplicateVocabularyException dve) {
+		catch (PortalException e) {
+			LOGGER.error("Error while export category structure" + e.getMessage(), e);
+		}
+		catch (SystemException e) {
+			LOGGER.error("Error while export category" + e.getMessage(), e);
+		}
+		return asset;
+	}
+
+	/**
+	 * @param categoryId
+	 * @param siteDefaultLocale
+	 * @return
+	 */
+	public List<Category> getChildCategory(long categoryId, Locale siteDefaultLocale) {
+
+		List<Category> categoryList = new ArrayList<Category>();
+		try {
+			List<AssetCategory> childCategory = AssetCategoryLocalServiceUtil.getChildCategories(categoryId);
+			for (AssetCategory assetCategory : childCategory) {
+				Category category = new Category();
+				category.setTitle(assetCategory.getTitle(Locale.ENGLISH));
+				category.setDescription(assetCategory.getDescription(Locale.ENGLISH));
+				int childCount = AssetCategoryLocalServiceUtil.getChildCategoriesCount(assetCategory.getCategoryId());
+				category.setChildCategoryCount(childCount);
+				if (childCount > 0) {
+					category.setCategory(getChildCategory(assetCategory.getCategoryId(), siteDefaultLocale));
+				}
+				categoryList.add(category);
+			}
+		}
+		catch (SystemException e) {
+			LOGGER.error("Error while get child category structure" + e.getMessage(), e);
+		}
+		return categoryList;
+	}
+
+	/**
+	 * @param asset
+	 * @param resourceRequest
+	 * @param resourceResponse
+	 * @throws IOException
+	 */
+	private void writeXML(Asset asset, ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+		throws IOException {
+
+		try {
+			// create JAXB context and instantiate marshaller
+			JAXBContext context = JAXBContext.newInstance(Asset.class);
+
+			String filename = "export" + DateTime.now().toString("yyyyMMdd");
+			Marshaller marshaller = context.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			marshaller.marshal(asset, baos);
+			resourceResponse.setContentType("application/xml");
+			resourceResponse.addProperty(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + ".xml\" ");
+			resourceResponse.setContentLength(baos.size());
+			OutputStream out = resourceResponse.getPortletOutputStream();
+			baos.writeTo(out);
+			out.flush();
+			out.close();
+		}
+		catch (JAXBException e) {
+			LOGGER.error("Error while generate file" + e.getMessage(), e);
+		}
+	}
+
+	@Override
+	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+		throws IOException, PortletException {
+
+		Asset asset = generateXML(resourceRequest);
+		writeXML(asset, resourceRequest, resourceResponse);
+	}
+
+	@ProcessAction(name = "import")
+	public void processAction(ActionRequest actionRequest, ActionResponse actionResponse)
+		throws IOException, PortletException {
+
+		UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(actionRequest);
+		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		File file = uploadPortletRequest.getFile("file");
+		Locale siteDefaultLocale;
+		try {
+			siteDefaultLocale = PortalUtil.getSiteDefaultLocale(themeDisplay.getScopeGroupId());
+			readXML(themeDisplay, file, siteDefaultLocale);
+		}
+		catch (PortalException e) {
+			LOGGER.error(e);
+		}
+		catch (SystemException e) {
+			LOGGER.error(e);
+		}
+
+	};
+
+	/**
+	 * @param themeDisplay
+	 * @param file
+	 * @param siteDefaultLocale
+	 */
+	public void readXML(ThemeDisplay themeDisplay, File file, Locale siteDefaultLocale) {
+
+		ServiceContext serviceContext = new ServiceContext();
+		serviceContext.setScopeGroupId(themeDisplay.getScopeGroupId());
+		Asset asset = getAssetFromXml(file);
+		List<Vocabulary> vocabularyList = asset.getVocabulariesList();
+		for (Vocabulary vocab : vocabularyList) {
+			Map<Locale, String> titleMap = new HashMap<Locale, String>();
+			titleMap.put(siteDefaultLocale, vocab.getTitle());
+			Map<Locale, String> descriptionMap = new HashMap<Locale, String>();
+			descriptionMap.put(siteDefaultLocale, vocab.getDescription());
+			AssetVocabulary createdVocabulary = null;
 			try {
-				assetVocabulary = AssetVocabularyLocalServiceUtil.getGroupVocabulary(groupId, "Announcements");
+				createdVocabulary = AssetVocabularyLocalServiceUtil.addVocabulary(themeDisplay.getUserId(), vocab.getTitle(), titleMap, descriptionMap, null, serviceContext);
+				LOGGER.info("Import :  new vocabulary created :" + vocab.getTitle() + " : category_id : " + createdVocabulary.getVocabularyId());
 			}
 			catch (PortalException e) {
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug(e);
+				try {
+					createdVocabulary = AssetVocabularyLocalServiceUtil.getGroupVocabulary(themeDisplay.getScopeGroupId(), vocab.getTitle());
+					LOGGER.info("Import : vocabulary already exist :" + vocab.getTitle() + " : category_id : " + createdVocabulary.getVocabularyId());
 				}
-				LOGGER.error(e.getMessage());
+				catch (PortalException e1) {
+					LOGGER.error("Error wihle get vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
+				}
+				catch (SystemException e1) {
+					LOGGER.error("Error wihle get vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
+				}
 			}
 			catch (SystemException e) {
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug(e);
-				}
-				LOGGER.error(e.getMessage());
+				LOGGER.error("Error wihle create vocabulary with name : " + vocab.getTitle() + "  :: " + e.getMessage(), e);
 			}
-		}
-
-		if (multipartParameterMap.keySet().contains("fileCategory") && Validator.isNotNull(assetVocabulary)) {
-			try {
-				file = uploadPortletRequest.getFile("fileCategory");
-				bufferedReader = new BufferedReader(new FileReader(file.getAbsolutePath()));
-				String line = StringPool.BLANK;
-				long vocabularyId = assetVocabulary.getVocabularyId();
-
-				String parentCategoryName = StringPool.BLANK;
-				AssetCategory parentCategory = null;
-				
-				while ((line = bufferedReader.readLine()) != null) {
-					
-					// use comma as separator
-					String[] categories = line.split(StringPool.SEMICOLON);
-					
-					if (categories.length == 4) {
-						String parentCategoryCode = categories[0];
-						
-						if (Validator.isNull(parentCategory) || !parentCategoryName.equals(categories[1])) {
-							parentCategoryName = categories[1];
-							try {
-								parentCategory = AssetCategoryLocalServiceUtil.addCategory(userId, parentCategoryName, vocabularyId, serviceContext);
-								AssetCategoryPropertyLocalServiceUtil.addCategoryProperty(userId, parentCategory.getCategoryId(), "Code", parentCategoryCode);
-							}
-							catch (Exception e) {
-								if (LOGGER.isDebugEnabled()) {
-									LOGGER.debug(e);
-								}
-								LOGGER.error(e.getMessage());
-							}
-						}
-	
-						Map<Locale, String> titles = new HashMap<Locale, String>();
-						Map<Locale, String> descriptionMap = new HashMap<Locale, String>();
-	
-						titles.put(LocaleUtil.fromLanguageId("fr_FR"), categories[3]);
-						titles.put(LocaleUtil.fromLanguageId("en_US"), categories[3]);
-	
-						try {
-							AssetCategory child = AssetCategoryLocalServiceUtil.addCategory(userId, parentCategory.getCategoryId(), titles, descriptionMap, vocabularyId, null, serviceContext);
-							AssetCategoryPropertyLocalServiceUtil.addCategoryProperty(userId, child.getCategoryId(), "Code", categories[2]);
-						}
-						catch (Exception e) {
-							if (LOGGER.isDebugEnabled()) {
-								LOGGER.debug(e);
-							}
-							LOGGER.error(e.getMessage());
-						}
-					}
-				}
-			}
-			catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			catch (IOException e) {
-				e.printStackTrace();
-			}
-			finally {
-				if (bufferedReader != null) {
-					try {
-						bufferedReader.close();
-					}
-					catch (IOException e) {
-						if (LOGGER.isDebugEnabled()) {
-							LOGGER.debug(e);
-						}
-						LOGGER.error(e.getMessage());
-					}
+			List<Category> categories = vocab.getCategory();
+			if (categories != null && !categories.isEmpty()) {
+				for (Category cat : categories) {
+					getChildCategory(cat, 0, themeDisplay, siteDefaultLocale, createdVocabulary.getVocabularyId(), serviceContext);
 				}
 			}
 		}
-		LOGGER.info("End  AssetCategoriesImporter");
 	}
- 
 
+	/**
+	 * @param cat
+	 * @param parentCategoryId
+	 * @param themeDisplay
+	 * @param siteDefaultLocale
+	 * @param vocabularyId
+	 * @param serviceContext
+	 */
+	private void getChildCategory(Category cat, long parentCategoryId, ThemeDisplay themeDisplay, Locale siteDefaultLocale, long vocabularyId, ServiceContext serviceContext) {
+
+		Map<Locale, String> titleMap = new HashMap<Locale, String>();
+		titleMap.put(siteDefaultLocale, cat.getTitle());
+		Map<Locale, String> descriptionMap = new HashMap<Locale, String>();
+		descriptionMap.put(siteDefaultLocale, cat.getDescription());
+		AssetCategory createdCategory = null;
+		try {
+			createdCategory = AssetCategoryLocalServiceUtil.addCategory(themeDisplay.getUserId(), parentCategoryId, titleMap, descriptionMap, vocabularyId, null, serviceContext);
+			LOGGER.info("Import :  new category created :" + cat.getTitle() + " : category_id : " + createdCategory.getCategoryId());
+		}
+		catch (PortalException e) {
+			try {
+
+				DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(AssetCategory.class);
+				dynamicQuery.add(PropertyFactoryUtil.forName("name").eq(cat.getTitle()));
+				@SuppressWarnings("unchecked")
+				List<AssetCategory> createdCategoryList = AssetCategoryLocalServiceUtil.dynamicQuery(dynamicQuery);
+				for (AssetCategory catt : createdCategoryList) {
+					if (catt.getParentCategoryId() == parentCategoryId && catt.getGroupId() == themeDisplay.getScopeGroupId()) {
+						createdCategory = catt;
+						LOGGER.info("Import : category already exist :" + cat.getTitle() + " : category_id : " + createdCategory.getCategoryId());
+						break;
+					}
+				}
+			}
+			catch (SystemException e1) {
+				LOGGER.error("Error wihle search category vocabulary with name : " + cat.getTitle() + "  :: " + e1.getMessage(), e1);
+			}
+		}
+		catch (SystemException e) {
+			LOGGER.error("Error wihle create category with name : " + cat.getTitle() + "  :: " + e.getMessage(), e);
+		}
+		if (cat.getCategory() != null && !cat.getCategory().isEmpty()) {
+			for (Category childCat : cat.getCategory()) {
+				getChildCategory(childCat, createdCategory.getCategoryId(), themeDisplay, siteDefaultLocale, vocabularyId, serviceContext);
+			}
+		}
+	}
+
+	/**
+	 * @param file
+	 * @return
+	 */
+	private Asset getAssetFromXml(File file) {
+
+		Asset asset = null;
+		try {
+			if (file != null) {
+				JAXBContext jaxbContext = JAXBContext.newInstance(Asset.class);
+				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+				asset = (Asset) jaxbUnmarshaller.unmarshal(file);
+				return asset;
+			}
+		}
+		catch (JAXBException e) {
+			LOGGER.error("Error wihle unmarshal for file : " + e.getMessage(), e);
+		}
+		return asset;
+	}
 }

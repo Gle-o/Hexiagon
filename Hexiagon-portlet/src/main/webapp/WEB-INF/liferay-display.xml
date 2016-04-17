@@ -10,7 +10,6 @@
 		<portlet id="announcement-display-portlet" />
 		<portlet id="Hexiagon" />
 		<portlet id="favorite-announcement"></portlet>
-		<portlet id="categories-importer"></portlet>
 	</category>
 	<category name="category.hidden">
 		<portlet id="types-portlet" />
@@ -18,5 +17,6 @@
 		<portlet id="currencies-portlet" />
 		<portlet id="country-configuration"></portlet>
 		<portlet id="regions-configuration"></portlet>
+		<portlet id="categories-importer"></portlet>
 	</category>
 </display>
