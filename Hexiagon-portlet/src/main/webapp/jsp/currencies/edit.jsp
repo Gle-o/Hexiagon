@@ -1,3 +1,6 @@
+<%@page import="com.liferay.portal.service.CountryServiceUtil"%>
+<%@page import="com.liferay.portal.model.Country"%>
+<%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.util.PortalClassInvoker"%>
 <%@page import="java.util.Map"%>
 <%@page import="com.liferay.portal.kernel.util.ClassResolverUtil"%>
@@ -29,6 +32,8 @@
 		});
 	
 	Map<String, String> currenciesMap = (Map<String, String>) PortalClassInvoker.invoke(true, methodKey, pageContext);
+	
+	List<Country> countries = CountryServiceUtil.getCountries();
 
 %>
 <c:set  var="currencyEntrySet" value="<%= currenciesMap.entrySet() %>"/>
@@ -53,7 +58,7 @@
 		<liferay-ui:error key="label-required" message="annoucements.currencies.errors.label.required" />
 		<aui:select name="label" label="Label" showEmptyOption="true" >
 			<c:forEach var="currencyEntry" items="${currencyEntrySet}">
-				<aui:option label="currency.${currencyEntry.key}" value="${currencyEntry.value}"></aui:option>
+				<aui:option label="currency.${currencyEntry.key}" value="${currencyEntry.value}"/>
 			</c:forEach>
 		</aui:select>
 		
@@ -65,6 +70,12 @@
 		<aui:input name="order" label="annoucements.currencies.order.label">
 			<aui:validator name="digits"/>
 		</aui:input>
+		
+		<aui:select name="countryId" label="annoucements.currencies.country.label" showEmptyOption="true" >
+			<c:forEach var="country" items="<%= countries %>">
+				<aui:option label="${country.getName(locale)}" value="${country.countryId}"/>
+			</c:forEach>
+		</aui:select>
 
 	</aui:fieldset>
 

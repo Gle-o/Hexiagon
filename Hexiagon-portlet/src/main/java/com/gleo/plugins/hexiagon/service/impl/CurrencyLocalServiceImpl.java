@@ -1,11 +1,12 @@
 package com.gleo.plugins.hexiagon.service.impl;
 
+import com.gleo.plugins.hexiagon.model.Currency;
+import com.gleo.plugins.hexiagon.service.base.CurrencyLocalServiceBaseImpl;
 import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.NoSuchCountryException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.service.ServiceContext;
-import com.gleo.plugins.hexiagon.model.Currency;
-import com.gleo.plugins.hexiagon.service.base.CurrencyLocalServiceBaseImpl;
 
 /**
  * The implementation of the currency local service.
@@ -38,6 +39,11 @@ public class CurrencyLocalServiceImpl extends CurrencyLocalServiceBaseImpl {
 		long groupId = serviceContext.getScopeGroupId();
 		long currencyId = CounterLocalServiceUtil.increment(Currency.class.getName());
 		long userId = serviceContext.getUserId();
+		long countryId = currency.getCountryId();
+		
+		if (countryId > 0) {
+			countryPersistence.findByPrimaryKey(countryId);
+		}
 
 		currency.setCompanyId(companyId);
 		currency.setCurrencyId(currencyId);
@@ -93,6 +99,17 @@ public class CurrencyLocalServiceImpl extends CurrencyLocalServiceBaseImpl {
 	public Currency updateCurrency(Currency currency)
 		throws SystemException {
 
+		long countryId = currency.getCountryId();
+		
+		if (countryId > 0) {
+			try {
+				countryPersistence.findByPrimaryKey(countryId);
+			}
+			catch (NoSuchCountryException e) {
+				throw new SystemException("no country exist with countryId = " + countryId);
+			}
+		}
+		
 		currencyPersistence.clearCache(currency);
 		return super.updateCurrency(currency);
 	}

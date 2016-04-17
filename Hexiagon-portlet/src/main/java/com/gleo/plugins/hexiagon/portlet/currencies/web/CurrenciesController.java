@@ -210,7 +210,8 @@ public class CurrenciesController extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		long currencyId = ParamUtil.getLong(request, "currencyId");
 		long companyId = themeDisplay.getCompanyId();
-
+		long countryId = ParamUtil.getLong(request, "countryId");
+		
 		if (Validator.isNotNull(currencyId)) {
 			try {
 				currency = CurrencyLocalServiceUtil.getCurrency(currencyId);
@@ -231,7 +232,7 @@ public class CurrenciesController extends MVCPortlet {
 		else {
 			currency = CurrencyLocalServiceUtil.createCurrency(currencyId);
 		}
-
+		currency.setCountryId(countryId);
 		currency.setCompanyId(companyId);
 		currency.setOrder(ParamUtil.getInteger(request, "order"));
 		currency.setSymbol(ParamUtil.getString(request, "symbol"));
