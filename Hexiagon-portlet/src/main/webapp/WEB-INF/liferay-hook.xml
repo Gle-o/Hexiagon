@@ -4,4 +4,5 @@
 <hook>
 	<portal-properties>gleo-portal.properties</portal-properties>
 	<language-properties>content/Language_en_US.properties</language-properties>
+	<language-properties>content/Language_pl.properties</language-properties>
 </hook>
