@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 
-<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0">
 	<portlet>
 		<portlet-name>Hexiagon</portlet-name>
 		<display-name>Hexiagon Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.hexiagon.web.HexiagonController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.hexiagon.web.HexiagonController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/hexiagon/view.jsp</value>
@@ -15,6 +17,7 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Hexiagon Portlet</title>
 			<short-title>Hexiagon Portlet</short-title>
@@ -37,8 +40,7 @@
 		<portlet-name>types-portlet</portlet-name>
 		<display-name>Types Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.types.web.TypesController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.types.web.TypesController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/types/view.jsp</value>
@@ -48,6 +50,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Types Portlet</title>
 			<short-title>Types Portlet</short-title>
@@ -70,8 +73,7 @@
 		<portlet-name>announcements-portlet</portlet-name>
 		<display-name>Announcements Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.announcements.web.AnnouncementsController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.announcements.web.AnnouncementsController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/announcements/view.jsp</value>
@@ -81,6 +83,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Announcements Portlet</title>
 			<short-title>Announcements Portlet</short-title>
@@ -103,8 +106,7 @@
 		<portlet-name>currencies-portlet</portlet-name>
 		<display-name>Currencies Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.currencies.web.CurrenciesController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.currencies.web.CurrenciesController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/currencies/view.jsp</value>
@@ -114,6 +116,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Currencies Portlet</title>
 			<short-title>Currencies Portlet</short-title>
@@ -136,8 +139,7 @@
 		<portlet-name>add-announcement-portlet</portlet-name>
 		<display-name>Add Announcement Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.announcements.web.AddAnnouncementController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.announcements.web.AddAnnouncementController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/announcements/add/view.jsp</value>
@@ -146,12 +148,16 @@
 			<name>edit-template</name>
 			<value>/jsp/announcements/add/edit.jsp</value>
 		</init-param>
+
 		<expiration-cache>0</expiration-cache>
+
 		<supports>
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 			<portlet-mode>edit</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+
 		<portlet-info>
 			<title>Add Announcement Portlet</title>
 			<short-title>Add Announcement</short-title>
@@ -174,8 +180,7 @@
 		<portlet-name>display-categories</portlet-name>
 		<display-name>Display Categories</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.categories.web.DisplayCategoriesController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.categories.web.DisplayCategoriesController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/categories/display/view.jsp</value>
@@ -185,6 +190,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Display Categories</title>
 			<short-title>Display Categories</short-title>
@@ -202,14 +208,13 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
-        <supported-public-render-parameter>categoryIds</supported-public-render-parameter>
+		<supported-public-render-parameter>categoryIds</supported-public-render-parameter>
 	</portlet>
 	<portlet>
 		<portlet-name>annoucement-search</portlet-name>
 		<display-name>Annoucement Search</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.search.web.AnnoucementSearchController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.search.web.AnnoucementSearchController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/announcements/search/view.jsp</value>
@@ -222,8 +227,9 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
-            <portlet-mode>edit</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Annoucement Search</title>
 			<short-title>Annoucement Search</short-title>
@@ -241,19 +247,18 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
-        <supported-public-render-parameter>categoryIds</supported-public-render-parameter>
-        <supported-public-render-parameter>countryId</supported-public-render-parameter>
-        <supported-public-render-parameter>currencyId</supported-public-render-parameter>
-        <supported-public-render-parameter>filterId</supported-public-render-parameter>
-        <supported-public-render-parameter>regionId</supported-public-render-parameter>
-        <supported-public-render-parameter>typeId</supported-public-render-parameter>
+		<supported-public-render-parameter>categoryIds</supported-public-render-parameter>
+		<supported-public-render-parameter>countryId</supported-public-render-parameter>
+		<supported-public-render-parameter>currencyId</supported-public-render-parameter>
+		<supported-public-render-parameter>filterId</supported-public-render-parameter>
+		<supported-public-render-parameter>regionId</supported-public-render-parameter>
+		<supported-public-render-parameter>typeId</supported-public-render-parameter>
 	</portlet>
 	<portlet>
 		<portlet-name>display-country-portlet</portlet-name>
 		<display-name>Display Country Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.countries.web.DisplayCountryController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.countries.web.DisplayCountryController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/countries/view.jsp</value>
@@ -263,6 +268,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Display Country</title>
 			<short-title>Display Country</short-title>
@@ -280,15 +286,14 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
-        <supported-public-render-parameter>regionId</supported-public-render-parameter>
-        <supported-public-render-parameter>countryId</supported-public-render-parameter>
+		<supported-public-render-parameter>regionId</supported-public-render-parameter>
+		<supported-public-render-parameter>countryId</supported-public-render-parameter>
 	</portlet>
 	<portlet>
 		<portlet-name>announcement-display-portlet</portlet-name>
 		<display-name>Announcement Display Portlet</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.announcements.web.AnnouncementDisplayPortlet
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.announcements.web.AnnouncementDisplayPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/announcements/display/view.jsp</value>
@@ -298,6 +303,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Announcement Display</title>
 			<short-title>Announcement Display</short-title>
@@ -329,6 +335,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Favorite Announcement</title>
 			<short-title>Favorite Announcement</short-title>
@@ -360,6 +367,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Categories Importer</title>
 			<short-title>Categories Importer</short-title>
@@ -382,8 +390,7 @@
 		<portlet-name>country-configuration</portlet-name>
 		<display-name>Country Configuration</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.countries.web.CountryConfigurationController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.countries.web.CountryConfigurationController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/countries/configuration/view.jsp</value>
@@ -393,6 +400,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Country Configuration</title>
 			<short-title>Country Configuration</short-title>
@@ -415,8 +423,7 @@
 		<portlet-name>regions-configuration</portlet-name>
 		<display-name>Regions Configuration</display-name>
 		<portlet-class>
-			com.gleo.plugins.hexiagon.portlet.regions.web.RegionsConfigurationController
-		</portlet-class>
+			com.gleo.plugins.hexiagon.portlet.regions.web.RegionsConfigurationController</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/jsp/regions/configuration/view.jsp</value>
@@ -426,6 +433,7 @@
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 		</supports>
+		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
 			<title>Regions Configuration</title>
 			<short-title>Regions Configuration</short-title>
