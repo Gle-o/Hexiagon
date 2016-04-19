@@ -9,6 +9,7 @@ import com.gleo.plugins.hexiagon.portlet.announcements.social.AnnouncementActivi
 import com.gleo.plugins.hexiagon.service.base.AnnouncementLocalServiceBaseImpl;
 import com.gleo.plugins.hexiagon.service.persistence.AnnouncementUtil;
 import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -17,6 +18,7 @@ import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -24,11 +26,13 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.Repository;
+import com.liferay.portal.model.ResourceAction;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetLinkConstants;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
@@ -76,6 +80,16 @@ public class AnnouncementLocalServiceImpl extends AnnouncementLocalServiceBaseIm
 		throws SystemException, PortalException {
 
 		long announcementId = CounterLocalServiceUtil.increment(Announcement.class.getName());
+		boolean addGroupPermissions = true;
+		boolean addGuestPermissions = false;
+		String[] groupPermissions = PortalUtil.getGroupPermissions(serviceContext.getRequest());
+		String[] guestPermissions = PortalUtil.getGuestPermissions(serviceContext.getRequest());
+
+		serviceContext.setAddGroupPermissions(addGroupPermissions);
+		serviceContext.setAddGuestPermissions(addGuestPermissions);
+		serviceContext.setGroupPermissions(groupPermissions);
+		serviceContext.setGuestPermissions(guestPermissions);
+		
 		announcement.setAnnouncementId(announcementId);
 
 		List<AnnouncementImage> announcementImages = announcement.getAnnouncementImages();
@@ -117,9 +131,15 @@ public class AnnouncementLocalServiceImpl extends AnnouncementLocalServiceBaseIm
 
 		announcementPersistence.update(announcement);
 
-		// Resources
+		// Resources		
+		if (serviceContext.isAddGroupPermissions() || serviceContext.isAddGuestPermissions()) {
 
-		resourceLocalService.addModelResources(companyId, groupId, userId, Announcement.class.getName(), announcementId, serviceContext.getGroupPermissions(), serviceContext.getGuestPermissions());
+			resourceLocalService.addResources(
+				companyId, groupId, userId, Announcement.class.getName(), announcementId, false, serviceContext.isAddGroupPermissions(), serviceContext.isAddGuestPermissions());
+		}
+		else {
+			resourceLocalService.addModelResources(companyId, groupId, userId, Announcement.class.getName(), announcementId, serviceContext.getGroupPermissions(), serviceContext.getGuestPermissions());
+		}
 		
 
 		// Asset
