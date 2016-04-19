@@ -10,6 +10,7 @@
 
 <liferay-ui:error key="announcement-errors" message="announcement-errors" />
 
+<%-- 
 <c:if test="${hasAddRight}">
 	<liferay-portlet:renderURL portletName="<%= PortletKeys.ADD_ANNOUNCEMENT_PORTLETID %>" var="addAnnouncementURL"
 		    varImpl="addAnnouncementURL"
@@ -25,5 +26,6 @@
 		</div>
 	</aui:row>
 </c:if>
+--%>
 
 <liferay-util:include page="/jsp/announcements/search/search.jsp" servletContext="<%= application %>" />
