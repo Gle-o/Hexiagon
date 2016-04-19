@@ -294,7 +294,7 @@
 			},
 			<portlet:namespace/>phoneNumber: {
 				digits: true,
-				minLength: 8,
+				minLength: 5,
 				maxLength: 10,
 				required: true
 			},
