@@ -12,7 +12,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 public class CountryUtil {
 
 	/**
-	 * AnnouncementController Logger.
+	 * CountryUtil Logger.
 	 */
 	protected static Log LOGGER = LogFactoryUtil.getLog(CountryUtil.class);
 

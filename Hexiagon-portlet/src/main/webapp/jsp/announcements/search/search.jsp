@@ -18,7 +18,7 @@
 			<aui:select name="currency" label="annoucements.search.currency.label" id="currency">
 				<aui:option label="" value="" />
 				<c:forEach items='${currencies}' var="currency">
-					<aui:option label="${currency.symbol}" value="${currency.currencyId}" selected="${currency.currencyId == currencyId}"/>
+					<aui:option label="${currency.symbol}" value="${currency.currencyId}" selected="${currency.currencyId == defaultCurrencyId}"/>
 				</c:forEach>
 			</aui:select>
 		</aui:nav-bar-search>
@@ -37,12 +37,13 @@
 			</aui:select>
 		</aui:nav-bar-search>
 	</aui:nav-bar>
-	<aui:row>
-		<p>
-			<button class="btn btn-large btn-block btn-primary" type="button" onclick="<portlet:namespace />search();"><i class="icon-search"></i> <liferay-ui:message key="annoucements.search.button.search.label"/></button>
-		</p>
-	</aui:row>
-	
+	<%-- 
+		<aui:row>
+			<p>
+				<button class="btn btn-large btn-block btn-primary" type="button" onclick="<portlet:namespace />search();"><i class="icon-search"></i> <liferay-ui:message key="annoucements.search.button.search.label"/></button>
+			</p>
+		</aui:row>
+	--%>
 	<aui:row>
 		<div id = "<portlet:namespace/>searchPlaceHolder">
 			<liferay-util:include page="/jsp/announcements/search/results.jsp" servletContext="<%= application %>" />
@@ -71,6 +72,11 @@ A.on('domready', function(event){
 				
 		<portlet:namespace />searchParam(typeId, currencyId, filter, page);
 	}
+	
+	// Search after select changement.
+	A.all("#<portlet:namespace/>show select").on('change', function(event){
+		<portlet:namespace />search();
+	});
 });
 	
 var Lang = A.Lang;

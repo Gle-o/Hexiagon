@@ -13,6 +13,7 @@ import com.gleo.plugins.hexiagon.service.CurrencyLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.FavoriteLocalServiceUtil;
 import com.gleo.plugins.hexiagon.service.TypeLocalServiceUtil;
 import com.gleo.plugins.hexiagon.util.CountryUtil;
+import com.gleo.plugins.hexiagon.util.CurrencyUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -117,6 +118,15 @@ public class AnnoucementSearchController extends MVCPortlet {
 			LOGGER.error("SystemException : impossible to get currencies");
 		}
 		
+		// Set default currency from countryId
+		long countryId = CountryUtil.getCountryIdByLocal(0, themeDisplay);
+		long defaultCurrencyId = CurrencyUtil.getCurrencyByCountryId(countryId);
+		
+		if (defaultCurrencyId > 0) {
+			renderRequest.setAttribute("defaultCurrencyId", defaultCurrencyId);
+		}
+		
+		
 		// Create search Url
 		PortletURL portletURL =  PortletURLFactoryUtil.create(PortalUtil.getHttpServletRequest(renderRequest) , PortletKeys.ANNOUNCEMENT_SEARCH_PORTLETID, themeDisplay.getPlid() ,PortletRequest.RESOURCE_PHASE);
 		portletURL.setParameter("mvcPath", "/jsp/announcements/search/results.jsp");
@@ -125,6 +135,7 @@ public class AnnoucementSearchController extends MVCPortlet {
 
 		renderRequest.setAttribute("searchUrl", portletURL.toString());
 		renderRequest.setAttribute("types", types);
+		renderRequest.setAttribute("defaultCurrencyId", defaultCurrencyId);
 		renderRequest.setAttribute("currencies", currencies);
 		renderRequest.setAttribute("hasAddRight", hasAddRight);
 		renderRequest.setAttribute("filterEnum", AnnouncementFilterEnum.values());
@@ -163,7 +174,7 @@ public class AnnoucementSearchController extends MVCPortlet {
 		long[] categoryIds = ParamUtil.getLongValues(portletRequest, "categoryIds");
 
 		long typeId = ParamUtil.getLong(portletRequest, "typeId");
-		long currencyId = ParamUtil.getLong(portletRequest, "currencyId");
+		long currencyId = ParamUtil.getLong(portletRequest, "currencyId", GetterUtil.getLong(portletRequest.getAttribute("defaultCurrencyId")));
 		long countryId = ParamUtil.getLong(portletRequest, "countryId");
 		long regionId = ParamUtil.getLong(portletRequest, "regionId");
 
