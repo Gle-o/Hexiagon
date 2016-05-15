@@ -92,6 +92,16 @@
 					</aui:row>
 				</div>
 			</aui:row>
+			<hr>
+			
+			<aui:row>
+				<h5><i class="icon-align-left"></i>&nbsp;<liferay-ui:message key="Description"/> </h5>
+				<aui:col span="12"> 
+					<p class="text-left">
+						${content}
+					</p>
+				</aui:col>
+			</aui:row>
 		</aui:col>
 		<aui:col width="40">
 			<aui:row fluid="true" cssClass="span12">
@@ -238,17 +248,6 @@
 		</aui:col>
 	</aui:row>
 </aui:container>
-
-<hr>
-
-<aui:row>
-	<h5><i class="icon-align-left"></i>&nbsp;<liferay-ui:message key="Description"></liferay-ui:message> </h5>
-	<aui:col span="12"> 
-		<p class="text-left">
-			${content}
-		</p>
-	</aui:col>
-</aui:row>
 
 <hr>
 
