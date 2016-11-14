@@ -29,7 +29,7 @@
 		
 		<liferay-ui:icon image="edit" url="<%= editURL.toString() %>" />
 		
-		<liferay-portlet:renderURL var="regionEditURL" plid="<%= themeDisplay.getPlid() %>" portletName="regionsconfiguration_WAR_Hexiagonportlet" windowState="<%=  WindowState.NORMAL.toString() %>">
+		<liferay-portlet:renderURL var="regionEditURL" portletName="regionsconfiguration_WAR_Hexiagonportlet" refererPlid="<%= themeDisplay.getPlid() %>" plid="<%= PortalUtil.getControlPanelPlid(renderRequest) %>" windowState="<%=  WindowState.NORMAL.toString() %>">
 			<portlet:param name="countryId" value="<%= String.valueOf(country.getCountryId()) %>"/>
 			<portlet:param name="redirect" value="<%= redirect %>"/>
 		</liferay-portlet:renderURL>
