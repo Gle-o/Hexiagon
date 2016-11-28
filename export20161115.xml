@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:asset xmlns:ns2="com.gleo.plugins.hexiagon">
+    <vocabularies>
+        <vocabulary totalChildCount="405">
+            <title>Announcements</title>
+            <description></description>
+            <category childCategoryCount="8">
+                <title>Accessoires</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Bouton de manchette</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Ceinture</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Coiffant</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Cravate</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Foulard/echarpe</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Gants</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Lunettes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Parapluie</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="10">
+                <title>Bijoux</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Bague</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Boucles d'oreilles</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Bracelet</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Breloque</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Broches</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Cheveux</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Collier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Montres</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Pendentif</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Piercing</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="13">
+                <title>Chaussure</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Ballerines</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Boots</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Botillons/bottes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Chausson</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Derbies</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Escarpin</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Espadrilles</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Mocassins</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Mules/tongs</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Sabot</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Sandales/spartiates</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Tennis basket basses</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Tennis basket hautes</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="3">
+                <title>Ensemble vêtements</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Ensemble bas</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Ensemble haut</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Ensemble haut + bas</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="0">
+                <title>PAC test catego</title>
+                <description></description>
+            </category>
+            <category childCategoryCount="16">
+                <title>art de la table</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>assiettes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>beurrier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>bol</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>carafe et pichet</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>coquetier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>corbeille</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>couverts</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>dessous plat</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>mug</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>plat</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>plateau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>saladier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sucrier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tasses</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>verres</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>verrines</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="7">
+                <title>bagagerie</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>besace</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chariot de course</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>malette / cartable</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sac</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sac à dos</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sac à main</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>valise</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="9">
+                <title>batterie de cuisine</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Plat à Tajine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>autocuiseur / cocotte minute</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>casseroles</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cocotte</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>couvercles</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>faitout / marmitte</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>moule</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>plat au four</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>poeles</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="8">
+                <title>boisson</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>carafe filtrante</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cartouche filtrante</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>distributeur glacon</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>filtre a eau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>fontaine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>gazeificateur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine a glacons</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pompe a biere</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="4">
+                <title>camping</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>accessoires camping</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>couchage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>mobilier camping</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tente</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="4">
+                <title>chambre</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>autres meubles chambre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chevet</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lit</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tete de lit</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="3">
+                <title>chauffage</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>chemin̩e</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>poeles de chauffage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>radiateur</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="6">
+                <title>cheveux</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>accessoires de coiffeur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>apres shampoing</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>coiffant modelant</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>extension cheveux</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>shampoing</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>soin cible</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="9">
+                <title>cuisson</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>barbecue de table</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cuiseur a riz</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cuit oeufs</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cuit vapeur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>friteuse</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>grill</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>mijoteuse</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>multicuiseur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>plancha</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="57">
+                <title>cuisson conviviale</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Tapis de souris</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>accessoires photo</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>ampli</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>appareil a fondue</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>appareil beignets</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>appareil hot dog</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>appareil photo</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>baladeurs</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>barbe a papa</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cadre photo numerique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>calculatrice</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>carafe filtrante</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>carte memoire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cartouche filtrante</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>casque audio</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cerealiere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chaine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>clavier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>consommable imprimante</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>crepiere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>dictaphones</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>distributeur glacon</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>enceintes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>enceintes ordi</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>filtre a eau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>fontaine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>fontaine a chocolat</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>four a pizza</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>fromagere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>gaufrier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>gazeificateur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>imprimante/scanner</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lecteur cd</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>logiciels</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine a glacons</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine a pain</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine a tarte</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>microphone</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>moniteur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>objectifs</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pierre de cuisson</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>platines</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pompe a biere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pop corn</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>raclette</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>radio</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sacoche/housse</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sorbetiere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>souris</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>station d'accueil</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>stockage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tajine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tour a fromage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>turbine a glace</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>webcam</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>wok</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>yaourtiere</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="10">
+                <title>decoration murale</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>cadre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>horlogerie</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>miroir</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>papier peint</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>peinture-déco</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pinceau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>poster</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>rouleau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sticker</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tableau</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="5">
+                <title>electro embarquee</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>autoradio</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>centrale de repassage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>gps</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>support et accessoire gps</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>surjeteuse</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="2">
+                <title>entretien du linge</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>centrale de repassage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>surjeteuse</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="6">
+                <title>fait maison</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>cerealiere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>fromagere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine a pain</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sorbetiere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>turbine a glace</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>yaourtiere</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="6">
+                <title>fitness</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>appareil de gym</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>rameur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>stepper</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tapis de jogging</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>velo appartement</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>velo elliptique</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="8">
+                <title>froid</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>cave a vin</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>congelateur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cuisiniere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>four</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>hotte</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>micro ondes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>plaque de cuisson</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>refrigerateur</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="4">
+                <title>habillage de la fenetre</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>rideaux</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>stores</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>support</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>voilages</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="4">
+                <title>habillage du lit</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>boutis - Edredon</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cache sommier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>couverture</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>plaid</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="3">
+                <title>habillage du mobilier</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>coussin</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>galette de chaise</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>housse</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="11">
+                <title>hifi / son</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>ampli</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>baladeurs</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>casque audio</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chaine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>dictaphones</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>enceintes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lecteur cd</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>microphone</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>platines</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>radio</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>station d'accueil</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="10">
+                <title>jeux electronique educatif</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>arche</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>batterie electroniqu</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chenille musicale</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>clavier electronique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lecteur mp3</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>ordinateur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>piano</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>spirale</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tambour electronique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>trapeze</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="8">
+                <title>jeux scientifique</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Babyfoot</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>Billard</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>aquarium</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>coffret</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>detecteur de metaux</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>globe terrestre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>microscope</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>telescope</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="6">
+                <title>jeux video</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>cable</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>consoles de jeux</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>jeux video</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>manette</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pochette de protection</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>volants</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="6">
+                <title>jouet de bain</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>animaux a remonter</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>bouee siege</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>jeu de bain</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>moulin a eau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>parc de bain</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>siege de bain</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="5">
+                <title>lecteur enregistreur</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>accessoires lecteur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>enregistreur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>home cinema</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lecteur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>videoprojecteur</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="9">
+                <title>luminaire</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>abat-jour</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>ampoules</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>applique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>guirlande</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>interrupteur- prise</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lampadaire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>lampe </title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>spot</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>suspension</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="3">
+                <title>maison equipement</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>alarme et securite</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>domotique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>station meteo</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="9">
+                <title>objets de decoration</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>bibelot</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>bougeoir et bougie</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>coffre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>fontaine </title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>panier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>paravent</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>photophore</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>statuette</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>vase / cache pot</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="2">
+                <title>parfums</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>eau de toilette</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>parfum</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="3">
+                <title>pc</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>pc fixe</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pc portable</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tablette</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="2">
+                <title>peinture</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>pinceau</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>rouleau</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="2">
+                <title>peluche/doudou</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>doudou</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>peluche</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="12">
+                <title>periph/composant</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>Tapis de souris</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>calculatrice</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>clavier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>consommable imprimante</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>enceintes ordi</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>imprimante/scanner</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>logiciels</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>moniteur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>sacoche/housse</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>souris</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>stockage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>webcam</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="13">
+                <title>petit dejeuner</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>bouilloire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>broyeur a cafe</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cafetiere combi</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cafetiere filtre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>centrifugeuse</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chocolatiere</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>dosettes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>filtres a cafe</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>grille pain</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine expresso</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porte capsules</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>presse agrumes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>theiere</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="10">
+                <title>petite bagagerie</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>cendrier de poche</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>housse de valise</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pochette de voyage</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porte cartes</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porte ch̩quier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porte cl̩</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porte monnaie</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>portefeuille</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>trousse de toilette / vanity</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>trousse maquillage</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="5">
+                <title>photo</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>accessoires photo</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>appareil photo</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cadre photo numerique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>carte memoire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>objectifs</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="7">
+                <title>pistolet/jeux de tir</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>arbalete</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>carabine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>flechette</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>pistolet/revolver</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tir a l arc</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tir cible fixe</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tir cible mobile</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="7">
+                <title>porteur/tricycle</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>balancoire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>bubble go</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cheval</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porteur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tracteur ext̩rieur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>tricycle</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>trotteur</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="13">
+                <title>preparation culinaire</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>batteur</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>blender</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>couteau electrique</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>hachoir</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>kitchen machine</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>machine a pates</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>mixer</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>mousseur a lait</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>ouvre boites</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>robot</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>saucier</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>soude sac</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>trancheuse</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="11">
+                <title>rangement</title>
+                <description></description>
+                <category childCategoryCount="0">
+                    <title>armoire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>chaussures</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>cintre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>commode</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>malle et coffre</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>modulable /dressing</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>paniers et boites</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>portant</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>porte revue</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>rangement utilitaire</title>
+                    <description></description>
+                </category>
+                <category childCategoryCount="0">
+                    <title>vestiaire</title>
+                    <description></description>
+                </category>
+            </category>
+            <category childCategoryCount="0">
+                <title>voiture</title>
+                <description></description>
+            </category>
+        </vocabulary>
+        <vocabulary totalChildCount="0">
+            <title>PAC test</title>
+            <description></description>
+        </vocabulary>
+        <vocabulary totalChildCount="0">
+            <title>Topic</title>
+            <description></description>
+        </vocabulary>
+    </vocabularies>
+    <companyName>Michelin</companyName>
+</ns2:asset>
